@@ -9,7 +9,7 @@ $password = $_POST['senha'];
 $host = "localhost"; // Nome do servidor MySQL
 $usuario = "root"; // Nome de usuário do MySQL
 $senha_banco = ""; // Senha do MySQL (deixe vazio se não houver senha)
-$banco = "ClienteServidor"; // Nome do banco de dados
+$banco = "projeto"; // Nome do banco de dados
 
 // Conexão com o banco de dados
 $conn = new mysqli(
