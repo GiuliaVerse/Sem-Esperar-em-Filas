@@ -1,9 +1,5 @@
 :root {
-
-  /**
-   * colors
-   */
-
+  /* cores de fundo */
   --sonic-silver: hsl(0, 0%, 47%);
   --eerie-black: hsl(210, 11%, 15%);
   --light-gray: hsl(0, 0%, 83%);
@@ -14,67 +10,49 @@
   --black: hsl(0, 0%, 0%);
   --jet: hsl(0, 0%, 21%);
 
-  /**
-   * typography
-   */
 
-  --ff-poppins: "Poppins", sans-serif;
+/* tipografia da homepage */
+   /* Define a família de fontes a ser usada. */
+  --ff-poppins: "Poppins", sans-serif; 
 
-  --fs-1: 7rem;
   --fs-2: 4.2rem;
-  --fs-3: 3.8rem;
-  --fs-4: 3.6rem;
   --fs-5: 3.4rem;
   --fs-6: 3.2rem;
-  --fs-7: 3rem;
   --fs-8: 2.4rem;
-  --fs-9: 2rem;
-  --fs-10: 1.8rem;
-  --fs-11: 1.4rem;
-  --fs-12: 1.2rem;
-  
+
+  /*fontes: 500 normal e 700 negrito */
   --fw-500: 500;
   --fw-700: 700;
 
-  /**
-   * spacing
-   */
 
+  /* padding (preenchimento) para seções */
   --section-padding: 100px;
 
-  /**
-   * border radius
-   */
 
+  /* Border Radiu(s (arredondar as bordas) */
   --radius-circle: 50%;
   --radius-20: 20px;
   --radius-15: 15px;
   --radius-10: 10px;
 
-  /**
-   * box shadow
-   */
-
+  /* box shadow (efeitos de sombra) */
   --shadow-1: 0 0 30px 4px hsla(0, 0%, 0%, 0.05);
   --shadow-2: -1px 15px 26px -4px hsla(0, 5%, 61%, 0.15);
 
-  /**
-   * transition
-   */
-
+  /* Transition */
+  /* valores para transições, especificando duração e curvas de aceleração. */
   --transition-1: 0.25s ease;
   --transition-2: 0.5s ease;
   --cubic-out: cubic-bezier(0.33, 0.85, 0.4, 0.96);
-
 }
+/* -----------------------fim da root ----------------------- */
 
 
 
-
-
-/*-----------------------------------*\
-  #RESET
-\*-----------------------------------*/
+/* 
+  #RESET: Remove margens, paddings e define box-sizing para todos os elementos, 
+  garantindo um estilo básico e consistente entre diferentes navegadores. 
+*/
 
 *,
 *::before,
@@ -145,19 +123,15 @@ body.active { overflow: hidden; }
 ::-webkit-scrollbar-thumb { background-color: hsl(0, 0%, 80%); }
 
 ::-webkit-scrollbar-thumb:hover { background-color: hsl(0, 0%, 70%); }
+/* -----------------------fim do Reset----------------------- */
 
 
 
-
-
-/*-----------------------------------*\
-  #REUSED STYLE
-\*-----------------------------------*/
-
+  /* #REUSED STYLE */
 .container { padding-inline: 15px; }
-
 .section { padding-block: var(--section-padding); }
 
+/* Estiliza títulos (h1 a h5) com cores, peso e tamanhos de fonte. */
 .h1,
 .h2,
 .h3,
@@ -176,112 +150,104 @@ body.active { overflow: hidden; }
 .h4 { font-size: var(--fs-6); }
 
 .h5 { font-size: var(--fs-8); }
+/* -----------------------fim----------------------- */
 
+
+
+/* navbar imagem de fundo (banner) */
 .has-bg-image {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 }
-
-.has-before,
-.has-after {
-  position: relative;
-  z-index: 1;
-}
-
-.has-before::before,
-.has-after::after {
-  position: absolute;
-  content: "";
-}
-
-.btn {
-  padding: 13px 25px;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  max-width: max-content;
-  background-color: var(--marigold);
-  color: var(--white);
-  text-transform: uppercase;
-  border-radius: var(--radius-10);
-  border: 2px solid var(--marigold);
-  transition: var(--transition-1);
-  overflow: hidden;
-}
-
-.btn::after {
-  inset: -35px -20px;
-  transform: skewY(25deg) translateY(-130px);
-  transition: var(--transition-1);
-  z-index: -1;
-}
-
-.btn:is(:hover, :focus-visible)::after { transform: skewY(25deg) translateY(0); }
-
-.btn-primary::after { background-color: var(--white); }
-
-.btn-primary:is(:hover, :focus-visible) { color: var(--marigold); }
-
-.btn-secondary {
-  background-color: var(--white);
-  color: var(--marigold);
-}
-
-.btn-secondary::after { background-color: var(--marigold); }
-
-.btn-secondary:is(:hover, :focus-visible) { color: var(--white); }
-
-.w-100 { width: 100%; }
-
-.section-title { margin-block-end: 20px; }
-
-.grid-list {
-  display: grid;
-  gap: 60px;
-}
-
-.rating-wrapper {
-  display: flex;
-  gap: 2px;
-}
-
-.rating-wrapper ion-icon {
-  color: var(--marigold);
-  font-size: 2rem;
-}
-
-.img-holder {
-  aspect-ratio: var(--width) / var(--height);
-  background-color: var(--light-gray);
-  overflow: hidden;
-}
-
-.img-cover {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-[data-reveal] {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: var(--transition-2);
-}
-
-[data-reveal="left"] { transform: translateX(-20px); }
-
-[data-reveal="right"] { transform: translateX(20px); }
-
-[data-reveal].revealed {
-  opacity: 1;
-  transform: translate(0);
-}
+/* -----------------------fim navbar ----------------------- */
 
 
+  /* seção "Cantinas CTA" */
+  .cta-bg-image {
+    background-size: 90%; /* Ajusta a imagem para 50% do tamanho do container */
+    background-position: center;
+  }
 
-/* loading */
+  .has-before,
+  .has-after {
+    position: relative;
+    z-index: 1;
+   /* z-index 1 elementos fiquem atrás do conteúdo */
+  }
 
+  .has-before::before,
+  .has-after::after {
+    position: absolute;
+    content: "";
+  }
+
+  .btn {
+    padding: 13px 25px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    max-width: max-content;
+    background-color: var(--marigold);
+    color: var(--white);
+    text-transform: uppercase;
+    border-radius: var(--radius-10);
+    border: 2px solid var(--marigold);
+    transition: var(--transition-1);
+    overflow: hidden;
+  }
+
+  .btn::after {
+    inset: -35px -20px;
+    transform: skewY(25deg) translateY(-130px);
+    transition: var(--transition-1);
+    z-index: -1;
+  }
+
+  .btn:is(:hover, :focus-visible)::after { transform: skewY(25deg) translateY(0); }
+
+  .btn-primary::after { background-color: var(--white); }
+
+  .btn-primary:is(:hover, :focus-visible) { color: var(--marigold); }
+
+  .btn-secondary {
+    background-color: var(--white);
+    color: var(--marigold);
+  }
+
+  .btn-secondary::after { background-color: var(--marigold); }
+
+  .btn-secondary:is(:hover, :focus-visible) { color: var(--white); }
+
+  .w-100 { width: 100%; }
+
+  .section-title { margin-block-end: 20px; }
+
+  .grid-list {
+    display: grid;
+    gap: 60px;
+  }
+
+
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: var(--transition-2);
+  }
+
+  [data-reveal="left"] { transform: translateX(-20px); }
+
+  [data-reveal="right"] { transform: translateX(20px); }
+
+  [data-reveal].revealed {
+    opacity: 1;
+    transform: translate(0);
+  }
+
+/* -----------------------fim do loading----------------------- */
+
+
+/* loading: estilos para o preloader que aparece enquanto a página está carregando. */
 .loading-container {
   position: fixed;
   top: 0;
@@ -295,10 +261,15 @@ body.active { overflow: hidden; }
   z-index: 6;
 }
 
+
+/* Quando a classe loaded é adicionada a .loading-container,
+o contêiner se torna invisível e transparente, sinalizando que a página terminou de carregar. */
 .loading-container.loaded {
   opacity: 0;
   visibility: hidden;
 }
+
+
 
 .loading-circle {
   width: 50px;
@@ -306,17 +277,23 @@ body.active { overflow: hidden; }
   border: 5px solid var(--platinum);
   border-block-start-color: var(--marigold);
   border-radius: var(--radius-circle);
+  /*var(--radius-circle): Arredonda a borda da animação circular para 50%, tornando-a circular. */
   animation: loading 0.5s linear infinite;
+  /* 0.5 segundos, linear, e se repete infinitamente. */
 }
 
 @keyframes loading {
-  0% { transform: rotate(0); }
+  /* No início da animação, a rotação é 0 graus. */
+  0% { transform: rotate(0); } 
   100% { transform: rotate(1turn); }
 }
 
 .loading-container.loaded .loading-circle {
   animation-iteration-count: 1;
 }
+/* -----------------------fim do loading----------------------- */
+
+
 
 /* heading */
 .overlay,
@@ -351,6 +328,7 @@ body.active { overflow: hidden; }
 }
 
 .header-action { margin-inline-start: auto; }
+/* -----------------------fim da heading----------------------- */
 
 .login-btn,
 .nav-open-btn {
@@ -414,9 +392,6 @@ body.active { overflow: hidden; }
 }
 
 .food-text { margin-block: 8px 40px; }
-
-.food .shape { display: none; }
-
 
 
 
@@ -498,24 +473,6 @@ body.active { overflow: hidden; }
     align-items: absolute;
     }
 
-  .food .shape {
-    display: block;
-    position: absolute;
-    box-shadow: var(--shadow-2);
-    border-radius: var(--radius-20);
-  }
-
-  .food .shape-1 {
-    left: 0;
-    bottom: 60px;
-  }
-
-  .food .shape-2 {
-    top: 60px;
-    right: -10px;
-  }
-
-
 
   /**
    * selection
@@ -525,29 +482,6 @@ body.active { overflow: hidden; }
     max-width: max-content;
     margin-inline: auto;
   }
-
-
-
-  /**
-   * STATS
-   */
-
-  .stats-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-  }
-
-
-
-  /**
-   * PARTNERSHIP
-   */
-
-  .partnership-card .card-content { left: 40px; }
-
-  .partnership-card .card-title { --fs-8: 3.5rem; }
 
 }
 
@@ -598,14 +532,6 @@ body.active { overflow: hidden; }
     visibility: visible;
     opacity: 0.7;
   }
-
-
-
-  /**
-   * TOP RESTAURANT, STATS
-   */
-
-  :is(.top-restaurant, .stats) .grid-list { align-items: center; }
 
 }
 
@@ -741,3 +667,8 @@ body.active { overflow: hidden; }
   }
 
 }
+
+/* 
+var(--nome-da-variavel): Utilizado para a manutenção do codigo.
+Se precisar alterar um valor (por exemplo, uma cor), você só precisa alterar a variável em um único lugar, em vez de mudar em várias regras CSS. 
+*/
