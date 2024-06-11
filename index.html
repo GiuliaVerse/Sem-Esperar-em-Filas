@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>SEF -Sem Esperar Em Filas</title>
+  <meta name="title" content="SEF -Sem Esperar Em Filas">
+  <meta name="description" content="PUCPR PROJETO PARA CANTINAS">
+
+  <link rel="stylesheet" href="style.css">
+
+
+</head>
+
+<body>
+  <!-- 
+    - #PRELOADER
+  -->
+  <div class="loading-container" data-loading-container>
+    <div class="loading-circle"></div>
+  </div>
+
+  <!-- 
+    - #HEADER
+  -->
+  <header class="header" data-header>
+    <div class="container">
+
+      <a href="#" class="logo">
+        <img src="/Sem-Esperar-em-Filas/Components/Images/logo.jfif" width="50" height="38" alt="SEF home">
+      </a>
+      <nav class="navbar" data-navbar>
+        <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
+          <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+        </button>
+
+        <a href="#" class="logo">
+          <img src="/Sem-Esperar-em-Filas/Components/Images/logo.jfif" width="50" height="38" alt="SEF home">
+        </a>
+
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <a href="/home" class="navbar-link" data-nav-link>Home</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="/about" class="navbar-link" data-nav-link>Sobre nós</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="/restaurant" class="navbar-link" data-nav-link>Restaurantes</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="/contact" class="navbar-link" data-nav-link>Contato</a>
+          </li>
+
+        </ul>
+      </nav>
+
+      <div class="header-action">
+        <a href="#" class="btn btn-primary has-after">Login</a>
+      </div>
+
+      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+        <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+      </button>
+
+      <div class="overlay" data-overlay data-nav-toggler></div>
+    </div>
+  </header>
+
+  <main>
+    <article>
+      <!-- 
+        - #food
+      -->
+      <section class="section food has-bg-image" aria-label="home"
+        style="background-image: url('./Components/Images/comida-lado-esquerdo.avif')">
+        <div class="container">
+          <div class="navbar-banner">
+            <h1 class="h1 food-title">Cansado de esperar 10 minutos na fila para ficar sem coxinha?</h1>
+            <a href="#" class="btn btn-secondary has-after">Order Now</a>
+          </div>
+        </div>
+      </section>
+
+<!-- selecao de restaurantes -->
+      <section class="restaurant selection" aria-labelledby="">
+        <div class="container">
+
+          <h2 class="h2 section-title" id="selection-label" data-reveal>Suas cantinas preferidas aqui!</h2>
+
+          <p class="section-text" data-reveal>
+            Peça o que quiser
+            <br>
+            Quando quiser
+          </p>
+
+          <ul class="grid-list">
+
+            <li data-reveal="left">
+              <div class="selection-card">
+
+                <figure class="card-banner">
+                  <img src="Components/Images/coxinha.jpg" width="300" height="154" loading="lazy"
+                    alt=" Restaurant" class="w-100">
+                </figure>
+
+                <div class="card-content">
+
+                  <h3 class="h5 card-title">
+                    <span class="span">01</span>
+                    Restaurant A
+                  </h3>
+
+                  <p class="card-text">
+                    Non enim praesent elementum facilisis leo vel fringilla. Lectus proin nibh nisl condimentum id. Quis
+                    varius quam quisque id diam vel.
+                  </p>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li data-reveal>
+              <div class="selection-card">
+
+                <figure class="card-banner">
+                  <img src="./Components/Images/doguinho.jpg" width="300" height="154" loading="lazy" alt="Restaurante B"
+                    class="w-100">
+                </figure>
+
+                <div class="card-content">
+
+                  <h3 class="h5 card-title">
+                    <span class="span">02</span>
+                    Restaurante B
+                  </h3>
+
+                  <p class="card-text">
+                    Eu mi bibendum neque egestas congue quisque. Nulla facilisi morbi tempus iaculis urna id volutpat
+                    lacus. Odio ut sem nulla pharetra diam sit amet.
+                  </p>
+
+                </div>
+
+              </div>
+            </li>
+
+            <ul data-reveal="right">
+              <div class="selection-card">
+
+                <figure class="card-banner">
+                  <img src="./Components/Images/hamburguer.png" width="300" height="154" loading="lazy"
+                    alt="Restaurante C" class="w-100">
+                </figure>
+
+                <div class="card-content">
+
+                  <h3 class="h5 card-title">
+                    <span class="span">03</span>
+                    Restaurante C
+                  </h3>
+
+                  <p class="card-text">
+                    Nunc lobortis mattis aliquam faucibus. Nibh ipsum consequat nisl vel pretium lectus quam id leo. A
+                    scelerisque purus semper eget. Tincidunt arcu non.
+                  </p>
+
+                </div>
+
+              </div>
+            </ul>
+
+          </ul>
+
+        </div>
+      </section>
+
+
+<!-- cantinas  CTA -->
+
+      <section class="section cta has-bg-image" aria-labelledby="cta-label"
+        style="background-image: url('./Components/Images/fundo-de-comida-branco.jpg')">
+        <div class="container">
+          <div class="cta-content">
+
+            <h2 class="h3 section-title" id="cta-label">
+              Você tem fome do quê?
+            </h2>
+
+            <p class="section-text">
+              Faca seus pedidos sem esperar em filas e faça parte da nossa revolução!
+            </p>
+
+            <a href="#" class="btn btn-primary has-after">Order Now</a>
+
+          </div>
+        </div>
+      </section>
+
+
+      <!-- footer -->
+      <footer class="footer">
+        <div className="footer">
+          <p class="copyright"> ALL RIGHTS RESERVED TO PAPA ITALIANO.</p>
+        </div>
+      </footer>
+
+      <script src="/Sem-Esperar-em-Filas/js/script.js"></script>
+
+</body>
+
+</html>
