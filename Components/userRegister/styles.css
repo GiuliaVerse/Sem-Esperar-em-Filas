@@ -21,15 +21,11 @@
   button {
     width: 32%;
     padding: 10px;
-    background-color: #FF1493;
+    background-color: hsl(39, 96%, 48%);
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #DC143C;
   }
   
   #mensagem {
@@ -37,3 +33,11 @@
     font-weight: bold;
   }
   
+  .img{
+    width: 10px;
+    height: 10px;
+  }
+
+  .banner{
+    z-index: 1;
+  }
