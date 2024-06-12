@@ -12,41 +12,44 @@ $senha_banco = ""; // Senha do MySQL (deixe vazio se não houver senha)
 $banco = "projeto"; // Nome do banco de dados
 
 // Conexão com o banco de dados
-$conn = new mysqli(
-    $host,
-    $usuario,
-    $senha_banco,
-    $banco
-);
+$conn = new mysqli($host, $usuario, $senha_banco, $banco);
 
 // Verifica a conexão
 if ($conn->connect_error) {
-    die("Falha na conexão: " .
-        $conn->connect_error);
+    die("Falha na conexão: " . $conn->connect_error);
 }
 
-// Insere o usuário no banco de dados
-$sql = "SELECT * FROM usuario  
-        WHERE Nome = '$username' AND Senha = '$password'";
+// Prepara a consulta SQL para evitar SQL Injection (ataques com dados maliciosos)
+$stmt = $conn->prepare("SELECT * FROM cliente WHERE login = ? AND senha = ?");
+$stmt->bind_param("ss", $username, $password);
 
-$resultado = $conn->query($sql);
+// Executa a consulta
+$stmt->execute();
+$resultado = $stmt->get_result();
+
+// Verifica se encontrou algum resultado
 if ($resultado->num_rows > 0) {
+    // Obtém os dados do usuário
     $linha = $resultado->fetch_assoc();
-    $id = $linha["id"];
-    $Nome = $linha["Nome"];
-    $Sobrenome = $linha["Sobrenome"];
-    $Email = $linha["Email"];
-    $DataNasc  = $linha["DataNasc"];
+    $id = $linha["codigo_cliente"];
+    $nome = $linha["nome"];
+    $email = $linha["email"];
+    $telefone = $linha["telefone"];
 
+    // Armazena os dados na sessão
     $_SESSION['id'] = $id;
-    $_SESSION['Nome'] = $Nome;
-    $_SESSION['Sobrenome'] = $Sobrenome;
-    $_SESSION['Email'] = $Email;
-    $_SESSION['DataNasc'] = $DataNasc;  
-    $_SESSION['Senha'] = $linha["Senha"];
-    
+    $_SESSION['nome'] = $nome;
+    $_SESSION['email'] = $email;
+    $_SESSION['telefone'] = $telefone;
+
+    // Retorna uma resposta JSON de sucesso
     echo json_encode(array("autenticado" => true, "id" => $id));
 } else {
+    // Retorna uma resposta JSON de falha
     echo json_encode(array("autenticado" => false));
 }
+
+// Fecha a declaração e a conexão
+$stmt->close();
+$conn->close();
 ?>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Registration</title>
+    <link rel="stylesheet" href="RestauranteRegistro.css">
+</head>
+<header>
+  <iframe src="../HeaderNavBar/navBar.html" width="100%" height="100"></iframe>
+</header>
+<body>
+    <div class="container">
+        <h2>Cadastre o seu restaurante</h2>
+        <form id="restaurantRegistrationForm">
+            <label for="restaurantName">Razão Social:</label>
+            <input type="text" id="restaurantName" name="restaurantName" required>
+
+            <label for="ownerName">Nome Fantasia:</label>
+            <input type="text" id="ownerName" name="ownerName" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="cnpj">CNPJ:</label>
+            <input type="text" id="cnpj" name="cnpj" required>
+
+            <label for="phone">Telefone:</label>
+            <input type="text" id="phone" name="phone" required>
+
+            <label for="institution">Instituição:</label>
+            <input type="text" id="institution" name="institution" required>
+
+            <label for="username">Usuario para Login:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="button" onclick="validateRegistration()">Register</button>
+            <button type="button" onclick="goBack()">Voltar</button>
+        </form>
+    </div>
+    <script src="registro.js"></script>
+    <iframe src="../Footer/footer.html" width="100%" height="100"></iframe>
+</body>
+
+</html>

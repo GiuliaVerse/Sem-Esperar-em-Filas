@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Entrar</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<header>
-    <iframe src="../HeaderNavBar/navBar.html" width="100%" height="100"></iframe>
-</header>
-
 <body>
-    <div class="container">
+    <header>
+        <iframe src="../HeaderNavBar/navBar.html" width="100%" height="100" title="Navigation Bar"></iframe>
+    </header>
+    <main class="container">
         <h2>Entrar</h2>
         <form id="loginForm">
             <label for="usuario">Usuário:</label>
@@ -24,10 +22,10 @@
             <button type="button" onclick="validarLogin()">Entrar</button>
             <button type="button" onclick="cadastrar()">Cadastre-se</button>
         </form>
-        <p id="mensagem"></p>
-    </div>
+    </main>
+    <footer>
+        <iframe src="../Footer/footer.html" width="100%" height="100" title="Footer"></iframe>
+    </footer>
     <script src="login.js"></script>
-    <iframe src="../Footer/footer.html" width="100%" height="100"></iframe>
 </body>
-
 </html>

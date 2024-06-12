@@ -68,7 +68,6 @@ const scrollReveal = function () {
   }
 };
 //Função para revelar elementos ao rolar a página
-
 window.addEventListener("scroll", scrollReveal);
 window.addEventListener("load", scrollReveal);
-//window.addEventListener adiciona evento de rolagem e de carregamento para revelar os elementos
+window.addEventListener 
