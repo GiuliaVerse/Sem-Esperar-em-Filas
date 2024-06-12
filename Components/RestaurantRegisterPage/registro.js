@@ -4,12 +4,12 @@ function validateRegistration() {
     var formData = new FormData(form);
 
     // Criando o objeto XML para realizar aquisiçao AJAX, Configura a requisiçao e define o destino da requisiçao php
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'registroRestaurante.php', true);
+    var ajaxRequest = new XMLHttpRequest();
+    ajaxRequest.open('POST', 'registroRestaurante.php', true);
     // Resposta da requisiçao
-    xhr.onload = function() {
-        if (xhr.status === 200) {
-            var response = JSON.parse(xhr.responseText);
+    ajaxRequest.onload = function() {
+        if (ajaxRequest.status === 200) {
+            var response = JSON.parse(ajaxRequest.responseText);
             if (response.success) {
                 alert('Restaurante registrado com sucesso!');
                 form.reset();
@@ -21,7 +21,7 @@ function validateRegistration() {
         }
     };
     // Envia a requisiçao
-    xhr.send(formData);
+    ajaxRequest.send(formData);
 }
 
 function goBack() {
