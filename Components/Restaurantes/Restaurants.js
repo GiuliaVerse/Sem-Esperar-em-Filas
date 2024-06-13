@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const restaurantList = document.getElementById("restaurantList");
+  const restaurantList = document.getElementById("restauranteList");
 
 
 //trocar por uma api pro banco de dados

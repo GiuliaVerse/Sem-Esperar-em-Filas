@@ -19,7 +19,7 @@ h2 {
     margin-bottom: 20px;
 }
 
-#searchInput {
+#buscaInput {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
@@ -28,7 +28,7 @@ h2 {
     box-sizing: border-box;
 }
 
-.restaurant-item {
+.restaurante-item {
     padding: 20px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
@@ -36,11 +36,11 @@ h2 {
     background-color: #f9f9f9;
 }
 
-.restaurant-item h3 {
+.restaurante-item h3 {
     margin: 0 0 10px;
 }
 
-.restaurant-item p {
+.restaurante-item p {
     margin: 5px 0;
 }
 
