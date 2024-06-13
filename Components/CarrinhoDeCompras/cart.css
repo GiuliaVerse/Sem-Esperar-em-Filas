@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.carrinho {
+    width: 100%;
+    max-width: 800px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.carrinho .carrinho-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.carrinho .carrinho-header button {
+    cursor: pointer;
+    width: 3%;
+    height: 40px;
+    font-size: 2rem;
+    color: #fff;
+    background: #ff9800;
+    border: none;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.carrinho .carrinho-header button:hover {
+    background: #e68900;
+}
+
+.carrinho .carrinho-header h3 {
+    font-weight: 600;
+    color: #333;
+    margin: 0 auto;
+}
+
+.carrinho-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    margin-bottom: 15px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.carrinho-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.carrinho-item .info {
+    flex-grow: 1;
+    margin-left: 15px;
+}
+
+.carrinho-item h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.carrinho-item .detalhes {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.carrinho-item .detalhes .descricao {
+    font-size: 0.875rem;
+    color: #777;
+}
+
+.carrinho-item .preco {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    text-align: right;
+}
+
+.carrinho-item .contador {
+    display: flex;
+    align-items: center;
+}
+
+.carrinho-item .contador button:hover {
+    background: #e68900;
+}
+
+.carrinho-item .contador span {
+    width: 40px;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.cart-button {
+    margin-top: 0;
+    width: 10%;
+    padding: 10px;
+    background-color: hsl(39, 96%, 48%);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+  .carrinho .carrinho-header button:hover {
+    color: hsl(39, 96%, 48%);
+    background: whitesmoke;
+}
+
+
+/* para converter o numero de rem em px pegue o numero em rem e multiplique por 16 */
