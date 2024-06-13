@@ -4,8 +4,9 @@ body {
     margin: 0;
     padding: 0;
 }
+
 .header {
-    background-color: #e91e63;
+    background-color: #fff;
     color: #fff;
     padding: 20px;
     text-align: center;
@@ -14,14 +15,17 @@ body {
     justify-content: center;
     align-items: center;
 }
+
 .header h1 {
     flex: 1;
     margin: 0;
+    color: #ff9800; 
 }
+
 .header-button-left,
 .header-button-right {
     background-color: #fff;
-    color: #e91e63;
+    color: #ff9800; 
     border: none;
     padding: 10px 20px;
     margin: 0 10px;
@@ -31,35 +35,45 @@ body {
     position: absolute;
     top: 20px;
 }
-.header-button-left {
+
+.header-button-left,
+.carrinhoIcon {
     left: 20px;
-    background-color: #c2185b;
+    background-color: #ff9800;
     color: #fff;
 }
+
 .header-button-right {
     right: 20px;
 }
+
 .header-button-left:hover,
 .header-button-right:hover {
     background-color: #f1f1f1;
 }
+
 .header-button-right i {
     font-size: 1.5em;
 }
+
 .menu-category {
     margin: 20px;
 }
+
 .menu-category h2 {
-    background-color: #e91e63;
+    background-color: #ff9800;
     color: #fff;
-    padding: 10px;
+    padding: 15px;
     border-radius: 5px;
+    margin-bottom: 10px; /* Added margin for separation */
 }
+
 .menu-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 20px; 
 }
+
 .menu-item {
     background-color: #fff;
     border-radius: 5px;
@@ -67,8 +81,54 @@ body {
     margin: 10px 0;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     display: flex;
+    flex-direction: column;
     align-items: center;
-    flex: 1 1 calc(33.333% - 20px);
+    flex: 1 1 calc(33.333% - 40px);
     box-sizing: border-box;
+    transition: transform 0.3s ease;
 }
-    
+
+.menu-item:hover {
+    transform: scale(1.05);
+}
+
+.menu-item img {
+    width: 80px; 
+    height: 80px;
+    border-radius: 5px;
+    margin-bottom: 10px; 
+}
+
+.menu-item h3 {
+    color: #ff9800; 
+    margin: 10px 0 5px;
+}
+
+.menu-item p {
+    color: #666; 
+    text-align: center;
+    margin: 0 0 10px;
+}
+
+.menu-item .price {
+    color: #333; 
+    font-weight: bold;
+    margin: 0 0 10px;
+}
+
+.menu-item button {
+    display: inline-block;
+    padding: 5px 5px;
+    font-size: 13px;
+    color: #fff;
+    background: #ff9800;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+    float: right;
+}
+
+.menu-item button:hover {
+    background-color: #e68900; 
+}
