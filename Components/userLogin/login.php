@@ -20,7 +20,7 @@ if ($conn->connect_error) {
 }
 
 // Prepara a consulta SQL para evitar SQL Injection (ataques com dados maliciosos)
-$stmt = $conn->prepare("SELECT * FROM cliente WHERE login = ? AND senha = ?");
+$stmt = $conn->prepare("SELECT * FROM usuario WHERE login = ? AND senha = ?");
 $stmt->bind_param("ss", $username, $password);
 
 // Executa a consulta
@@ -31,19 +31,45 @@ $resultado = $stmt->get_result();
 if ($resultado->num_rows > 0) {
     // Obtém os dados do usuário
     $linha = $resultado->fetch_assoc();
-    $id = $linha["codigo_cliente"];
-    $nome = $linha["nome"];
-    $email = $linha["email"];
-    $telefone = $linha["telefone"];
+    $id_cliente = $linha["cliente_codigo_cliente"];
+    $id_restaurante = $linha['restaurante_codigo_restaurante'];
+
+    if( $id_cliente != null ) {
+
+        $sql = "SELECT * FROM cliente WHERE codigo_cliente = $id_cliente";
+        if ($resultado = $conn->query($sql)) {
+            $linha = $resultado->fetch_assoc();
+            $nome = $linha["nome"];
+            $email = $linha["email"];
+            $telefone = $linha["telefone"];
 
     // Armazena os dados na sessão
-    $_SESSION['id'] = $id;
-    $_SESSION['nome'] = $nome;
-    $_SESSION['email'] = $email;
-    $_SESSION['telefone'] = $telefone;
+            $_SESSION['tipo'] = 'cliente';
+            $_SESSION['id'] = $id_cliente;
+            $_SESSION['nome'] = $nome;
+            $_SESSION['email'] = $email;
+            $_SESSION['telefone'] = $telefone;
+        }
+    } else {
+        $sql = "SELECT * FROM restaurante WHERE codigo_restaurante = $id_restaurante";
+        if ($resultado = $conn->query($sql)) {
+            $linha = $resultado->fetch_assoc();
+            $nome = $linha["nome_fantasia"];
+            $email = $linha["email"];
+            $telefone = $linha["telefone"];
+
+    // Armazena os dados na sessão
+            $_SESSION['tipo'] = 'restaurante';
+            $_SESSION['id'] = $id_restaurante;
+            $_SESSION['nome'] = $nome;
+            $_SESSION['email'] = $email;
+            $_SESSION['telefone'] = $telefone;
+        }
+    }
+
 
     // Retorna uma resposta JSON de sucesso
-    echo json_encode(array("autenticado" => true, "id" => $id));
+    echo json_encode(array("autenticado" => true, "tipo" => $_SESSION['tipo'], "id" => $_SESSION['id'] ));
 } else {
     // Retorna uma resposta JSON de falha
     echo json_encode(array("autenticado" => false));

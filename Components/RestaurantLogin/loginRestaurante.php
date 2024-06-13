@@ -6,10 +6,10 @@ $username = $_POST['usuario'];
 $password = $_POST['senha'];
 
 // Configurações do banco de dados
-$host = "localhost";
-$usuario = "root";
-$senha_banco = "";
-$banco = "projeto";
+$host = "localhost"; // Nome do servidor MySQL
+$usuario = "root"; // Nome de usuário do MySQL
+$senha_banco = ""; // Senha do MySQL (deixe vazio se não houver senha)
+$banco = "projeto"; // Nome do banco de dados
 
 // Conexão com o banco de dados
 $conn = new mysqli($host, $usuario, $senha_banco, $banco);
@@ -19,39 +19,63 @@ if ($conn->connect_error) {
     die("Falha na conexão: " . $conn->connect_error);
 }
 
-// Escapando caracteres especiais para prevenir SQL Injection
-$username = $conn->real_escape_string($username);
-$password = $conn->real_escape_string($password);
+// Prepara a consulta SQL para evitar SQL Injection (ataques com dados maliciosos)
+$stmt = $conn->prepare("SELECT * FROM usuario WHERE login = ? AND senha = ?");
+$stmt->bind_param("ss", $username, $password);
 
-// Consulta SQL para verificar o login e senha
-$sql = "SELECT * FROM restaurante WHERE login = '$username' AND senha = '$password'";
-
-$resultado = $conn->query($sql);
+// Executa a consulta
+$stmt->execute();
+$resultado = $stmt->get_result();
 
 // Verifica se encontrou algum resultado
 if ($resultado->num_rows > 0) {
-    // Obtém os dados do restaurante
+    // Obtém os dados do usuário
     $linha = $resultado->fetch_assoc();
-    $id = $linha["codigo_restaurante"];
-    $razaoSocial = $linha["razao_social"];
-    $nomeFantasia = $linha["nome_fantasia"];
-    $email = $linha["email"];
-    $telefone = $linha["telefone"];
+    $id_cliente = $linha["cliente_codigo_cliente"];
+    $id_restaurante = $linha['restaurante_codigo_restaurante'];
+
+    if( $id_cliente != null ) {
+
+        $sql = "SELECT * FROM cliente WHERE codigo_cliente = $id_cliente";
+        if ($resultado = $conn->query($sql)) {
+            $linha = $resultado->fetch_assoc();
+            $nome = $linha["nome"];
+            $email = $linha["email"];
+            $telefone = $linha["telefone"];
 
     // Armazena os dados na sessão
-    $_SESSION['id'] = $id;
-    $_SESSION['razaoSocial'] = $razaoSocial;
-    $_SESSION['nomeFantasia'] = $nomeFantasia;
-    $_SESSION['email'] = $email;
-    $_SESSION['telefone'] = $telefone;
+            $_SESSION['tipo'] = 'cliente';
+            $_SESSION['id'] = $id_cliente;
+            $_SESSION['nome'] = $nome;
+            $_SESSION['email'] = $email;
+            $_SESSION['telefone'] = $telefone;
+        }
+    } else {
+        $sql = "SELECT * FROM restaurante WHERE codigo_restaurante = $id_restaurante";
+        if ($resultado = $conn->query($sql)) {
+            $linha = $resultado->fetch_assoc();
+            $nome = $linha["nome_fantasia"];
+            $email = $linha["email"];
+            $telefone = $linha["telefone"];
+
+    // Armazena os dados na sessão
+            $_SESSION['tipo'] = 'restaurante';
+            $_SESSION['id'] = $id_restaurante;
+            $_SESSION['nome'] = $nome;
+            $_SESSION['email'] = $email;
+            $_SESSION['telefone'] = $telefone;
+        }
+    }
+
 
     // Retorna uma resposta JSON de sucesso
-    echo json_encode(array("autenticado" => true));
+    echo json_encode(array("autenticado" => true, "tipo" => $_SESSION['tipo'], "id" => $_SESSION['id'] ));
 } else {
     // Retorna uma resposta JSON de falha
-    echo json_encode(array("autenticado" => false, "mensagem" => "Usuário ou senha incorretos."));
+    echo json_encode(array("autenticado" => false));
 }
 
-// Fecha a conexão
+// Fecha a declaração e a conexão
+$stmt->close();
 $conn->close();
 ?>
