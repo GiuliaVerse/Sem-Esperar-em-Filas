@@ -1,24 +1,35 @@
 document.addEventListener("DOMContentLoaded", () => {
   const restaurantList = document.getElementById("restauranteList");
 
-  //trocar por uma api pro banco de dados
-  const restaurantes = [
-    {
-      restaurantName: "Restaurante A",
-      culinariaType: "Italiana",
-      rating: 4.5,
+  // Seleciona o formulário
+  const dados = document.getElementById("buscaInput").value;
+  // Envia os dados usando a API Fetch
+  restaurantes = [];
+
+  fetch("Restaurants.php", {
+    method: "POST",
+    headers: {
+      'Content-Type': 'application/json'
     },
-    {
-      restaurantName: "Restaurante B",
-      culinariaType: "Japonesa",
-      rating: 4.0,
-    },
-    {
-      restaurantName: "Restaurante C",
-      culinariaType: "Brasileira",
-      rating: 4.8,
-    },
-  ];
+    body: JSON.stringify({
+      inputData: dados
+    }),
+  })
+    .then((response) => response.json())
+    .then((dados) => {
+
+        const restaurantes = dados.map((item) => ({
+        restaurantName: item.nome_fantasia,
+        culinariaType: "Teste",
+        rating: "4.5"
+    }));
+    renderRestaurantes(restaurantes);
+      })
+      .catch((error) => {
+            console.error("Erro:", error);
+            alert("Ocorreu um erro ao enviar o formulário.");
+      });  
+
   // Função para renderizar a lista de restaurantes na tela
   const renderRestaurantes = (restaurantes) => {
     restaurantList.innerHTML = "";
@@ -32,8 +43,6 @@ document.addEventListener("DOMContentLoaded", () => {
       // Define o conteúdo HTML do div com os dados do restaurante
       restaurantItem.innerHTML = `
               <h3>${restaurant.restaurantName}</h3>
-              <p><strong>Tipo de Culinária:</strong> ${restaurant.culinariaType}</p>
-              <p><strong>Avaliação:</strong> <span class="rating">${restaurant.rating} ★</span></p>
               <button onclick="verMenu('${restaurant.restaurantName}')">Ver Menu</button> 
           `;
       // Adiciona o novo div ao elemento que representa a lista de restaurantes na tela
@@ -66,3 +75,20 @@ const verMenu = (restaurantName) => {
     restaurantName
   )}`;
 };
+
+/*function RestauranteBusca() {
+  var query = document.getElementById('buscaInput').value;
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', 'search.php?query=' + query, true);
+  xhr.onload = function() {
+      if (this.status == 200) {
+          var restaurantes = JSON.parse(this.responseText);
+          var output = '';
+          for (var i in restaurantes) {
+              output += '<p>' + restaurantes[i].name + '</p>';
+          }
+          document.getElementById('restauranteList').innerHTML = output;
+      }
+  };
+  xhr.send();
+}*/
