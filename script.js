@@ -71,3 +71,9 @@ const scrollReveal = function () {
 window.addEventListener("scroll", scrollReveal);
 window.addEventListener("load", scrollReveal);
 window.addEventListener 
+
+// Evento de clique para redirecionar o botão "Peça Agora" para outra página
+document.getElementById("Peça Agora").addEventListener("click", function (event) {
+  event.preventDefault(); // Evita o comportamento padrão do link
+  window.location.href = "Components/Menu/menu.html"; // Redireciona para outra página
+});

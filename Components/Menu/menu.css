@@ -1,49 +1,74 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
+    background-color: #f8f8f8;
     margin: 0;
     padding: 0;
 }
-
-.container {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #ffffff;
-}
-
-h2 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.menu-item {
-    padding: 20px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-}
-
-.menu-item h3 {
-    margin: 0 0 10px;
-}
-
-.menu-item p {
-    margin: 5px 0;
-}
-
-button {
-    padding: 10px 15px;
-    background-color: #007bff;
+.header {
+    background-color: #e91e63;
     color: #fff;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header h1 {
+    flex: 1;
+    margin: 0;
+}
+.header-button-left,
+.header-button-right {
+    background-color: #fff;
+    color: #e91e63;
     border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
     border-radius: 5px;
     cursor: pointer;
+    font-weight: bold;
+    position: absolute;
+    top: 20px;
 }
-
-button:hover {
-    background-color: #0056b3;
+.header-button-left {
+    left: 20px;
+    background-color: #c2185b;
+    color: #fff;
 }
+.header-button-right {
+    right: 20px;
+}
+.header-button-left:hover,
+.header-button-right:hover {
+    background-color: #f1f1f1;
+}
+.header-button-right i {
+    font-size: 1.5em;
+}
+.menu-category {
+    margin: 20px;
+}
+.menu-category h2 {
+    background-color: #e91e63;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+}
+.menu-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.menu-item {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    flex: 1 1 calc(33.333% - 20px);
+    box-sizing: border-box;
+}
+    

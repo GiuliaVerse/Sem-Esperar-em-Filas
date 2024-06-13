@@ -19,3 +19,8 @@ document.addEventListener("DOMContentLoaded", () => {
         alert("Restaurante não encontrado!");
     }
 });
+
+document.getElementById("Carrinho").addEventListener("click", function (event) {
+    event.preventDefault(); // Evita o comportamento padrão do link
+    window.location.href = "Components/CarrinhoDeCompras/cart.html"; // Redireciona para outra página
+  });
