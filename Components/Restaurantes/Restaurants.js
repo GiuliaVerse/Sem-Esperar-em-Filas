@@ -1,96 +1,59 @@
 document.addEventListener("DOMContentLoaded", () => {
   const restaurantList = document.getElementById("restaurantList");
 
-  // Dados de exemplo (trocar por uma API)
-  const restaurants = [
-    {
-      restaurantName: "Restaurant A",
-      CNPJName: "CNPJ A",
-      email: "emailA@example.com",
-      cnpj: "12345678901234",
-      telefone: "1234567890",
-      endereco: "endereco A",
-      instituicao: "instituicao A",
-      culinariaType: "culinaria A",
-    },
-    {
-      restaurantName: "Restaurant B",
-      CNPJName: "CNPJ B",
-      email: "emailB@example.com",
-      cnpj: "98765432109876",
-      telefone: "0987654321",
-      endereco: "endereco B",
-      instituicao: "instituicao B",
-      culinariaType: "culinaria B",
-    },
-    {
-      restaurantName: "Restaurant C",
-      CNPJName: "CNPJ C",
-      email: "emailC@example.com",
-      cnpj: "12345678901234",
-      telefone: "0987654321",
-      endereco: "endereco C",
-      instituicao: "instituicao C",
-      culinariaType: "culinaria C",
-    },
+
+//trocar por uma api pro banco de dados
+  const restaurantes = [
+      {
+          restaurantName: "Restaurante A",
+          culinariaType: "Italiana",
+          rating: 4.5,
+      },
+      {
+          restaurantName: "Restaurante B",
+          culinariaType: "Japonesa",
+          rating: 4.0,
+      },
+      {
+          restaurantName: "Restaurante C",
+          culinariaType: "Brasileira",
+          rating: 4.8,
+      },
   ];
-
-  let currentIndex = 0;
-
-  // Função para renderizar os dados dos restaurantes
-  const renderRestaurants = (restaurants) => {
-    restaurantList.innerHTML = ""; // Limpa a lista anterior
-    restaurants.forEach((restaurant) => {
-      const restaurantItem = document.createElement("div");
-      restaurantItem.classList.add("restaurant-item");
-
-      restaurantItem.innerHTML = `
-                    <h3>${restaurant.restaurantName}</h3>
-                    <p><strong>CNPJ:</strong> ${restaurant.CNPJName}</p>
-                    <p><strong>Email:</strong> ${restaurant.email}</p>
-                    <p><strong>Telefone:</strong> ${restaurant.telefone}</p>
-                    <p><strong>Endereço:</strong> ${restaurant.endereco}</p>
-                    <p><strong>Instituição:</strong> ${restaurant.instituicao}</p>
-                    <p><strong>Tipo de Cozinha:</strong> ${restaurant.culinariaType}</p>
-                `;
-
-      restaurantList.appendChild(restaurantItem);
-    });
+    // Função para renderizar a lista de restaurantes na tela
+  const renderRestaurantes = (restaurantes) => {
+      restaurantList.innerHTML = "";
+          // Para cada restaurante na lista de restaurantes fornecida
+      restaurantes.forEach((restaurant) => {
+                // Cria um novo elemento div para representar o restaurante
+          const restaurantItem = document.createElement("div");
+                  // Adiciona a classe 'restaurant-item' ao novo div
+          restaurantItem.classList.add("restaurant-item");
+        
+          // Define o conteúdo HTML do div com os dados do restaurante
+          restaurantItem.innerHTML = `
+              <h3>${restaurant.restaurantName}</h3>
+              <p><strong>Tipo de Culinária:</strong> ${restaurant.culinariaType}</p>
+              <p><strong>Avaliação:</strong> <span class="rating">${restaurant.rating} ★</span></p>
+          `;
+        // Adiciona o novo div ao elemento que representa a lista de restaurantes na tela
+          restaurantList.appendChild(restaurantItem);
+      });
   };
 
-  // Função para buscar restaurantes
-  const searchRestaurants = () => {
-    const searchInput = document
-      .getElementById("searchInput")
-      .value.toLowerCase();
-    const filteredRestaurants = restaurants.filter((restaurant) =>
-      restaurant.restaurantName.toLowerCase().includes(searchInput)
-    );
-    renderRestaurants(filteredRestaurants);
+  const buscarRestaurantes = () => {
+        // Obtém o valor digitado no campo de busca e converte para minúsculas
+      const buscarInput = document.getElementById("buscarInput").value.toLowerCase();
+          // Filtra a lista de restaurantes com base no valor de busca
+      const filtrarRestaurantes = restaurantes.filter((restaurant) =>
+          restaurant.restaurantName.toLowerCase().includes(buscarInput)
+      );
+          // Renderiza a lista de restaurantes filtrada na tela
+      renderRestaurantes(filtrarRestaurantes);
   };
+// Renderiza a lista inicial de restaurantes quando a página é carregada
+  renderRestaurantes(restaurantes);
+
+  // Torna a função buscarRestaurantes acessível no escopo global
+  window.buscarRestaurantes = buscarRestaurantes;
 });
-var slideshows = document.querySelectorAll('[data-component="slideshow"]');
-  
-  // Aplica a todas as apresentações de slides que você define com o HTML escrito
-  slideshows.forEach(initSlideShow);
-
-  function initSlideShow(slideshow) {
-
-    var slides = document.querySelectorAll(`#${slideshow.id} [role="list"] .slide`); // Obter um array de slides
-
-    var index = 0, time = 5000;
-    slides[index].classList.add('active');  
-    
-    setInterval( () => {
-      slides[index].classList.remove('active');
-      
-      //Passar por cada slide, incrementando o índice
-      index++;
-      
-      // Ao passar por todos os slides, reiniciar o índice para exibir o primeiro slide e iniciar novamente
-      if (index === slides.length) index = 0; 
-      
-      slides[index].classList.add('active');
-
-    }, time);
-  }
