@@ -31,15 +31,17 @@ body {
     margin-bottom: 20px;
 }
 
+
+
 .carrinho .carrinho-header button {
     cursor: pointer;
     width: 40px;
     height: 40px;
     font-size: 2rem;
-    color: #fff;
-    background: #ff9800;
+    color: #ff9800;
+    background: none;
     border: none;
-    border-radius: 8px;
+    border-radius: 50%;
     transition: 0.3s;
 }
 
@@ -127,23 +129,31 @@ body {
     margin-bottom: 20px;
 }
 
-.carrinho-total strong {
-    font-size: 1.2rem;
+.carrinho-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-top: 20px;
 }
 
-.purchase-button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    font-size: 1rem;
+.comprar-button
+ {
+    display: inline-block;
+    padding: 5px 5px;
+    font-size: 13px;
     color: #fff;
     background: #ff9800;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     transition: 0.3s;
+    float: right;
 }
 
-.purchase-button:hover {
+.comprar-button:hover {
     background: #e68900;
 }
+
+
+

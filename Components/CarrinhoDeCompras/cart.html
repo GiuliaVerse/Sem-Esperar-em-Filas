@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,20 +28,22 @@
         <div class="cart-items">
             <!-- Produtos adicionados ao carrinho irão aparecer aqui -->
             <div class="cart-product">
-                <img src="produto.jpg" alt="Produto">
+                <button class="photo-button">
+                    <img src="../../Components/Images/icone-adicionar-foto.jpg" alt="Adicionar Foto">
+                </button>
                 <div class="product-details">
                     <p class="cart-product-title">Nome do Produto</p>
                     <p class="cart-product-price">R$50,00</p>
                 </div>
                 <input type="number" class="product-qtd-input" value="1">
-                <button class="remove-product-button">Remover</button>
+                <button id="remover" class="remove-product-button">Remover</button>
             </div>
         </div>
         <div class="carrinho-total">
-            <strong>Total: </strong><span>R$0,00</span>
-            <button id="total-button">Atualizar Total</button>
+            <strong>Total: </strong>
+            <span>R$0,00</span>
         </div>
-        <button class="comprar-button">Comprar</button>
+        <button id="comprar" class="comprar-button">Comprar</button>
     </div>
     <script src="cart.js"></script>
 </body>
