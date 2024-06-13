@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Registration</title>
+    <link rel="stylesheet" href="Products.css">
+</head>
+<header>
+  <iframe src="../Header/NavBar/navBar.html" width="100%" height="100"></iframe>
+</header>
+<body>
+    <div class="container">
+        <h2>Cadastro de Produtos para seu restaurante</h2>
+        <form id="productsRegistrationForm">
+            <label for="restaurantName">Nome do Produto:</label>
+            <input type="text" id="NomeProduto" name="NomeProduto" required>
+
+            <label for="ownerName">Valor do Produto:</label>
+            <input type="text" id="ValorProduto" name="ValorProduto" required>
+
+            <label for="email">Ingredientes do Produto:</label>
+            <input type="email" id="Ingredientes" name="Ingredientes" required>
+
+            <button type="button" onclick="validarCadastroProduto()">Cadastrar</button>
+        </form>
+    </div>
+    <script src="Products.js"></script>
+    <iframe src="../Footer/footer.html" width="100%" height="100"></iframe>
+</body>
+
+</html>
