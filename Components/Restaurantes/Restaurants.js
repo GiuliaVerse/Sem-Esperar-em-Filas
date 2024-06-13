@@ -35,6 +35,8 @@ document.addEventListener("DOMContentLoaded", () => {
               <h3>${restaurant.restaurantName}</h3>
               <p><strong>Tipo de Culinária:</strong> ${restaurant.culinariaType}</p>
               <p><strong>Avaliação:</strong> <span class="rating">${restaurant.rating} ★</span></p>
+              <button onclick="verMenu('${restaurant.restaurantName}')">Ver Menu</button>
+
           `;
         // Adiciona o novo div ao elemento que representa a lista de restaurantes na tela
           restaurantList.appendChild(restaurantItem);
