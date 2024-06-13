@@ -9,48 +9,56 @@
   <meta name="title" content="SEF - Sem Esperar Em Filas">
   <meta name="description" content="PUCPR PROJETO PARA CANTINAS">
   <link rel="stylesheet" href="../../../style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script> <!-- Certifica-se de que o Ionicons é carregado -->
 </head>
-<!-- Header NAVBAR-->
-<header class="header" data-header>
-  <div class="container">
-    <a href="#" class="logo">
-      <img src="../../Images/Captura de tela 2024-06-06 164451.png" width="50" height="38" alt="SEF home">
-    </a>
-    <nav class="navbar" data-navbar>
-      <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
-        <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
-      </button>
+
+<body>
+  <!-- Header NAVBAR-->
+  <header class="header" data-header>
+    <div class="container">
       <a href="#" class="logo">
-        <img src="../../Images/hamburguer.png" width="50" height="38" alt="SEF home">
+        <img src="../../Images/Captura de tela 2024-06-06 164451.png" width="50" height="38" alt="SEF home">
       </a>
-      <ul class="navbar-list">
-        <li class="navbar-item">
-          <a href="/home" class="navbar-link" data-nav-link>Home</a>
-        </li>
-        <li class="navbar-item">
-          <a href="/about" class="navbar-link" data-nav-link>Sobre nós</a>
-        </li>
-        <li class="navbar-item">
-          <a href="/restaurant" class="navbar-link" data-nav-link>Restaurantes</a>
-        </li>
-        <li class="navbar-item">
-          <a href="/contact" class="navbar-link" data-nav-link>Contato</a>
-        </li>
-      </ul>
-    </nav>
-    <div class="header-action">
-      <a href="#" id="loginButton" class="btn btn-primary has-after">Login</a>
+      <nav class="navbar" data-navbar>
+        <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
+          <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+        </button>
+        <a href="#" class="logo">
+          <img src="../../Images/hamburguer.png" width="50" height="38" alt="SEF home">
+        </a>
+        <ul class="navbar-list">
+          <li class="navbar-item">
+            <a href="/home" class="navbar-link" data-nav-link>Home</a>
+          </li>
+          <li class="navbar-item">
+            <a href="/about" class="navbar-link" data-nav-link>Sobre nós</a>
+          </li>
+          <li class="navbar-item">
+            <a href="/restaurant" class="navbar-link" data-nav-link>Restaurantes</a>
+          </li>
+          <li class="navbar-item">
+            <a href="/contact" class="navbar-link" data-nav-link>Contato</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="header-action">
+        <span class="material-symbols-outlined" id="cart-icon">
+          shopping_cart
+        </span>
+      </div>
+      <div class="overlay" data-overlay data-nav-toggler></div>
     </div>
-    <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
-      <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
-    </button>
-    <div class="overlay" data-overlay data-nav-toggler></div>
-  </div>
-</header>
-<!-- <script>
-  document.getElementById("loginButton").addEventListener("click", function(event) {
-    event.preventDefault(); 
-    window.location.href = "/login.html";
-  });
-</script> -->
+  </header>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      document.getElementById("cart-icon").addEventListener("click", function(event) {
+        event.preventDefault();
+        window.location.href = "/Components/CarrinhoDeCompras/cart.html";
+      });
+    });
+  </script>
+</body>
+
 </html>
