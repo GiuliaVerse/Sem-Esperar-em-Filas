@@ -12,11 +12,11 @@ function validarLogin() {
     var form = document.getElementById('loginForm');
     var formData = new FormData(form);
 
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'loginRestaurante.php', true);
-    xhr.onload = function() {
-        if (xhr.status === 200) {
-            var response = JSON.parse(xhr.responseText);
+    var ajaxRequest = new XMLHttpRequest();
+    ajaxRequest.open('POST', 'loginRestaurante.php', true);
+    ajaxRequest.onload = function() {
+        if (ajaxRequest.status === 200) {
+            var response = JSON.parse(ajaxRequest.responseText);
             if (response.autenticado) {
                 alert('Login realizado com sucesso!');
                 // Redirecionar para a página principal ou dashboard
@@ -28,7 +28,7 @@ function validarLogin() {
             alert('Erro ao tentar realizar o login.');
         }
     };
-    xhr.send(formData);
+    ajaxRequest.send(formData);
 }
 
 function cadastrar() {
