@@ -5,7 +5,6 @@ $email = $_POST['email'];
 $telefone = $_POST['telefone'];
 $login = $_POST['login'];
 $senha = $_POST['senha'];
-$dataCriacao = date('Y-m-d');
 
 // Verifica se os campos estão vazios
 if ($nome === "" || $cpf === "" || $email === "" || $telefone === "" || $login === "" || $senha === "") {
@@ -28,14 +27,13 @@ if ($conn->connect_error) {
 }
 
 // Insere o cliente no banco de dados
-$sql = "INSERT INTO cliente (nome, cpf, email, telefone, data_criacao, login, senha) 
-        VALUES ('$nome', '$cpf', '$email', '$telefone', '$dataCriacao', '$login', '$senha')";
+$sql = "CALL inserir_cliente_usuario('$nome', '$cpf', '$email', '$telefone', '$login', '$senha')";
 
 // Executando a consulta SQL
-if ($conn->query($sql) === TRUE) {
-    echo json_encode(array("mensagem" => "ok"));
+if ($conn->query($sql)) {
+    echo json_encode(array("success" => true));
 } else {
-    echo json_encode(array("mensagem" => "Erro: " . $sql . "<br>" . $conn->error));
+    echo json_encode(array("success" => false, "message" => "Erro: " . $conn->error));
 }
 
 // Fecha a conexão

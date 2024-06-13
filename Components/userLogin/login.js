@@ -22,7 +22,7 @@ function validarLogin() {
         .then((dados) => {
                 if( dados.autenticado ) {
                         //document.getElementById("mensagem").innerText = "Usuário autenticado com sucesso.";
-                        window.location.href = "dadosUsuario.php";
+                        window.location.href = "../../index.html";
                     } else {
                         document.getElementById("mensagem").innerText = "Usuário não cadastrado.";
                     }     
