@@ -9,9 +9,9 @@
 <body>
 
   <div class="header">
-    <button class="header-button-left" onclick="window.location.href='add-product.html'">Cadastrar Produto</button>
+    <button class="header-button-left" onclick="window.location.href='../ProductPage/Products.html'">Cadastrar Produto</button>
     <h1>Menu</h1>
-    <a id="Carrinho" href="#" class="header-button-right">Carrinho</a>
+    <a id="Carrinho" href="../CarrinhoDeCompras/cart.html" class="header-button-right">Carrinho</a>
 </div>
 
     <div class="menu-category">
@@ -23,7 +23,7 @@
                     <h3>Frango Grelhado</h3>
                     <p>Acompanha arroz, feijão e salada.</p>
                     <span>R$ 25,00</span>
-                    <button class="add-to-cart" data-product="Frango Grelhado">Adicionar</button>
+                    <button class="add-to-cart" data-product="Frango Grelhado" data-price="25,00">Adicionar</button>
                 </div>
             </div>
             <div class="menu-item">
@@ -32,7 +32,7 @@
                     <h3>Feijoada Completa</h3>
                     <p>Acompanha arroz, couve e laranja.</p>
                     <span>R$ 30,00</span>
-                    <button class="add-to-cart" data-product="Feijoada Completa">Adicionar</button>
+                    <button class="add-to-cart" data-product="Feijoada Completa"  data-price="30,00">Adicionar</button>
                 </div>
             </div>
             <div class="menu-item">
@@ -41,7 +41,7 @@
                     <h3>Macarrão à Bolonhesa</h3>
                     <p>Macarrão com molho bolonhesa e queijo parmesão.</p>
                     <span>R$ 20,00</span>
-                    <button class="add-to-cart" data-product="Macarrão à Bolonhesa">Adicionar</button>
+                    <button class="add-to-cart" data-product="Macarrão à Bolonhesa"  data-price="20,00">Adicionar</button>
                 </div>
             </div>
         </div>
@@ -52,7 +52,7 @@
                     <h3>Bife Acebolado</h3>
                     <p>Acompanha arroz, feijão e batata frita.</p>
                     <span>R$ 28,00</span>
-                    <button class="add-to-cart" data-product="Bife Acebolado">Adicionar</button>
+                    <button class="add-to-cart" data-product="Bife Acebolado"  data-price="28,00">Adicionar</button>
                 </div>
             </div>
             <div class="menu-item">
@@ -61,7 +61,7 @@
                     <h3>Salada Caesar</h3>
                     <p>Alface, frango, croutons e molho caesar.</p>
                     <span>R$ 18,00</span>
-                    <button class="add-to-cart" data-product="Salada Caesar">Adicionar</button>
+                    <button class="add-to-cart" data-product="Salada Caesar"  data-price="18,00">Adicionar</button>
                 </div>
             </div>
         </div>
@@ -76,7 +76,7 @@
                     <h3>Hambúrguer</h3>
                     <p>Carne, queijo, alface, tomate e maionese.</p>
                     <span>R$ 15,00</span>
-                    <button class="add-to-cart" data-product="Hambúrguer">Adicionar</button>
+                    <button class="add-to-cart" data-product="Hambúrguer" data-price="15,00">Adicionar</button>
                 </div>
             </div>
             <div class="menu-item">
@@ -85,7 +85,7 @@
                     <h3>Sanduíche Natural</h3>
                     <p>Frango desfiado, alface e cenoura.</p>
                     <span>R$ 12,00</span>
-                    <button class="add-to-cart" data-product="Sanduíche Natural">Adicionar</button>
+                    <button class="add-to-cart" data-product="Sanduíche Natural" data-price="12,00">Adicionar</button>
                 </div>
             </div>
             <div class="menu-item">
@@ -94,7 +94,7 @@
                     <h3>Cheeseburger</h3>
                     <p>Carne, queijo cheddar, picles e ketchup.</p>
                     <span>R$ 16,00</span>
-                    <button class="add-to-cart" data-product="Cheeseburger">Adicionar</button>
+                    <button class="add-to-cart" data-product="Cheeseburger" data-price="16,00">Adicionar</button>
                 </div>
             </div>
         </div>
@@ -105,7 +105,7 @@
                     <h3>Wrap de Frango</h3>
                     <p>Frango grelhado, alface, tomate e molho.</p>
                     <span>R$ 14,00</span>
-                    <button class="add-to-cart" data-product="Wrap de Frango">Adicionar</button>
+                    <button class="add-to-cart" data-product="Wrap de Frango" data-price="14,00">Adicionar</button>
                 </div>
             </div>
             <div class="menu-item">
@@ -114,7 +114,7 @@
                     <h3>Doguinho</h3>
                     <p>Salsicha, pão, ketchup e mostarda.</p>
                     <span>R$ 10,00</span>
-                    <button class="add-to-cart" data-product="Hot Dog">Adicionar</button>
+                    <button class="add-to-cart" data-product="Hot Dog" data-price="10,00">Adicionar</button>
                 </div>
             </div>
         </div>
@@ -129,7 +129,7 @@
                     <h3>Suco de Laranja</h3>
                     <p>Natural e refrescante.</p>
                     <span>R$ 7,00</span>
-                    <button class="add-to-cart" data-product="Suco de Laranja">Adicionar</button>
+                    <button class="add-to-cart" data-product="Suco de Laranja" data-price="7,00">Adicionar</button>
                 </div>
             </div>
             <div class="menu-item">
@@ -138,7 +138,7 @@
                     <h3>Refrigerante</h3>
                     <p>350ml.</p>
                     <span>R$ 5,00</span>
-                    <button class="add-to-cart" data-product="Hot Dog">Adicionar</button>
+                    <button class="add-to-cart" data-product="Refrigerante" data-price="5,00">Adicionar</button>
                 </div>
             </div>
             <div class="menu-item">
@@ -147,7 +147,7 @@
                     <h3>Água Mineral</h3>
                     <p>500ml, sem gás.</p>
                     <span>R$ 3,00</span>
-                    <button class="add-to-cart" data-product="Água Mineral">Adicionar</button>
+                    <button class="add-to-cart" data-product="Água Mineral" data-price="3,00">Adicionar</button>
                 </div>
             </div>
         </div>
@@ -158,7 +158,7 @@
                     <h3>Café Expresso</h3>
                     <p>Quente e encorpado.</p>
                     <span>R$ 5,00</span>
-                    <button class="add-to-cart" data-product="Café Expresso">Adicionar</button>
+                    <button class="add-to-cart" data-product="Café Expresso" data-price="5,00">Adicionar</button>
                 </div>
             </div>
             <div class="menu-item">
@@ -167,7 +167,7 @@
                     <h3>Chá Gelado</h3>
                     <p>Sabor limão.</p>
                     <span>R$ 4,00</span>
-                    <button class="add-to-cart" data-product="Chá Gelado">Adicionar</button>
+                    <button class="add-to-cart" data-product="Chá Gelado" data-price="4,00">Adicionar</button>
                 </div>
             </div>
         </div>

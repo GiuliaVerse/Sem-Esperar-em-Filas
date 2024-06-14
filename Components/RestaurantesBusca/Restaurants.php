@@ -12,9 +12,9 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-if (isset($_GET['query'])) {
-    $query = $_GET['query'];
-    $sql = "SELECT name FROM restaurants WHERE name LIKE '%$query%'";
+//if (isset($_GET['query'])) {
+    $query = ''; //$_GET['query'];
+    $sql = "SELECT nome_fantasia FROM restaurante WHERE nome_fantasia LIKE '%$query%'";
     $result = $conn->query($sql);
 
     $restaurants = array();
@@ -24,7 +24,7 @@ if (isset($_GET['query'])) {
         }
     }
     echo json_encode($restaurants);
-}
+//}
 
 $conn->close();
 ?>

@@ -32,5 +32,5 @@ function validarLogin() {
 }
 
 function cadastrar() {
-    window.location.href = 'registroRestaurante.html';
+    window.location.href = '../RestaurantRegisterPage/RestauranteRegister.html';
 }

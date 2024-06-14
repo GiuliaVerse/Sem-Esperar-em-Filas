@@ -24,8 +24,8 @@ if ($conn->connect_error) {
     die("Falha na conexão: " . $conn->connect_error);
 }
 
-$sql = "INSERT INTO produtos (nome_produto, valor_produto, ingredientes) 
-        VALUES ('$nomeProduto', '$valorProduto', '$ingredientes')";
+$sql = "INSERT INTO produtos (nome_produto, valor_produto, ingredientes, cardapio_codigo_cardapio) 
+        VALUES ('$nomeProduto', '$valorProduto', '$ingredientes', 1)";
 
 if ($conn->query($sql)) {
     echo json_encode(array("success" => true));

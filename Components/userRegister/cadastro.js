@@ -26,6 +26,6 @@ function validarCadastro() {
               });     
         }
   
-  function login() {
-     window.location.href = "login.html";
+  function Voltar() {
+     window.location.href = "../userLogin/login.html";
   }

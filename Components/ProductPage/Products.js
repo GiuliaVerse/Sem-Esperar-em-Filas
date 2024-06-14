@@ -10,10 +10,10 @@ function validarCadastroProduto() {
           })
              .then((response) => response.json())
              .then((data) => {
-              document.getElementById("mensagem").innerHTML = data.mensagem;
-                    if( data.mensagem == "ok" ) {
+              // document.getElementById("mensagem").innerHTML = data.mensagem;
+                    if( data.success ) {
                           alert("Produto cadastrado, será alocado a página assim que possível!");
-                          window.location.href = "components/menu/menu.html"
+                          window.location.href = "../menu/menu.html"
                       } else {
                         document.getElementById("mensagem").innerHTML = data.mensagem;
                       }                 

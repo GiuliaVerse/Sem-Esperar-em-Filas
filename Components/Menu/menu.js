@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.getElementById("Carrinho").addEventListener("click", function (event) {
     event.preventDefault(); // Evita o comportamento padrão do link
-    window.location.href = "/Components/CarrinhoDeCompras/cart.html"; // Redireciona para outra página
+    window.location.href = "../CarrinhoDeCompras/cart.html"; // Redireciona para outra página
 });
 
 

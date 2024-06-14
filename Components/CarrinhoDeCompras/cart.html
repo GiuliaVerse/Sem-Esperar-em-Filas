@@ -16,18 +16,23 @@
 </head>
 
 <body>
+  
     <div class="carrinho">
         <div class="carrinho-header">
             <button>
-                <span class="material-symbols-outlined">
+                <span class="material-symbols-outlined" id="voltar">
                     chevron_left
                 </span>
             </button>
             <h3>Meu Carrinho</h3>
         </div>
+        
         <div class="cart-items">
+            
+            <div id="cartContainer"></div>
+
             <!-- Produtos adicionados ao carrinho irão aparecer aqui -->
-            <div class="cart-product">
+            <!-- div class="cart-product">
                 <button class="photo-button">
                     <img src="../../Components/Images/icone-adicionar-foto.jpg" alt="Adicionar Foto">
                 </button>
@@ -37,8 +42,9 @@
                 </div>
                 <input type="number" class="product-qtd-input" value="1">
                 <button id="remover" class="remove-product-button">Remover</button>
-            </div>
+            </div -->
         </div>
+
         <div class="carrinho-total">
             <strong>Total: </strong>
             <span>R$0,00</span>

@@ -36,7 +36,7 @@ function validarLogin() {
 }
 
 function cadastrar() {
-    window.location.href = "cadastro.html";
+    window.location.href = "../userRegister/cadastro.html";
  }
 
 function login() {

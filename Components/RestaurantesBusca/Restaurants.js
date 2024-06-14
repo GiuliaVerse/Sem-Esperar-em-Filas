@@ -19,11 +19,11 @@ document.addEventListener("DOMContentLoaded", () => {
     .then((dados) => {
 
         const restaurantes = dados.map((item) => ({
-        restaurantName: item.nome_fantasia,
-        culinariaType: "Teste",
-        rating: "4.5"
-    }));
-    renderRestaurantes(restaurantes);
+          restaurantName: item.nome_fantasia,
+          culinariaType: "Teste",
+          rating: "4.5"
+        }));
+        renderRestaurantes(restaurantes);
       })
       .catch((error) => {
             console.error("Erro:", error);
@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Função para redirecionar para a página do menu
 const verMenu = (restaurantName) => {
-  window.location.href = `menu.html?restaurant=${encodeURIComponent(
+  window.location.href = `../Menu/menu.html?restaurant=${encodeURIComponent(
     restaurantName
   )}`;
 };
