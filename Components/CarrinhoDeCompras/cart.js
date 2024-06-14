@@ -6,7 +6,7 @@ if (document.readyState === 'loading') {
     ready();
 }
 
-// Recupera o carrinho atual do localStorage (como fazer?? exemplo:)
+// Recupera o carrinho atual do localStorage
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 const cartContainer = document.getElementById('cartContainer');

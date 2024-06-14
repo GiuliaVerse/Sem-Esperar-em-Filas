@@ -22,8 +22,7 @@ body {
     color: #ff9800; 
 }
 
-.header-button-left,
-.header-button-right {
+.header-button-left{
     background-color: #fff;
     color: #ff9800; 
     border: none;
@@ -35,7 +34,18 @@ body {
     position: absolute;
     top: 20px;
 }
-
+.header-button-right {
+    display: inline-block;
+    padding: 5px 5px;
+    font-size: 13px;
+    color: #fff;
+    background: #ff9800;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+    float: left;
+}
 .header-button-left,
 .carrinhoIcon {
     left: 20px;

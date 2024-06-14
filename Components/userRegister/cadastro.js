@@ -15,7 +15,7 @@ function validarCadastro() {
                     //window.location.href = "outra_pagina.html";
                         //document.getElementById("mensagem").innerHTML = "Gravado com sucesso";
                         alert("Usuário cadastrado!");
-                        window.location.href = "login.html"
+                        window.location.href = "../userLogin/login.html"
                     } else {
                       document.getElementById("mensagem").innerHTML = data.message;
                     }                 

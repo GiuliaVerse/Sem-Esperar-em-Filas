@@ -19,10 +19,10 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
         const productName = this.getAttribute('data-product');
         const productPrice = parseFloat(this.getAttribute('data-price'));
 
-        // Recupera o carrinho atual do localStorage (como fazer?? exemplo:)
+        // Recupera o carrinho atual do localStorage
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-        // exemplo v    erifica se o produto já está no carrinho
+        // exemplo verifica se o produto já está no carrinho
         let existingProduct = cart.find(product => product.name === productName);
 
         if (existingProduct) {
