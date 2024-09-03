@@ -1,12 +1,14 @@
 function validarLogin() {
     // Obtém os valores dos campos de usuário e senha
-    var usuario = document.getElementById("usuario").value;
+    var email = document.getElementById("email").value;
     var senha = document.getElementById("senha").value;
 
     // Verifica se os campos estão vazios
-    if (usuario === "" || senha === "") {
+    if (email === "" || senha === "") {
         // Se algum campo estiver vazio, exibe mensagem de erro
-        document.getElementById("mensagem").innerText = "Por favor, preencha todos os campos.";
+        // document.getElementById("mensagem").innerText = "Por favor, preencha todos os campos.";
+        alert("Por favor, preencha todos os campos!!!");
+
     } 
     else {
         // Seleciona o formulário

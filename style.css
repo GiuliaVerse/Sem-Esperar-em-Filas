@@ -699,6 +699,22 @@ body::-webkit-scrollbar {
   background-color: #000;
 }
 
+
+.restaurant-login-button {
+  background-color: #ff6663;
+  color: #fff;
+  font-size: 14px;
+  padding: 8px 20px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: 0.3s background-color;
+}
+
+.restaurant-login-button:hover{
+  /* background-color: #E0FF4F; */
+  background-color: #000;
+}
+
 .navbar-toggler{
   border: none;
   font-size: 1.25rem;
