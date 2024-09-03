@@ -1,6 +1,6 @@
-:root {
+/* :root { */
   /* cores de fundo */
-  --sonic-silver: hsl(0, 0%, 47%);
+  /* --sonic-silver: hsl(0, 0%, 47%);
   --eerie-black: hsl(210, 11%, 15%);
   --light-gray: hsl(0, 0%, 83%);
   --davys-gray: hsl(0, 0%, 30%);
@@ -8,43 +8,43 @@
   --platinum: hsl(0, 0%, 90%);
   --white: hsl(0, 0%, 100%);
   --black: hsl(0, 0%, 0%);
-  --jet: hsl(0, 0%, 21%);
+  --jet: hsl(0, 0%, 21%); */
 
 
 /* tipografia da homepage */
    /* Define a família de fontes a ser usada. */
-  --ff-poppins: "Poppins", sans-serif; 
+  /* --ff-poppins: "Poppins", sans-serif; 
 
   --fs-2: 4.2rem;
   --fs-5: 3.4rem;
   --fs-6: 3.2rem;
-  --fs-8: 2.4rem;
+  --fs-8: 2.4rem; */
 
   /*fontes: 500 normal e 700 negrito */
-  --fw-500: 500;
-  --fw-700: 700;
+  /* --fw-500: 500;
+  --fw-700: 700; */
 
 
   /* padding (preenchimento) para seções */
-  --section-padding: 100px;
+  /* --section-padding: 100px; */
 
 
   /* Border Radiu(s (arredondar as bordas) */
-  --radius-circle: 50%;
+  /* --radius-circle: 50%;
   --radius-20: 20px;
   --radius-15: 15px;
-  --radius-10: 10px;
+  --radius-10: 10px; */
 
   /* box shadow (efeitos de sombra) */
-  --shadow-1: 0 0 30px 4px hsla(0, 0%, 0%, 0.05);
-  --shadow-2: -1px 15px 26px -4px hsla(0, 5%, 61%, 0.15);
+  /* --shadow-1: 0 0 30px 4px hsla(0, 0%, 0%, 0.05);
+  --shadow-2: -1px 15px 26px -4px hsla(0, 5%, 61%, 0.15); */
 
   /* Transition */
   /* valores para transições, especificando duração e curvas de aceleração. */
-  --transition-1: 0.25s ease;
+  /* --transition-1: 0.25s ease;
   --transition-2: 0.5s ease;
-  --cubic-out: cubic-bezier(0.33, 0.85, 0.4, 0.96);
-}
+  --cubic-out: cubic-bezier(0.33, 0.85, 0.4, 0.96); */
+
 /* -----------------------fim da root ----------------------- */
 
 
@@ -54,7 +54,7 @@
   garantindo um estilo básico e consistente entre diferentes navegadores. 
 */
 
-*,
+/* *,
 *::before,
 *::after {
   margin: 0;
@@ -122,17 +122,17 @@ body.active { overflow: hidden; }
 
 ::-webkit-scrollbar-thumb { background-color: hsl(0, 0%, 80%); }
 
-::-webkit-scrollbar-thumb:hover { background-color: hsl(0, 0%, 70%); }
+::-webkit-scrollbar-thumb:hover { background-color: hsl(0, 0%, 70%); } */
 /* -----------------------fim do Reset----------------------- */
 
 
 
   /* #REUSED STYLE */
-.container { padding-inline: 15px; }
-.section { padding-block: var(--section-padding); }
+/* .container { padding-inline: 15px; }
+.section { padding-block: var(--section-padding); } */
 
 /* Estiliza títulos (h1 a h5) com cores, peso e tamanhos de fonte. */
-.h1,
+/* .h1,
 .h2,
 .h3,
 .h4,
@@ -149,23 +149,23 @@ body.active { overflow: hidden; }
 
 .h4 { font-size: var(--fs-6); }
 
-.h5 { font-size: var(--fs-8); }
+.h5 { font-size: var(--fs-8); } */
 /* -----------------------fim----------------------- */
 
 
   /* seção "Cantinas CTA" */
-  .cta-bg-image {
+  /* .cta-bg-image {
     background-size: 90%; /* Ajusta a imagem para 50% do tamanho do container */
-    background-position: center;
-  }
+    /* background-position: center; */
 
+/* 
   .has-before,
   .has-after {
     position: relative;
-    z-index: 1;
+    z-index: 1; */
    /* z-index 1 elementos fiquem atrás do conteúdo */
-  }
-
+  
+/* 
   .has-before::before,
   .has-after::after {
     position: absolute;
@@ -216,10 +216,10 @@ body.active { overflow: hidden; }
   .grid-list {
     display: grid;
     gap: 60px;
-  }
+  } */
 
 
-  [data-reveal] {
+  /* [data-reveal] {
     opacity: 0;
     transform: translateY(20px);
     transition: var(--transition-2);
@@ -232,13 +232,13 @@ body.active { overflow: hidden; }
   [data-reveal].revealed {
     opacity: 1;
     transform: translate(0);
-  }
+  } */
 
 /* -----------------------fim do loading----------------------- */
 
 
 /* loading: estilos para o preloader que aparece enquanto a página está carregando. */
-.loading-container {
+/* .loading-container {
   position: fixed;
   top: 0;
   left: 0;
@@ -248,39 +248,40 @@ body.active { overflow: hidden; }
   display: grid;
   place-items: center;
   transition: var(--transition-1);
-  z-index: 6;
-}
+  z-index: 6; */
+
 
 
 /* Quando a classe loaded é adicionada a .loading-container,
 o contêiner se torna invisível e transparente, sinalizando que a página terminou de carregar. */
-.loading-container.loaded {
+/* .loading-container.loaded {
   opacity: 0;
   visibility: hidden;
-}
+} */
 
 
 
-.loading-circle {
+/* .loading-circle {
   width: 50px;
   height: 50px;
   border: 5px solid var(--platinum);
   border-block-start-color: var(--marigold);
   border-radius: var(--radius-circle);
   /*var(--radius-circle): Arredonda a borda da animação circular para 50%, tornando-a circular. */
-  animation: loading 0.5s linear infinite;
+  /* animation: loading 0.5s linear infinite; */
   /* 0.5 segundos, linear, e se repete infinitamente. */
-}
 
-@keyframes loading {
+
+
+/* @keyframes loading { */
   /* No início da animação, a rotação é 0 graus. */
-  0% { transform: rotate(0); } 
+  /* 0% { transform: rotate(0); } 
   100% { transform: rotate(1turn); }
 }
 
 .loading-container.loaded .loading-circle {
   animation-iteration-count: 1;
-}
+} */
 /* -----------------------fim do loading----------------------- */
 
 
@@ -288,7 +289,7 @@ o contêiner se torna invisível e transparente, sinalizando que a página termi
 /* heading */
 
 /* navbar imagem de fundo (banner) */
-.has-bg-image {
+/* .has-bg-image {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -352,9 +353,9 @@ o contêiner se torna invisível e transparente, sinalizando que a página termi
   transform: translateX(100%);
   visibility: visible;
   transition-duration: 0.5s;
-}
+} */
 
-.nav-close-btn {
+/* .nav-close-btn {
   position: absolute;
   top: 20px;
   right: 20px;
@@ -363,9 +364,9 @@ o contêiner se torna invisível e transparente, sinalizando que a página termi
   border: 2px solid var(--light-gray);
   border-radius: var(--radius-circle);
   padding: 2px;
-}
+} */
 
-.nav-close-btn ion-icon { --ionicon-stroke-width: 35px; }
+/* .nav-close-btn ion-icon { --ionicon-stroke-width: 35px; }
 
 .navbar .logo { margin-block-end: 30px; }
 
@@ -374,25 +375,25 @@ o contêiner se torna invisível e transparente, sinalizando que a página termi
 .navbar-link {
   color: var(--eerie-black);
   padding-block: 12px;
-}
-
-.navbar-link:is(:hover, :focus-visible) { color: var(--jet); }
+} */
+/* 
+.navbar-link:is(:hover, :focus-visible) { color: var(--jet); } */
 /* -----------------------fim da heading----------------------- */
 
 /* food banner da navbar */
-.food { padding-block-start: calc(var(--section-padding) + 5px); }
+/* .food { padding-block-start: calc(var(--section-padding) + 5px); }
 
 .food .container {
   display: grid;
   gap: 80px;
 }
 
-.food-text { margin-block: 8px 40px; }
+.food-text { margin-block: 8px 40px; } */
 
 
 
 /* Selecao de .restaurantes */
-.selection {
+/* .selection {
   padding-block-start: 0;
   text-align: center;
 }
@@ -406,7 +407,7 @@ o contêiner se torna invisível e transparente, sinalizando que a página termi
   color: var(--light-gray);
   font-size: var(--fs-4);
   line-height: 1;
-}
+} */
 
 
 
@@ -418,37 +419,37 @@ o contêiner se torna invisível e transparente, sinalizando que a página termi
  * responsive for large than 575px screen
  */
 
-@media (min-width: 575px) {
+/* @media (min-width: 575px) { */
 
   /**
    * CUSTOM PROPERTY
    */
 
-  :root {
+  /* :root { */
 
     /**
      * typography
      */
 
-    --fs-6: 4.2rem;
+    /* --fs-6: 4.2rem;
 
-  }
+  } */
 
 
 
   /**
    * REUSED STYLE
    */
-
+/* 
   .container {
     max-width: 550px;
     width: 100%;
     margin-inline: auto;
-  }
+  } */
 
-  .h1 { --fs-2: 6rem; }
+  /* .h1 { --fs-2: 6rem; }
 
-  .h2 { --fs-2: 4.8rem; }
+  .h2 { --fs-2: 4.8rem; } */
 
 
 
@@ -456,22 +457,22 @@ o contêiner se torna invisível e transparente, sinalizando que a página termi
    * food
    */
 
-  .navbar-banner { 
+  /* .navbar-banner { 
     align-items: absolute;
-    }
+    } */
 
 
   /**
    * selection
    */
 
-  .selection-card .card-banner {
+  /* .selection-card .card-banner {
     max-width: max-content;
     margin-inline: auto;
   }
 
 }
-
+ */
 
 
 
@@ -479,24 +480,24 @@ o contêiner se torna invisível e transparente, sinalizando que a página termi
 /**
  * responsive for large than 768px screen
  */
-
-@media (min-width: 768px) {
+/* 
+@media (min-width: 768px) { */
 
   /**
    * REUSED STYLE
    */
 
-  .container { max-width: 720px; }
+  /* .container { max-width: 720px; }
 
   .grid-list { grid-template-columns: 1fr 1fr; }
-
+ */
 
 
   /**
    * HEADER
    */
 
-  .navbar {
+  /* .navbar {
     max-width: 428px;
     left: -430px;
   }
@@ -520,7 +521,7 @@ o contêiner se torna invisível e transparente, sinalizando que a página termi
     opacity: 0.7;
   }
 
-}
+} */
 
 
 
@@ -529,14 +530,14 @@ o contêiner se torna invisível e transparente, sinalizando que a página termi
 /**
  * responsive for large than 992px screen
  */
-
-@media (min-width: 992px) {
+/* 
+@media (min-width: 992px) { */
 
   /**
    * REUSED STYLE
    */
 
-  .container { max-width: 960px; }
+  /* .container { max-width: 960px; } */
 
   
 
@@ -544,7 +545,7 @@ o contêiner se torna invisível e transparente, sinalizando que a página termi
    * food
    */
 
-  .food .container {
+  /* .food .container {
     grid-template-columns: 1fr 1fr;
     align-items: center;
     gap: 30px;
@@ -555,7 +556,7 @@ o contêiner se torna invisível e transparente, sinalizando que a página termi
   .food .shape-2 {
     top: 80px;
     right: -40px;
-  }
+  } */
 
 
 
@@ -563,7 +564,7 @@ o contêiner se torna invisível e transparente, sinalizando que a página termi
    * selection
    */
 
-  .selection .section-text {
+  /* .selection .section-text {
     max-width: 60ch;
     margin-inline: auto;
   }
@@ -573,36 +574,36 @@ o contêiner se torna invisível e transparente, sinalizando que a página termi
     gap: 24px;
   }
 
-}
+} */
 
 
 /**
  * responsive for large than 1200px screen
  */
 
-@media (min-width: 1200px) {
+/* @media (min-width: 1200px) { */
 
   /**
    * CUSTOM PROPERTY
    */
 
-  :root {
+  /* :root { */
 
     /**
      * typography
      */
 
-    --fs-6: 4.8rem;
+    /* --fs-6: 4.8rem;
 
   }
-
+ */
 
 
   /**
    * REUSED STYLE
    */
-
-  .container { max-width: 1140px; }
+/* 
+  .container { max-width: 1140px; } */
 
 
 
@@ -610,7 +611,7 @@ o contêiner se torna invisível e transparente, sinalizando que a página termi
    * HEADER
    */
 
-  .navbar,
+  /* .navbar,
   .navbar.active {
     all: unset;
     display: block;
@@ -647,9 +648,129 @@ o contêiner se torna invisível e transparente, sinalizando que a página termi
     border-radius: var(--radius-10);
   }
 
-}
+} */
+
 
 /* 
 var(--nome-da-variavel): Utilizado para a manutenção do codigo.
 Se precisar alterar um valor (por exemplo, uma cor), você só precisa alterar a variável em um único lugar, em vez de mudar em várias regras CSS. 
 */
+
+/* Alterações Paulo Vitor*/
+
+
+html,body{
+   overflow: auto; /* permite rolar o conteúdo */
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.navbar{
+  background-color: #fff;
+  height: 80px;
+  margin: 20px;
+  border-radius: 16px;
+  padding: 0.5rem;
+}
+
+.navbar-brand {
+  font-weight: 500;
+  color: #ff6663;
+  font-size: 24px;
+  transition: 0.3s color;
+}
+
+.login-button {
+  background-color: #ff6663;
+  color: #fff;
+  font-size: 14px;
+  padding: 8px 20px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: 0.3s background-color;
+}
+
+.login-button:hover{
+  /* background-color: #E0FF4F; */
+  background-color: #000;
+}
+
+.navbar-toggler{
+  border: none;
+  font-size: 1.25rem;
+}
+
+.navbar-toggler:focus,.btn-close:focus{
+  box-shadow: none;
+  outline: none;
+}
+
+.nav-link{
+  color: #666777;
+  font-weight: 500;
+  position: relative;
+}
+
+.nav-link:hover, .nav-link.active{
+  color: #000;
+}
+
+@media(min-width: 991px) {
+
+  .nav-link::before{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: #ff6663;
+    visibility: hidden;
+    transition: 0.3s ease-in-out;
+  }
+
+  .nav-link:hover::before, .nav-link.active::before{
+    width: 100%;
+    visibility: visible;
+  }
+
+}
+
+
+.hero-section{
+  background-image: url('Components/Images/home-page-background.jpg'); 
+  background-repeat: no-repeat; 
+  background-position: center; 
+  background-size: cover;
+  width: 100%;
+}
+
+.hero-section::before{
+  background-color: rgba(0, 0, 0, 0.6);
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+
+.hero-section .container {
+  height: 100vh;
+  z-index: 1;
+  position: relative;
+}
+
+.hero-section h1 {
+  font-size: 5rem;
+}
+
+/* .hero-section h2 {
+  font-size: 1.2rem;
+} */
