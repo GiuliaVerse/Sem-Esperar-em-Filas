@@ -27,4 +27,3 @@ function validateRegistration() {
 function goBack() {
     window.history.back();
 }
-
