@@ -6,34 +6,14 @@ body {
     background-size:cover;
 }
 
-/* .form-body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid #CCC;
-    border-radius: 16px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    background-color: #fff;
-    margin-bottom: 30px;
-    margin-left: 0;
-    margin-right: 0;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    width: 650px;
-    margin-top: 30px;
-}  */
-
 .form-body {
     background-color: #fff;
     height: 100vh;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    position: relative;
 }
 
-#floatingInput {
-    width: 500px;
-}
-
-.btns button {
+.form-body .btns button {
     background-color:#ff6663;
     color: #fff;
     font-size:14px;
@@ -50,7 +30,6 @@ body {
 }
 
 .btns{
-    display: flex;
     align-items: center;
     justify-content:space-between;
     margin-right: 0;

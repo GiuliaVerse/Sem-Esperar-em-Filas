@@ -1,6 +1,6 @@
 function validateRegistration() {
     // Obtem o formulario
-    var form = document.getElementById('restaurantRegistrationForm');
+    var form = document.getElementById('restaurantRegisterForm');
     var formData = new FormData(form);
 
     // Criando o objeto XML para realizar aquisiçao AJAX, Configura a requisiçao e define o destino da requisiçao php
@@ -27,3 +27,21 @@ function validateRegistration() {
 function goBack() {
     window.history.back();
 }
+
+
+const register = document.getElementById('register');
+
+register.addEventListener('click',function(){
+    let razaoSocial = document.getElementById('razaoSocial').value;
+    let nomeFantasia = document.getElementById('nomeFantasia').value;
+    let email = document.getElementById('email').value;
+    let cnpj = document.getElementById('cnpj').value;
+    let telefone = document.getElementById('telefone').value;
+    let instituicao = document.getElementById('instituicao').value;
+    let usuario = document.getElementById('usuario').value;
+    let senha = document.getElementById('senha').value;
+    let data = [razaoSocial,nomeFantasia,email,cnpj,telefone,instituicao,usuario,senha];
+    for(let i = 0; i < data.length; i++){
+        alert(data[i]);
+    }
+});
