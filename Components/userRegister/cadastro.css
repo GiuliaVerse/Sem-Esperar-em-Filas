@@ -1,0 +1,39 @@
+
+body {
+  background-image: url('/Components/Images/user-register.jpg');
+  background-repeat: no-repeat;
+  background-position:right;
+  background-size:cover;
+}
+
+.form-body {
+  background-color: #fff;
+  height: 100vh;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+
+.form-body .btns button {
+  background-color:#ff6663;
+  color: #fff;
+  font-size:14px;
+  padding: 8px 20px;
+  border-radius: 50px;
+  border: none;
+  text-decoration: none;
+  transition: 0.3s background-color;
+  width: 160px;
+}
+
+.btns button:hover {
+  background-color: black;
+}
+
+.btns{
+  align-items: center;
+  justify-content:space-between;
+  margin-right: 0;
+  margin-left: 0;
+}
+
+
