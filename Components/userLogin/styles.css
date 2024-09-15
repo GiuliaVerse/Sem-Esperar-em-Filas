@@ -1,4 +1,3 @@
-
 html, body {
   height: 100%;
   margin: 0;
@@ -15,7 +14,7 @@ html, body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('/Components/Images/istockphoto-1142846667-1024x1024.jpg'); 
+  background-image: url('/Components/Images/restaurant_background.jpg'); 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -56,18 +55,18 @@ input {
   box-sizing: border-box;
 }
 
-
 button {
   width: 32%;
   padding: 10px;
-  background-color: hsl(39, 96%, 48%);
+  background-color: #ff6663;
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
+
 button:hover {
-  background-color: hsl(39, 96%, 40%);
+  background-color: #e47977;
 }
 
 #mensagem {
