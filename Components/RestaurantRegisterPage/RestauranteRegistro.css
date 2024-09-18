@@ -1,10 +1,10 @@
-
 body {
-    background-image: url('/Components/Images/restaurant-register.jpg');
+    background-image: url('../Images/Pucpr-logo.jpg');
     background-repeat: no-repeat;
-    background-position:right;
-    background-size:cover;
+    background-size: contain;
+    background-position:  center right;
 }
+
 
 .form-body {
     background-color: #fff;
