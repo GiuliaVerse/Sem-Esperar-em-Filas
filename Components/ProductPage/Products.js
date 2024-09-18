@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        // Cria objeto FormData com os dados do formulário
+        // Obtém os dados do formulário
         const formData = new FormData(form);
 
         fetch('products.php', {
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function goBack() {
-        window.history.back();
+        window.location.href = "components/menu/menu.html"
     }
 
     // Adiciona eventos de clique aos botões
