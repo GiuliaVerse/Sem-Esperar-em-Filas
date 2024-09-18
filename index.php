@@ -13,7 +13,7 @@
 
 <body>
   <header>
-    <iframe src="./Components/Header/NavBar/navBar.html" width="100%" height="100"></iframe>
+    <iframe src="./Components/Header/NavBar/navBar.php" width="100%" height="100"></iframe>
   </header>
   
   <!-- Preloader -->
@@ -22,7 +22,7 @@
   </div>
 
 <!-- Navbar inserida -->
-<!--object type="text/html" data="/Components/Header/NavBar/navBar.html" width="100%" height="100"></object-->
+<!--object type="text/html" data="/Components/Header/NavBar/navBar.php" width="100%" height="100"></object-->
 
   <!-- Banner ''cansado ...'' -->
   <section class="section food has-bg-image" aria-label="home" style="background-image: url('./Components/Images/comida-lado-esquerdo.avif')">

@@ -20,7 +20,7 @@ function validarLogin() {
             if (response.autenticado) {
                 alert('Login realizado com sucesso!');
                 // Redirecionar para a página principal ou dashboard
-                window.location.href =  "../../index.html";
+                window.location.href =  "../../index.php";
             } else {
                 alert('Erro: ' + response.mensagem);
             }

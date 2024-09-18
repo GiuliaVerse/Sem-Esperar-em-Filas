@@ -49,6 +49,7 @@ if ($resultado->num_rows > 0) {
             $_SESSION['nome'] = $nome;
             $_SESSION['email'] = $email;
             $_SESSION['telefone'] = $telefone;
+            $_SESSION['login'] = true;
         }
     } else {
         $sql = "SELECT * FROM restaurante WHERE codigo_restaurante = $id_restaurante";
@@ -64,6 +65,7 @@ if ($resultado->num_rows > 0) {
             $_SESSION['nome'] = $nome;
             $_SESSION['email'] = $email;
             $_SESSION['telefone'] = $telefone;
+            $_SESSION['login'] = true;
         }
     }
 
