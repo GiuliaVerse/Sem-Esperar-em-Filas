@@ -1,13 +1,13 @@
 body {
     background-image: url('../Images/restaurant-register.jpg');
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     background-position:  center right;
 }
 
 
 .form-body {
-    background-color: #fff;
+    background-color: #f0f0f0;
     height: 100vh;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     position: relative;
@@ -37,3 +37,73 @@ body {
 }
 
 
+
+/* Celulares */
+@media (max-width: 450px){
+
+    body{
+        background-size: cover;
+        align-items: center;
+        justify-content: center;
+        height: 101vh;
+    }
+    
+    .form-body{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+    }
+
+    .form-body .form-iner-body{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 40px;
+        background-color: #f0f0f0;
+        border-radius: 10px;
+        margin-left: 95%;
+    }
+
+    .form-body input {
+        width: 250px;
+        align-items: center;
+        justify-content: center;   
+    }
+
+    .btns{
+        display: flex;
+        width: 250px;
+    }
+}
+
+
+
+/* Tablets */
+@media (min-width: 768px) and (max-width: 1024px){
+    
+    body{
+        display: flex;
+        background-size: cover;
+    }
+    
+    .form-body{
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        margin: 0;
+    }
+
+    .form-body input {
+        display: flex;
+        width: 300px;
+        height: 10px;
+    }
+
+    .btns{
+        width: 80px;
+        display: flex;
+        width: 300px;
+    }
+}
