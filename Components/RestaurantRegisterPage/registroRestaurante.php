@@ -31,22 +31,18 @@ if ($conn->connect_error) {
     die("Falha na conexão: " . $conn->connect_error);
 }
 
-// Codifica a senha usando password_hash
-$senha_hash = password_hash($senha, PASSWORD_DEFAULT);
-
 // Monta a query para chamar a procedure armazenada no banco de dados que insere o restaurante e o usuário
-$sql = "CALL inserir_restaurante_usuario('$razaoSocial', '$nomeFantasia', '$cnpj', '$email', '$telefone', '$instituicao', '$login', '$senha_hash')";
+$sql = "CALL inserir_restaurante_usuario('$razaoSocial', '$nomeFantasia', '$cnpj', '$email', '$telefone', '$instituicao', '$login', '$senha')";
 
 // Executa a query e verifica se foi bem-sucedida
 if ($conn->query($sql)) {
     // Se a inserção for bem-sucedida, retorna uma resposta de sucesso em formato JSON
     echo json_encode(array("success" => true));
 } else {
-    // Se houver erro, retorna uma mensagem de erro em formato JSON com o detalhe do erro
+    // Se houver erro, retorna uma mensagem de erro em formato JSON com o detalhe do erro (echo json_encode=echo é usada para imprimir essa string JSON no output, que será enviada como resposta HTTP ao cliente. )
     echo json_encode(array("success" => false, "message" => "Erro: " . $conn->error));
 }
 
 // Fecha a conexão com o banco de dados
 $conn->close();
 ?>
-
