@@ -58,7 +58,7 @@ html, body {
   button {
     width: 32%;
     padding: 10px;
-    background-color: hsl(39, 96%, 48%);
+    background-color: #ff6663;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -66,7 +66,7 @@ html, body {
   }
   
   button:hover {
-    background-color: hsl(39, 96%, 40%);
+    background-color: #e47977;
   }
   
   #mensagem {

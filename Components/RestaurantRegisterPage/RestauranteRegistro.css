@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body {
     background-image: url('../Images/restaurant-register.jpg');
     background-repeat: no-repeat;
@@ -106,4 +107,98 @@ body {
         display: flex;
         width: 300px;
     }
+=======
+/* Estilização geral do corpo da página */
+body {
+    margin: 0; /* Remove a margem padrão do corpo */
+    font-family: 'Arial', sans-serif; /* Define a fonte do corpo da página */
+    background-color: #f8f9fa; /* Cor de fundo clara para o corpo */
+}
+
+/* Container principal que envolve o conteúdo da página */
+.container-fluid {
+    height: 100vh; /* Faz com que o container ocupe toda a altura da visualização */
+    display: flex; /* Usa flexbox para layout */
+    padding: 0; /* Remove o padding padrão */
+}
+
+/* Área do formulário */
+.form-body {
+    flex: 1; /* Faz com que esta área ocupe o espaço restante no container */
+    display: flex; /* Usa flexbox para layout */
+    flex-direction: column; /* Alinha os itens verticalmente */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    justify-content: center; /* Centraliza os itens verticalmente */
+    padding: 5% 10%; /* Adiciona padding interno */
+    background-color: #ffffff; /* Fundo branco na área do formulário */
+}
+
+/* Estilização do formulário */
+.form-body form {
+    width: 100%; /* Faz com que o formulário ocupe toda a largura disponível */
+    max-width: 500px; /* Define um tamanho máximo para o formulário */
+}
+
+/* Estilização dos campos de formulário */
+.form-floating {
+    width: 100%; /* Faz com que o campo de formulário ocupe toda a largura disponível */
+    margin-bottom: 15px; /* Espaço inferior entre os campos */
+}
+
+/* Estilização dos inputs dentro da área de formulário */
+.form-body input {
+    width: 100%; /* Faz com que o input ocupe toda a largura disponível */
+    padding: 12px; /* Aumenta o padding interno dos inputs */
+    border-radius: 8px; /* Define bordas arredondadas */
+    border: 1px solid #ccc; /* Define a cor da borda */
+    box-sizing: border-box; /* Inclui o padding e a borda no tamanho total do input */
+}
+
+/* Contêiner para os botões */
+.btns {
+    width: 100%; /* Faz com que o contêiner de botões ocupe toda a largura disponível */
+    max-width: 520px; /* Define um tamanho máximo opcional para o contêiner de botões */
+    display: flex; /* Usa flexbox para layout */
+    justify-content: space-between; /* Espaça os botões uniformemente */
+    padding: 0 10px; /* Adiciona padding interno */
+    gap: 10px; /* Ajusta o espaçamento entre os botões */
+}
+
+/* Estilização dos botões */
+.btn-register, .btn-back {
+    background-color: #ff6663; /* Cor de fundo dos botões */
+    color: white; /* Cor do texto dos botões */
+    font-size: 14px; /* Tamanho da fonte dos botões */
+    padding: 10px 15px; /* Padding interno dos botões */
+    border-radius: 100px; /* Bordas arredondadas para botões circulares */
+    border: none; /* Remove a borda padrão */
+    cursor: pointer; /* Cursor de mão ao passar sobre o botão */
+    transition: 0.3s; /* Transição suave para mudanças de estado */
+    flex: 1; /* Faz com que os botões ocupem a largura disponível de forma uniforme */
+}
+
+/* Estilização do estado hover dos botões */
+.btn-register:hover, .btn-back:hover {
+    background-color: rgb(216, 73, 73); /* Cor de fundo ao passar o mouse */
+}
+
+/* Estilização do lado direito da página com a imagem de fundo */
+.image-background {
+    flex: 1; /* Faz com que esta área ocupe o espaço restante no container */
+    background-image: url('/Components/Images/restaurant-register.jpg'); /* Imagem de fundo */
+    background-size: cover; /* Faz com que a imagem cubra todo o espaço */
+    background-position: center; /* Centraliza a imagem de fundo */
+    background-repeat: no-repeat; /* Evita a repetição da imagem */
+    height: 100%; /* Faz com que a altura ocupe 100% do container */
+}
+
+/* Estilização para campos inválidos */
+.is-invalid {
+    border-color: #dc3545; /* Cor da borda para campos inválidos */
+}
+
+/* Estilização para o estado de foco dos campos inválidos */
+.is-invalid:focus {
+    box-shadow: 0 0 0 .2rem rgba(220, 53, 69, .25); /* Sombra de foco vermelha */
+>>>>>>> 6e5ee07e1b8aa75beada922ac4604f766a6a2529
 }

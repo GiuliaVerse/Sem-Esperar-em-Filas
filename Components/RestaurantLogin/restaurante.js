@@ -1,12 +1,4 @@
-function validarLogin() {
-    // Código de validação do login
-    alert('Login validado!');
-}
 
-function cadastrar() {
-    // Redirecionar para a página de cadastro
-    window.location.href = 'cadastro.html';
-}
 // a partir daqui
 function validarLogin() {
     var form = document.getElementById('loginForm');
