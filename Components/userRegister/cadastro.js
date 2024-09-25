@@ -1,3 +1,16 @@
+// Adiciona um ouvinte de evento para o botão com id 'register'
+document.getElementById('register').addEventListener('click', function(event) {
+  event.preventDefault(); // Impede o comportamento padrão do botão (envio do formulário)
+  validarCadastro(); // Chama a função de validação e envio via AJAX
+});
+
+// Adiciona um ouvinte de evento para o botão com id 'back'
+document.getElementById('back').addEventListener('click', function(event) {
+  event.preventDefault(); // Impede o comportamento padrão do botão (redirecionamento ou envio)
+  goBack(); // Chama a função que redireciona para a página de login
+});
+
+
 function validarCadastro() {
   // Seleciona o formulário
       const formulario = document.getElementById("cadastroForm");
@@ -26,6 +39,8 @@ function validarCadastro() {
               });     
         }
   
-  function Voltar() {
-     window.location.href = "../userLogin/login.html";
-  }
+function goBack() {
+ // Redireciona o usuário para a página de login do restaurante
+ window.location.href = "../userLogin/login.html";
+}
+      
