@@ -1,6 +1,16 @@
+document.getElementById('register').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevenir envio padrão do formulário
+    validateRegistration(); // Chama a função de validação e envio via AJAX
+});
+
+document.getElementById('back').addEventListener('click', function(event) {
+    event.preventDefault(); // Previne ação padrão do botão
+    goBack(); // Chama a função de voltar
+});
+
 function validateRegistration() {
     // Obtem o formulario
-    var form = document.getElementById('restaurantRegistrationForm');
+    var form = document.getElementById('restaurantRegisterForm');
     var formData = new FormData(form);
 
     // Criando o objeto XML para realizar aquisiçao AJAX, Configura a requisiçao e define o destino da requisiçao php
@@ -25,6 +35,6 @@ function validateRegistration() {
 }
 
 function goBack() {
-    window.history.back();
+    window.location.href = "../RestaurantLogin/RestaurantLogin.html";
 }
 
