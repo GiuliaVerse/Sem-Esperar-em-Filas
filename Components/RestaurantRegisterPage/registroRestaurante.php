@@ -1,13 +1,13 @@
 <?php
 // Obtém os dados do formulário
-$razaoSocial = $_POST['razaoSocial'];
-$nomeFantasia = $_POST['nomeFantasia'];
+$razaoSocial = $_POST['restaurantName'];
+$nomeFantasia = $_POST['ownerName'];
 $email = $_POST['email'];
 $cnpj = $_POST['cnpj'];
-$telefone = $_POST['telefone'];
-$instituicao = $_POST['instituicao'];
-$login = $_POST['usuario'];
-$senha = $_POST['senha'];
+$telefone = $_POST['phone'];
+$instituicao = $_POST['institution'];
+$login = $_POST['username'];
+$senha = $_POST['password'];
 
 // Verifica se todos os campos estão preenchidos
 if (empty($razaoSocial) || empty($nomeFantasia) || empty($email) || empty($cnpj) || empty($telefone) || empty($instituicao) || empty($login) || empty($senha)) {
