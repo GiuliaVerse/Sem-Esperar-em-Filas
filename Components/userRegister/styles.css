@@ -1,43 +1,109 @@
-.container {
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  input {
-    width: 100%;
-    margin-bottom: 10px;
-    padding: 8px;
-    box-sizing: border-box;
-  }
-  
-  button {
-    width: 32%;
-    padding: 10px;
-    background-color: hsl(39, 96%, 48%);
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  #mensagem {
-    margin-top: 10px;
-    font-weight: bold;
-  }
-  
-  .img{
-    width: 10px;
-    height: 10px;
-  }
+body {
+    background-image: url('../Images/restaurant-register.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:  center right;
+}
 
-  .banner{
-    z-index: 1;
-  }
+
+.form-body {
+    background-color: #f0f0f0;
+    height: 100vh;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    position: relative;
+}
+
+.form-body .btns button {
+    background-color:#ff6663;
+    color: #fff;
+    font-size:14px;
+    padding: 8px 20px;
+    border-radius: 50px;
+    border: none;
+    text-decoration: none;
+    transition: 0.3s background-color;
+    width: 250px;
+}
+
+.btns button:hover {
+    background-color: black;
+}
+
+.btns{
+    align-items: center;
+    justify-content:space-between;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+
+
+/* Celulares */
+@media (max-width: 450px){
+
+    body{
+        background-size: cover;
+        align-items: center;
+        justify-content: center;
+        height: 101vh;
+    }
+    
+    .form-body{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+    }
+
+    .form-body .form-iner-body{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 40px;
+        background-color: #f0f0f0;
+        border-radius: 10px;
+        margin-left: 95%;
+    }
+
+    .form-body input {
+        width: 250px;
+        align-items: center;
+        justify-content: center;   
+    }
+
+    .btns{
+        display: flex;
+        width: 250px;
+    }
+}
+
+
+
+/* Tablets */
+@media (min-width: 768px) and (max-width: 1024px){
+    
+    body{
+        display: flex;
+        background-size: cover;
+    }
+    
+    .form-body{
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        margin: 0;
+    }
+
+    .form-body input {
+        display: flex;
+        width: 300px;
+        height: 10px;
+    }
+
+    .btns{
+        width: 80px;
+        display: flex;
+        width: 300px;
+    }
+}
