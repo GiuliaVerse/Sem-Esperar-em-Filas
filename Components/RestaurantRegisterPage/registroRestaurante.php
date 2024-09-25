@@ -39,7 +39,7 @@ if ($conn->query($sql)) {
     // Se a inserção for bem-sucedida, retorna uma resposta de sucesso em formato JSON
     echo json_encode(array("success" => true));
 } else {
-    // Se houver erro, retorna uma mensagem de erro em formato JSON com o detalhe do erro
+    // Se houver erro, retorna uma mensagem de erro em formato JSON com o detalhe do erro (echo json_encode=echo é usada para imprimir essa string JSON no output, que será enviada como resposta HTTP ao cliente. )
     echo json_encode(array("success" => false, "message" => "Erro: " . $conn->error));
 }
 

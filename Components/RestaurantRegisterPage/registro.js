@@ -21,7 +21,7 @@ function validateRegistration() {
     // Cria um novo objeto XMLHttpRequest para realizar a requisição AJAX
     var ajaxRequest = new XMLHttpRequest();
     
-    // Configura a requisição AJAX com o método POST e o destino 'registroRestaurante.php'
+    // Configura a requisição AJAX com o método POST e o destino 'registroRestaurante.php' (ajaxRequest.open(method, url, async);)
     ajaxRequest.open('POST', 'registroRestaurante.php', true);
     
     // Define o que fazer quando a resposta da requisição for recebida
