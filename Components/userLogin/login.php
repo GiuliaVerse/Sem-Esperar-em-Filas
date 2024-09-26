@@ -51,7 +51,7 @@ if ($resultado->num_rows > 0) {
             $_SESSION['nome'] = $nome;
             $_SESSION['email'] = $email;
             $_SESSION['telefone'] = $telefone;
-            $_SESSION['login'] = true; // Marca que o usuário está logado
+            $_SESSION['login'] = true; // Marca que o usuário está logado no site
         }
     } else {
         // Se o usuário não é um cliente, verifica se ele é um restaurante
@@ -68,7 +68,7 @@ if ($resultado->num_rows > 0) {
             $_SESSION['nome'] = $nome;
             $_SESSION['email'] = $email;
             $_SESSION['telefone'] = $telefone;
-            $_SESSION['login'] = true; // Marca que o usuário está logado
+            $_SESSION['login'] = true; // Marca que o usuário está logado no site 
         }
     }
 
