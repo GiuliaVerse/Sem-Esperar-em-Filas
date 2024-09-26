@@ -5,8 +5,8 @@ function validarCadastro() {
        const formData = new FormData(formulario);
         // Envia os dados usando a API Fetch
         fetch("cadastro.php", {
-           method: "POST",
-           body: formData,
+           method: "POST", // Define o método HTTP como POST
+           body: formData, // Envia o objeto formData no corpo da requisição
         })
            .then((response) => response.json())
            .then((data) => {
@@ -17,12 +17,13 @@ function validarCadastro() {
                         alert("Usuário cadastrado!");
                         window.location.href = "../userLogin/login.html"
                     } else {
+                      // Exibe a mensagem de erro na página
                       document.getElementById("mensagem").innerHTML = data.message;
                     }                 
               })
               .catch((error) => {
                 console.error("Erro:", error);
-                alert("Ocorreu um erro ao enviar o formulário.");
+                alert("Ocorreu um erro ao enviar o formulário.");// Mostra um alerta com a mensagem de erro
               });     
         }
   
