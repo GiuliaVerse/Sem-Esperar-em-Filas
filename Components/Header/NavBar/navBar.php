@@ -62,6 +62,7 @@ session_start();
 
             echo '<li class="navbar-item">
             <a href="../../../Components/userLogin/logout.php" target="_top" class="navbar-link" data-nav-link>Logout</a>
+
              </li>';
           }         
         ?> 
