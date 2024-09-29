@@ -55,7 +55,7 @@ session_start();
             <a href="../../../Components/RestaurantesBusca/restaurantsPage.php" target="_top" class="navbar-link" data-nav-link>Restaurantes</a>
           </li>
           <li class="navbar-item"> 
-            <a href="../../../Components/RestaurantLogin/RestaurantLogin.html" target="_top" class="navbar-link" data-nav-link>Login Restaurante</a>
+            <a href="../../../Components/RestaurantRegisterPage/RestauranteRegister.html" target="_top" class="navbar-link" data-nav-link>Cadastre Seu Restaurante</a>
           </li>
           <li class="navbar-item"> 
             <a href="../../../Components/CarrinhoDeCompras/cart.html" target="_top" class="navbar-link" data-nav-link>Carrinho</a>
