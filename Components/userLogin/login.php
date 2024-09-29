@@ -76,9 +76,12 @@ if ($resultado->num_rows > 0) {
                 $_SESSION['login'] = true; // Marca que o usuário está logado no site 
             }
         }
+        // Retorna uma resposta JSON indicando sucesso na autenticação
+        echo json_encode(array("autenticado" => true, "tipo" => $_SESSION['tipo'], "id" => $_SESSION['id']));
+    } else {
+        // Indica se a senha está errada
+        echo json_encode(array("autenticado" => false));
     }
-    // Retorna uma resposta JSON indicando sucesso na autenticação
-    echo json_encode(array("autenticado" => true, "tipo" => $_SESSION['tipo'], "id" => $_SESSION['id']));
 } else {
     // Se nenhum resultado foi encontrado (usuário não autenticado), retorna uma resposta JSON de falha
     echo json_encode(array("autenticado" => false));
