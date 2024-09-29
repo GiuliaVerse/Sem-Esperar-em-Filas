@@ -14,7 +14,10 @@ if ($nome === "" || $cpf === "" || $email === "" || $telefone === "" || $login =
 
 }
 
+// Codifica a senha usando password_hash
+$senha_codificada = password_hash($senha, PASSWORD_DEFAULT);
 // Configurações do banco de dados
+
 $host = "localhost";
 $usuario = "root";
 $senha_banco = "";
@@ -29,7 +32,7 @@ if ($conn->connect_error) {
 }
 
 // Insere o cliente no banco de dados
-$sql = "CALL inserir_cliente_usuario('$nome', '$cpf', '$email', '$telefone', '$login', '$senha')";
+$sql = "CALL inserir_cliente_usuario('$nome', '$cpf', '$email', '$telefone', '$login', '$senha_codificada')";
 
 // Executando a consulta SQL
 if ($conn->query($sql)) {
