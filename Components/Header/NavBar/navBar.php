@@ -47,18 +47,17 @@ session_start();
           <?php
           }
           ?> 
-
           <li class="navbar-item">
-            <a href="../../../Components/AboutUs/about.html" target="_top"  class="navbar-link" data-nav-link>Sobre nós</a>
-          </li>
-          <li class="navbar-item">
-            <a href="../../../Components/RestaurantesBusca/restaurantsPage.php" target="_top" class="navbar-link" data-nav-link>Restaurantes</a>
+            <a href="../../../Components/RestaurantesBusca/restaurantsPage.php" target="_top" class="navbar-link" data-nav-link> Lista de Restaurantes</a>
           </li>
           <li class="navbar-item"> 
             <a href="../../../Components/RestaurantRegisterPage/RestauranteRegister.html" target="_top" class="navbar-link" data-nav-link>Cadastre Seu Restaurante</a>
           </li>
           <li class="navbar-item"> 
             <a href="../../../Components/CarrinhoDeCompras/cart.html" target="_top" class="navbar-link" data-nav-link>Carrinho</a>
+          </li>
+          <li class="navbar-item">
+            <a href="../../../Components/AboutUs/about.html" target="_top"  class="navbar-link" data-nav-link>Sobre nós</a>
           </li>
           <?php
           if (isset($_SESSION['tipo'])) { 

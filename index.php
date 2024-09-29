@@ -25,11 +25,11 @@
 <!--object type="text/html" data="/Components/Header/NavBar/navBar.php" width="100%" height="100"></object-->
 
   <!-- Banner ''cansado ...'' -->
-  <section class="section food has-bg-image" aria-label="home" style="background-image: url('./Components/Images/comida-lado-esquerdo.avif')">
+  <section class="section food has-bg-image" aria-label="home" style="background-image: url('./Components/Images/teste1.jpg')">
     <div class="container">
       <div class="navbar-banner">
-        <h1 class="h1 food-title">Cansado de esperar 10 minutos na fila para ficar sem coxinha?</h1>
-        <a id="Peça Agora" href="menu.html" class="btn btn-secondary has-after">Peça Agora</a>
+        <h1 class="h1 food-title" style="color: white" >Cansado de esperar 10 minutos na fila para ficar sem coxinha?</h1>
+        <a id="Peça Agora" href="menu.html" class="btn btn-secondary has-after">Peça Agora</a>  
       </div>
     </div>
   </section>
@@ -40,15 +40,15 @@
     <div class="container">
       <h2 class="h2 section-title" id="selection-label" data-reveal>Suas cantinas preferidas aqui!</h2>
       <p class="section-text" data-reveal>
-        Peça o que quiser
+        Peça o que Quiser
         <br>
-        Quando quiser
+        No Momento que Quiser
       </p>
       <ul class="grid-list">
         <li data-reveal="left">
           <div class="selection-card">
             <figure class="card-banner">
-              <img src="./Components/Images/coxinha.jpg" width="300" height="154" loading="lazy" alt="Restaurant A"
+              <img src="./Components/Images/hamburguer.png" width="300" height="154" loading="lazy" alt="Restaurant A"
                 class="w-100">
             </figure>
             <div class="card-content">
@@ -65,7 +65,7 @@
         <li data-reveal>
           <div class="selection-card">
             <figure class="card-banner">
-              <img src="./Components/Images/doguinho.jpg" width="300" height="154" loading="lazy" alt="Restaurante B"
+              <img src="./Components/Images/hamburguer.png" width="300" height="154" loading="lazy" alt="Restaurante B"
                 class="w-100">
             </figure>
             <div class="card-content">
