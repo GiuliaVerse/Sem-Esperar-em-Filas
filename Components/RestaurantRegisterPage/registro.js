@@ -113,6 +113,7 @@ function validateRegistration() {
                 
                 // Reseta o formulário após o registro bem-sucedido
                 form.reset();
+                goBack();
             } else {
                 // Exibe uma mensagem de erro com base na resposta do servidor
                 alert('Erro: ' + response.message);
@@ -130,5 +131,5 @@ function validateRegistration() {
 // Função responsável por redirecionar o usuário de volta para a página de login
 function goBack() {
     // Redireciona o usuário para a página de login do restaurante
-    window.location.href = "../RestaurantLogin/RestaurantLogin.html";
+    window.location.href = "../userLogin/login.html";
 }

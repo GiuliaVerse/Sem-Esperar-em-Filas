@@ -32,33 +32,45 @@ session_start();
           <img src="../../Images/hamburguer.png" width="50" height="38" alt="SEF home">
         </a>
         <ul class="navbar-list">
-          <?php
-          if (!isset($_SESSION['login']) || $_SESSION['login'] !== true) { 
-          ?> 
-          <li class="navbar-item">
-            <a href="../../../Components/userLogin/login.html" target="_top" class="navbar-link" data-nav-link>Login</a>
-          </li>
-          <?php
-          } else {
-          ?> 
-          <li class="navbar-item">
+
+      
+        <?php
+        // Verifica se o usuário está logado
+          if (!isset($_SESSION['login']) || $_SESSION['login'] !== true) {
+             // gera opções para usuário deslogado // mostra uma informação na saída do navegador 
+              echo '<li class="navbar-item">
+                    <a href="../../../Components/userLogin/login.html" target="_top" class="navbar-link" data-nav-link>Login</a>
+                  </li>';
+              echo '
+                  <li class="navbar-item"> 
+                     <a href="../../../Components/RestaurantRegisterPage/RestauranteRegister.html" target="_top" class="navbar-link" data-nav-link>Cadastre Seu Restaurante</a>
+                  </li>';
+                }
+          else {
+            if( $_SESSION['tipo'] == 'cliente') {
+              echo '<li class="navbar-item">
+                    <a href="../../../Components/RestaurantesBusca/restaurantsPage.php" target="_top" class="navbar-link" data-nav-link>Restaurantes Disponíveis</a>
+                   </li>';
+              echo '<li class="navbar-item"> 
+                   <a href="../../../Components/CarrinhoDeCompras/cart.html" target="_top" class="navbar-link" data-nav-link>Carrinho</a>
+                    </li>';
+           } else {
+              echo '<li class="navbar-item">
+                    <a href="../../../Components//ProductPage/Products.html" target="_top" class="navbar-link" data-nav-link> Cadastrar Produtos</a>
+                  </li>';
+           }
+
+            echo '<li class="navbar-item">
             <a href="../../../Components/userLogin/logout.php" target="_top" class="navbar-link" data-nav-link>Logout</a>
-          </li>
-          <?php
-          }
-          ?> 
-          <li class="navbar-item">
-            <a href="../../../Components/RestaurantesBusca/restaurantsPage.php" target="_top" class="navbar-link" data-nav-link> Lista de Restaurantes</a>
-          </li>
-          <li class="navbar-item"> 
-            <a href="../../../Components/RestaurantRegisterPage/RestauranteRegister.html" target="_top" class="navbar-link" data-nav-link>Cadastre Seu Restaurante</a>
-          </li>
-          <li class="navbar-item"> 
-            <a href="../../../Components/CarrinhoDeCompras/cart.html" target="_top" class="navbar-link" data-nav-link>Carrinho</a>
-          </li>
+
+             </li>';
+          }         
+        ?> 
+
           <li class="navbar-item">
             <a href="../../../Components/AboutUs/about.html" target="_top"  class="navbar-link" data-nav-link>Sobre nós</a>
           </li>
+
           <?php
           if (isset($_SESSION['tipo'])) { 
           ?> 
@@ -66,6 +78,7 @@ session_start();
              Logado como <?php echo $_SESSION['tipo']?>
           </li>
           <?php } ?>
+
         </ul>
       </nav>
       <div class="header-action">

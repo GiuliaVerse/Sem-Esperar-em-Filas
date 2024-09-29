@@ -31,7 +31,7 @@ function validarLogin() {
                 window.location.href = "../../index.php"; // Redireciona para a página inicial
             } else {
                 // Se não autenticado, exibe uma mensagem de erro no elemento com id "mensagem"
-                document.getElementById("mensagem").innerText = "Usuário não cadastrado.";
+                alert('Usuário ou senha inválidos!');
             }
         })
         .catch((error) => {
