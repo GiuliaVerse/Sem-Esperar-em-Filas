@@ -21,8 +21,8 @@ if ($conn->connect_error) {
 }
 
 // Prepara a consulta SQL para evitar SQL Injection (proteger contra dados maliciosos)
-$stmt = $conn->prepare("SELECT * FROM usuario WHERE login = ? AND senha = ?");
-$stmt->bind_param("ss", $username, $password); // Substitui as interrogações (?) pelos valores do login e senha
+$stmt = $conn->prepare("SELECT * FROM usuario WHERE login = ?");
+$stmt->bind_param("s", $username); // Substitui as interrogações (?) pelos valores do login e senha
 
 // Executa a consulta SQL
 $stmt->execute();
@@ -32,47 +32,52 @@ $resultado = $stmt->get_result(); // Obtém o resultado da consulta
 if ($resultado->num_rows > 0) {
     // Obtém os dados da linha correspondente (primeiro resultado)
     $linha = $resultado->fetch_assoc();
+    $hash_senha_armazenada = $linha['senha']; // Obtém o hash da senha armazenada no banco
     $id_cliente = $linha["cliente_codigo_cliente"]; // Obtém o código do cliente
     $id_restaurante = $linha['restaurante_codigo_restaurante']; // Obtém o código do restaurante
 
-    // Verifica se o usuário é um cliente (se a coluna cliente_codigo_cliente não for nula)
-    if( $id_cliente != null ) {
-        // Prepara uma nova consulta para obter os dados do cliente
-        $sql = "SELECT * FROM cliente WHERE codigo_cliente = $id_cliente";
-        if ($resultado = $conn->query($sql)) { // Executa a consulta
-            $linha = $resultado->fetch_assoc(); // Obtém os dados do cliente
-            $nome = $linha["nome"]; // Nome do cliente
-            $email = $linha["email"]; // Email do cliente
-            $telefone = $linha["telefone"]; // Telefone do cliente
+    // Verifica se a senha inserida corresponde ao hash armazenado
+    if (password_verify($password, $hash_senha_armazenada)) {
+        // Se a senha for válida, continua a verificar o tipo de usuário
 
-            // Armazena os dados do cliente na sessão
-            $_SESSION['tipo'] = 'cliente';
-            $_SESSION['id'] = $id_cliente;
-            $_SESSION['nome'] = $nome;
-            $_SESSION['email'] = $email;
-            $_SESSION['telefone'] = $telefone;
-            $_SESSION['login'] = true; // Marca que o usuário está logado no site
+        // Verifica se o usuário é um cliente (se a coluna cliente_codigo_cliente não for nula)
+        if( $id_cliente != null ) {
+            // Prepara uma nova consulta para obter os dados do cliente
+            $sql = "SELECT * FROM cliente WHERE codigo_cliente = $id_cliente";
+            if ($resultado = $conn->query($sql)) { // Executa a consulta
+                $linha = $resultado->fetch_assoc(); // Obtém os dados do cliente
+                $nome = $linha["nome"]; // Nome do cliente
+                $email = $linha["email"]; // Email do cliente
+                $telefone = $linha["telefone"]; // Telefone do cliente
+
+                // Armazena os dados do cliente na sessão
+                $_SESSION['tipo'] = 'cliente';
+                $_SESSION['id'] = $id_cliente;
+                $_SESSION['nome'] = $nome;
+                $_SESSION['email'] = $email;
+                $_SESSION['telefone'] = $telefone;
+                $_SESSION['login'] = true; // Marca que o usuário está logado no site
+            }
+        } else {
+            // Se o usuário não é um cliente, verifica se ele é um restaurante
+            $sql = "SELECT * FROM restaurante WHERE codigo_restaurante = $id_restaurante";
+            if ($resultado = $conn->query($sql)) { // Executa a consulta
+                $linha = $resultado->fetch_assoc(); // Obtém os dados do restaurante
+                $nome = $linha["nome_fantasia"]; // Nome fantasia do restaurante
+                $email = $linha["email"]; // Email do restaurante
+                $telefone = $linha["telefone"]; // Telefone do restaurante
+
+                // Armazena os dados do restaurante na sessão
+                $_SESSION['tipo'] = 'restaurante';
+                $_SESSION['id'] = $id_restaurante;
+                $_SESSION['nome'] = $nome;
+                $_SESSION['email'] = $email;
+                $_SESSION['telefone'] = $telefone;
+                $_SESSION['login'] = true; // Marca que o usuário está logado no site 
+            }
         }
-    } else {
-        // Se o usuário não é um cliente, verifica se ele é um restaurante
-        $sql = "SELECT * FROM restaurante WHERE codigo_restaurante = $id_restaurante";
-        if ($resultado = $conn->query($sql)) { // Executa a consulta
-            $linha = $resultado->fetch_assoc(); // Obtém os dados do restaurante
-            $nome = $linha["nome_fantasia"]; // Nome fantasia do restaurante
-            $email = $linha["email"]; // Email do restaurante
-            $telefone = $linha["telefone"]; // Telefone do restaurante
 
-            // Armazena os dados do restaurante na sessão
-            $_SESSION['tipo'] = 'restaurante';
-            $_SESSION['id'] = $id_restaurante;
-            $_SESSION['nome'] = $nome;
-            $_SESSION['email'] = $email;
-            $_SESSION['telefone'] = $telefone;
-            $_SESSION['login'] = true; // Marca que o usuário está logado no site 
-        }
-    }
-
-    // Retorna uma resposta JSON indicando sucesso na autenticação
+    }    // Retorna uma resposta JSON indicando sucesso na autenticação
     echo json_encode(array("autenticado" => true, "tipo" => $_SESSION['tipo'], "id" => $_SESSION['id']));
 } else {
     // Se nenhum resultado foi encontrado (usuário não autenticado), retorna uma resposta JSON de falha

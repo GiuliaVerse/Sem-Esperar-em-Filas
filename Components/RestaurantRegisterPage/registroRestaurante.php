@@ -16,6 +16,9 @@ if (empty($razaoSocial) || empty($nomeFantasia) || empty($email) || empty($cnpj)
     exit; // Termina a execução do script
 }
 
+// Codifica a senha usando password_hash
+$senha_codificada = password_hash($senha, PASSWORD_DEFAULT);
+
 // Configurações de conexão com o banco de dados
 $host = "localhost"; // Endereço do servidor de banco de dados
 $usuario = "root"; // Nome de usuário do banco de dados
@@ -32,7 +35,7 @@ if ($conn->connect_error) {
 }
 
 // Monta a query para chamar a procedure armazenada no banco de dados que insere o restaurante e o usuário
-$sql = "CALL inserir_restaurante_usuario('$razaoSocial', '$nomeFantasia', '$cnpj', '$email', '$telefone', '$instituicao', '$login', '$senha')";
+$sql = "CALL inserir_restaurante_usuario('$razaoSocial', '$nomeFantasia', '$cnpj', '$email', '$telefone', '$instituicao', '$login', '$senha_codificada')";
 
 // Executa a query e verifica se foi bem-sucedida
 if ($conn->query($sql)) {
