@@ -80,6 +80,7 @@ function validarCadastro() {
                 
                 // Reseta o formulário após o registro bem-sucedido
                 form.reset();
+                Voltar();
             } else {
                 // Exibe uma mensagem de erro com base na resposta do servidor
                 alert('Erro: ' + response.message);
