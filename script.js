@@ -1,79 +1,129 @@
-"use strict"; // Modo estrito para escrever JavaScript mais seguro e moderno  
-
-const addEventOnElements = function (elem, type, callback) {
-  for (let i = 0, len = elem.length; i < len; i++) {
-    elem[i].addEventListener(type, callback);
-  }
-};
-//addEventOnElements é usada para adicionar eventos de clique aos togglers de navegação e links da navbar.
-
-const loadingElement = document.querySelector("[data-loading-container]");
-// loading ElementAnimação de carregamento (Preloader)
+let navbar = document.querySelector('.header .navbar'); // seleciona o elemento navbar
+let menuBtn = document.querySelector('#menu-btn'); // seleciona o elemento menu-btn
+let beginBtn = document.getElementById('slide-btn'); // seleciona o botão COMEÇAR do slide
+let loggedUser; // captura o nome do usuário logado
+let sessionName; // captura o nome da sessão
 
 
-window.addEventListener("load", function () {
-  loadingElement.classList.add("loaded"); // Adiciona a classe 'loaded' ao elemento de carregamento
-  document.body.classList.add("loaded");// Adiciona a classe 'loaded' ao body
-});
+menuBtn.onclick = () => {
+    menuBtn.classList.toggle('fa-times');
+    navbar.classList.toggle('active'); 
+};// altera o icone do botão menu-btn
 
-const navbar = document.querySelector("[data-navbar]");
-const navTogglers = document.querySelectorAll("[data-nav-toggler]");
-const navbarLinks = document.querySelectorAll("[data-nav-link]");
-const overlay = document.querySelector("[data-overlay]");
-//Faz a alternância da barra de navegação móvel
 
-const toggleNavbar = function () {
-  navbar.classList.toggle("active"); // Alterna a classe 'active' na navbar
-  overlay.classList.toggle("active");// Alterna a classe 'active' no overlay
-  document.body.classList.toggle("active");  // Alterna a classe 'active' no body
-};
-//toggleNavBar, as funções e seletores são usados para alternar a exibição da navbar móvel e do overlay.
+lightGallery(document.querySelector('.gallery .gallery-container')); // manipula os slides da galeria
 
-addEventOnElements(navTogglers, "click", toggleNavbar);
-//addEventOnElements adiciona evento de clique nos togglers da navbar
 
-const closeNavbar = function () {
-  navbar.classList.remove("active"); // Remove a classe 'active' da navbar
-  overlay.classList.remove("active"); // Remove a classe 'active' do overlay
-  document.body.classList.remove("active"); // Remove a classe 'active' do body
-};
+const addLoggedUserOnNavbar = function (session, user) {
 
-addEventOnElements(navbarLinks, "click", closeNavbar);
-// Adiciona evento de clique nos links da navbar para fechar a navbar ao clicar em um link
+    let userIcons = ['fas fa-user','fas fa-utensils']; // 0 - icone cliente | 1 - icone restaurante
 
-const header = document.querySelector("[data-header]");
-// Faz com que o  cabeçalho (Header) fique ativo após rolar 200px
+    let newElement = document.createElement('a'); // cria um novo elemento <a>
 
-const headerActive = function () {
-  window.scrollY > 200
-    ? header.classList.add("active")
-    : header.classList.remove("active");
-};
-// Função para ativar o cabeçalho ao rolar a página por  200px
+    newElement.href='#'; // define o atributo href, ou seja, a pagina que será redirecionada
 
-window.addEventListener("scroll", headerActive);
-// Faz com que o evento de ''rolagem'' SEJA adicionado para ativar o header
+    let icon = document.createElement('i'); // cria um novo elemento <i>
 
-const revealElements = document.querySelectorAll("[data-reveal]");
-// Seleciona o [data-reveal] para criar aquele efeito de  revelação de elementos ao rolar a página (Scroll Reveal)
+    if(session == "restaurante"){ 
 
-const scrollReveal = function () {
-  for (let i = 0, len = revealElements.length; i < len; i++) {
-    if (
-      revealElements[i].getBoundingClientRect().top <
-      window.innerHeight / 1.2
-    ) {
-      revealElements[i].classList.add("revealed");
+        navbar.removeChild(document.querySelector('.login-cliente')); // remove login cliente da navbar
+        navbar.removeChild(document.querySelector('.login-restaurante')); // remove login restaurante da navbar
+
+        icon.className = userIcons[1]; // define a classe do Font Awesome para o elemento <i>
+
+        newElement.appendChild(icon); // adiciona o elemento do ícone como filho do elemento de link
+
+        newElement.appendChild(document.createTextNode(` ${user}`)); // adiciona um espaço em branco e o nome do usuário ao link
+
+        navbar.appendChild(newElement); // adiciona o novo elemento de link à navbar
+
+        let products = document.createElement('a'); // cria um novo elemento <a>
+
+        products.href = '#'; // define o atributo href, ou seja, a pagina que será redirecionada
+
+        let productsIcon = document.createElement('i'); // cria um novo elemento <i>
+
+        productsIcon.className = 'fas fa-burger'; // define a classe do Font Awesome para o elemento <i>
+
+        products.appendChild(productsIcon); // adiciona o elemento do ícone como filho do elemento de link
+
+        products.appendChild(document.createTextNode(' cadastrar produtos')); // adiciona um espaço em branco e o nome da nova opção
+
+        navbar.appendChild(products); // adiciona o novo elemento de link à navbar
+
+        
+        let productsList = document.createElement('a'); // cria um novo elemento <a>
+
+        productsList.href = '#'; // define o atributo href, ou seja, a pagina que será redirecionada
+
+        let productsListIcon = document.createElement('i'); // cria um novo elemento <i>
+        productsListIcon.className = 'fas fa-list'; // define a classe do Font Awesome para o elemento <i>
+
+        productsList.appendChild(productsListIcon); // adiciona o elemento do ícone como filho do elemento de link
+
+        productsList.appendChild(document.createTextNode(' lista de produtos')); // adiciona um espaço em branco e o nome da nova opção
+
+        navbar.appendChild(productsList); // adiciona o novo elemento de link à navbar
+
+        let logOut = document.createElement('a'); // cria um novo elemento <a>
+
+        logOut.href = '#'; // define o atributo href, ou seja, a pagina que será redirecionada
+
+        let logOutIcon = document.createElement('i'); // cria um novo elemento <i>
+        logOutIcon.className = 'fas fa-arrow-right-from-bracket'; // define a classe do Font Awesome para o elemento <i>
+
+        logOut.appendChild(logOutIcon); // adiciona o elemento do ícone como filho do elemento de link
+
+        logOut.appendChild(document.createTextNode(' Sair')); // adiciona um espaço em branco e o nome da nova opção
+
+        navbar.appendChild(logOut); // adiciona o novo elemento de link à navbar
+
+
     }
-  }
-};
-//Função para revelar elementos ao rolar a página
-window.addEventListener("scroll", scrollReveal);
-window.addEventListener("load", scrollReveal);
-window.addEventListener 
 
-// Evento de clique para redirecionar o botão "Peça Agora" para outra página
-document.getElementById("Peça Agora").addEventListener("click", function (event) {
-  event.preventDefault(); // Evita o comportamento padrão do link
-  window.location.href = "Components/Menu/menu.html"; // Redireciona para outra página
-});
+    else if(session == "user"){
+
+        navbar.removeChild(document.querySelector('.login-cliente')); // remove login cliente da navbar
+        navbar.removeChild(document.querySelector('.login-restaurante')); // remove login restaurante da navbar
+
+        icon.className = userIcons[0]; // define a classe do Font Awesome para o elemento <i>
+
+        newElement.appendChild(icon); // adiciona o elemento do ícone como filho do elemento de link
+
+        newElement.appendChild(document.createTextNode(` ${user}`)); // adiciona um espaço em branco e o nome do usuário ao link
+
+        navbar.appendChild(newElement); // adiciona o novo elemento de link à navbar
+
+        let cart = document.createElement('a'); // define elemento do carrinho de compras
+        cart.href = '#'; // define o atributo href, ou seja, a pagina que será redirecionada
+
+        let cartIcon = document.createElement('i'); // cria um novo elemento <i>
+        cartIcon.className = 'fas fa-cart-shopping'; // define a classe do Font Awesome para o elemento <i>
+
+        cart.appendChild(cartIcon); // adiciona o elemento do ícone como filho do elemento de link
+
+        cart.appendChild(document.createTextNode(' carrinho')); // adiciona um espaço em branco e o nome da nova opção
+
+        navbar.appendChild(cart); // adiciona o novo elemento de link à navbar
+
+        let logOut = document.createElement('a'); // cria um novo elemento <a>
+
+        logOut.href = '#'; // define o atributo href, ou seja, a pagina que será redirecionada
+
+        let logOutIcon = document.createElement('i'); // cria um novo elemento <i>
+        logOutIcon.className = 'fas fa-arrow-right-from-bracket'; // define a classe do Font Awesome para o elemento <i>
+
+        logOut.appendChild(logOutIcon); // adiciona o elemento do ícone como filho do elemento de link
+
+        logOut.appendChild(document.createTextNode(' Sair')); // adiciona um espaço em branco e o nome da nova opção
+
+        navbar.appendChild(logOut); // adiciona o novo elemento de link à navbar
+
+    }
+    
+}
+
+sessionName = "";
+loggedUser = ""
+
+addLoggedUserOnNavbar(sessionName,loggedUser);
