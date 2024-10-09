@@ -1,655 +1,567 @@
-:root {
-  /* cores de fundo */
-  --sonic-silver: hsl(0, 0%, 47%);
-  --eerie-black: hsl(210, 11%, 15%);
-  --light-gray: hsl(0, 0%, 83%);
-  --davys-gray: hsl(0, 0%, 30%);
-  --marigold: hsl(39, 96%, 48%);
-  --platinum: hsl(0, 0%, 90%);
-  --white: hsl(0, 0%, 100%);
-  --black: hsl(0, 0%, 0%);
-  --jet: hsl(0, 0%, 21%);
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap');
 
-
-/* tipografia da homepage */
-   /* Define a família de fontes a ser usada. */
-  --ff-poppins: "Poppins", sans-serif; 
-
-  --fs-2: 4.2rem;
-  --fs-5: 3.4rem;
-  --fs-6: 3.2rem;
-  --fs-8: 2.4rem;
-
-  /*fontes: 500 normal e 700 negrito */
-  --fw-500: 500;
-  --fw-700: 700;
-
-
-  /* padding (preenchimento) para seções */
-  --section-padding: 100px;
-
-
-  /* Border Radiu(s (arredondar as bordas) */
-  --radius-circle: 50%;
-  --radius-20: 20px;
-  --radius-15: 15px;
-  --radius-10: 10px;
-
-  /* box shadow (efeitos de sombra) */
-  --shadow-1: 0 0 30px 4px hsla(0, 0%, 0%, 0.05);
-  --shadow-2: -1px 15px 26px -4px hsla(0, 5%, 61%, 0.15);
-
-  /* Transition */
-  /* valores para transições, especificando duração e curvas de aceleração. */
-  --transition-1: 0.25s ease;
-  --transition-2: 0.5s ease;
-  --cubic-out: cubic-bezier(0.33, 0.85, 0.4, 0.96);
-}
-/* -----------------------fim da root ----------------------- */
-
-
-
-/* 
-  #RESET: Remove margens, paddings e define box-sizing para todos os elementos, 
-  garantindo um estilo básico e consistente entre diferentes navegadores. 
-*/
-
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{
+    font-family: "Dosis", sans-serif;
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    outline: none; border: none;
+    text-decoration: none;
+    transition:  all 0.4s cubic-bezier(.43,1.1,.62,1.08);
+    text-transform: capitalize;
+    --dark-bg:rgb(0,0,0,.7);
+    --light-bg:#f5f5f5;
 }
 
-li { list-style: none; }
-
-a,
-img,
-span,
-input,
-button,
-ion-icon { display: block; }
-
-a {
-  color: inherit;
-  text-decoration: none;
+* > img{
+    user-select: none;
+    pointer-events: none;
 }
 
-img { height: auto; }
-
-input,
-button {
-  background: none;
-  border: none;
-  font: inherit;
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
 }
 
-input { width: 100%; }
-
-button { cursor: pointer; }
-
-ion-icon { pointer-events: none; }
-
-address { font-style: normal; }
-
-html {
-  font-family: var(--ff-poppins);
-  font-size: 10px;
-  scroll-behavior: smooth;
+html::-webkit-scrollbar{
+    width: 1rem;
 }
 
-body {
-  background-color: var(--white);
-  color: var(--sonic-silver);
-  font-size: 1.6rem;
-  line-height: 1.6;
-  overflow: hidden;
+html::-webkit-scrollbar-track{
+    background-color: black;
 }
 
-body.loaded {
-  overflow-x: hidden;
-  overflow-y: visible;
+html::-webkit-scrollbar-thumb{
+    background-color: red;
 }
 
-body.active { overflow: hidden; }
-
-:focus-visible { outline-offset: 4px; }
-
-::-webkit-scrollbar { width: 10px; }
-
-::-webkit-scrollbar-track { background-color: hsl(0, 0%, 98%); }
-
-::-webkit-scrollbar-thumb { background-color: hsl(0, 0%, 80%); }
-
-::-webkit-scrollbar-thumb:hover { background-color: hsl(0, 0%, 70%); }
-/* -----------------------fim do Reset----------------------- */
-
-
-
-  /* #REUSED STYLE */
-.container { padding-inline: 15px; }
-.section { padding-block: var(--section-padding); }
-
-/* Estiliza títulos (h1 a h5) com cores, peso e tamanhos de fonte. */
-.h1,
-.h2,
-.h3,
-.h4,
-.h5 {
-  color: var(--jet);
-  font-weight: var(--fw-700);
-  line-height: 1.2;
+section{
+    padding: 5rem 10%;
 }
 
-.h1,
-.h2 { font-size: var(--fs-2); }
+.header a{
+    text-decoration: none;
+}
 
-.h3 { font-size: var(--fs-5); }
+.header .logo{
+    color: black;
+}
 
-.h4 { font-size: var(--fs-6); }
+.header .logo img{
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+    margin-right: 30px;
+}
 
-.h5 { font-size: var(--fs-8); }
-/* -----------------------fim----------------------- */
+.slide-btn{
+    margin-top: 1rem;
+    display: inline-block;
+    background-color: red;
+    color:white;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 1rem 3rem;
+    text-decoration: none;
+}
 
+.slide-btn:hover{
+    letter-spacing: .2rem;
+}
 
-  /* seção "Cantinas CTA" */
-  .cta-bg-image {
-    background-size: 90%; /* Ajusta a imagem para 50% do tamanho do container */
-    background-position: center;
-  }
+.about-btn{
+    margin-top: 1rem;
+    display: inline-block;
+    background-color: red;
+    color:white;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 1rem 3rem;
+    text-decoration: none;
+}
 
-  .has-before,
-  .has-after {
-    position: relative;
-    z-index: 1;
-   /* z-index 1 elementos fiquem atrás do conteúdo */
-  }
+.about-btn:hover{
+    letter-spacing: .2rem;
+}
 
-  .has-before::before,
-  .has-after::after {
-    position: absolute;
-    content: "";
-  }
+.blog-btn{
+    margin-top: 1rem;
+    display: inline-block;
+    background-color: red;
+    color:white;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 1rem 3rem;
+    text-decoration: none;
+}
 
-  .btn {
-    padding: 13px 25px;
+.blog-btn:hover{ 
+    letter-spacing: .2rem;
+}
+
+/* navbar starts */
+.header{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
     display: flex;
     align-items: center;
-    gap: 5px;
-    max-width: max-content;
-    background-color: var(--marigold);
-    color: var(--white);
+    justify-content: space-between;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    position: sticky;
+    top:0; left:0; right: 0;
+    z-index: 1000;
+    background-color: white;
+}
+
+.header .logo{
+    font-size: 2.5rem;
+    font-weight: bolder;
+}
+
+
+.header .navbar a{
+    font-size: 2rem;
+    margin-left: 2rem;
+    color: black;
+}
+
+.header .navbar a:hover{
+    color: red;
+}
+
+#menu-btn{
+    font-size: 2.5rem;
+    cursor: pointer;
+    color: black;
+    display: none;
+}
+/* navbar ends */
+
+@keyframes fadeIn{
+    0%{
+        transform: translate(-4rem) scale(0);
+        opacity: 0;
+    }
+}
+
+.home{
+    padding: 0;
+}
+
+.home .slide{
+    min-height: 100vh;
+    background-size: cover !important;
+    background-position: center !important;
+    position: relative;
+    z-index: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home .slide .content{
+    text-align: center;
+    width: 70rem;
+}
+
+.home .slide .content span{
+    font-size: 3rem;
+    display: block;
+    padding-bottom: .5rem;
+    color: white;
+    animation: fadeIn 0.4s cubic-bezier(.54,1.3,.63,1.34) .2s backwards;
+}
+
+.home .slide .content h3{
+    font-size: 8vw;
     text-transform: uppercase;
-    border-radius: var(--radius-10);
-    border: 2px solid var(--marigold);
-    transition: var(--transition-1);
-    overflow: hidden;
-  }
-
-  .btn::after {
-    inset: -35px -20px;
-    transform: skewY(25deg) translateY(-130px);
-    transition: var(--transition-1);
-    z-index: -1;
-  }
-
-  .btn:is(:hover, :focus-visible)::after { transform: skewY(25deg) translateY(0); }
-
-  .btn-primary::after { background-color: var(--white); }
-
-  .btn-primary:is(:hover, :focus-visible) { color: var(--marigold); }
-
-  .btn-secondary {
-    background-color: var(--white);
-    color: var(--marigold);
-  }
-
-  .btn-secondary::after { background-color: var(--marigold); }
-
-  .btn-secondary:is(:hover, :focus-visible) { color: var(--white); }
-
-  .w-100 { width: 100%; }
-
-  .section-title { margin-block-end: 20px; }
-
-  .grid-list {
-    display: grid;
-    gap: 60px;
-  }
-
-
-  [data-reveal] {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: var(--transition-2);
-  }
-
-  [data-reveal="left"] { transform: translateX(-20px); }
-
-  [data-reveal="right"] { transform: translateX(20px); }
-
-  [data-reveal].revealed {
-    opacity: 1;
-    transform: translate(0);
-  }
-
-/* -----------------------fim do loading----------------------- */
-
-
-/* loading: estilos para o preloader que aparece enquanto a página está carregando. */
-.loading-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background-color: var(--white);
-  display: grid;
-  place-items: center;
-  transition: var(--transition-1);
-  z-index: 6;
+    color: white;
+    text-shadow: 0 .5rem 1rem rgba(0,0,0,.7);
+    line-height: 1;
+    padding: 2rem 0;
+    animation: fadeIn 0.4s cubic-bezier(.54,1.3,.63,1.34) .4s backwards;
 }
 
-
-/* Quando a classe loaded é adicionada a .loading-container,
-o contêiner se torna invisível e transparente, sinalizando que a página terminou de carregar. */
-.loading-container.loaded {
-  opacity: 0;
-  visibility: hidden;
+.home .slide .content .slide-btn{
+    animation: fadeIn 0.4s cubic-bezier(.54,1.3,.63,1.34) .6s backwards;
 }
 
-
-
-.loading-circle {
-  width: 50px;
-  height: 50px;
-  border: 5px solid var(--platinum);
-  border-block-start-color: var(--marigold);
-  border-radius: var(--radius-circle);
-  /*var(--radius-circle): Arredonda a borda da animação circular para 50%, tornando-a circular. */
-  animation: loading 0.5s linear infinite;
-  /* 0.5 segundos, linear, e se repete infinitamente. */
-}
-
-@keyframes loading {
-  /* No início da animação, a rotação é 0 graus. */
-  0% { transform: rotate(0); } 
-  100% { transform: rotate(1turn); }
-}
-
-.loading-container.loaded .loading-circle {
-  animation-iteration-count: 1;
-}
-/* -----------------------fim do loading----------------------- */
-
-
-
-/* heading */
-
-/* navbar imagem de fundo (banner) */
-.has-bg-image {
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-}
-.overlay,
-.header .btn { display: none; }
-
-.header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding-block: 20px;
-}
-
-.header.active {
-  position: fixed;
-  background-color: var(--white);
-  box-shadow: var(--shadow-2);
-  animation: slideIn 0.5s ease forwards;
-}
-
-@keyframes slideIn {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(0); }
-}
-
-.header .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 15px;
-}
-
-.header-action { margin-inline-start: auto; }
-
-.login-btn,
-.nav-open-btn {
-  padding: 12px;
-  color: var(--marigold);
-}
-
-.login-btn { font-size: 1.8rem; }
-
-.nav-open-btn { font-size: 2.2rem; }
-
-.navbar {
-  position: fixed;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100vh;
-  background-color: var(--white);
-  padding: 50px 40px;
-  visibility: hidden;
-  transition: 0.35s var(--cubic-out);
-  z-index: 2;
-}
-
-.navbar.active {
-  transform: translateX(100%);
-  visibility: visible;
-  transition-duration: 0.5s;
-}
-
-.nav-close-btn {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  color: var(--davys-gray);
-  font-size: 2.8rem;
-  border: 2px solid var(--light-gray);
-  border-radius: var(--radius-circle);
-  padding: 2px;
-}
-
-.nav-close-btn ion-icon { --ionicon-stroke-width: 35px; }
-
-.navbar .logo { margin-block-end: 30px; }
-
-.navbar-item { border-block-end: 1px solid var(--light-gray); }
-
-.navbar-link {
-  color: var(--eerie-black);
-  padding-block: 12px;
-}
-
-.navbar-link:is(:hover, :focus-visible) { color: var(--jet); }
-/* -----------------------fim da heading----------------------- */
-
-/* food banner da navbar */
-.food { padding-block-start: calc(var(--section-padding) + 5px); }
-
-.food .container {
-  display: grid;
-  gap: 80px;
-}
-
-.food-text { margin-block: 8px 40px; }
-
-
-
-/* Selecao de .restaurantes */
-.selection {
-  padding-block-start: 0;
-  text-align: center;
-}
-
-.selection .section-text { margin-block-end: 60px; }
-
-.selection .card-title { margin-block: 25px; }
-
-.selection .card-title .span {
-  display: inline-block;
-  color: var(--light-gray);
-  font-size: var(--fs-4);
-  line-height: 1;
-}
-
-
-
-/*-----------------------------------*\
-  #MEDIA QUERIES
-\*-----------------------------------*/
-
-/**
- * responsive for large than 575px screen
- */
-
-@media (min-width: 575px) {
-
-  /**
-   * CUSTOM PROPERTY
-   */
-
-  :root {
-
-    /**
-     * typography
-     */
-
-    --fs-6: 4.2rem;
-
-  }
-
-
-
-  /**
-   * REUSED STYLE
-   */
-
-  .container {
-    max-width: 550px;
+.home .slide::before{
+    content: '';
+    position: absolute;
+    top:0; left:0;
+    height: 100%;
     width: 100%;
-    margin-inline: auto;
-  }
-
-  .h1 { --fs-2: 6rem; }
-
-  .h2 { --fs-2: 4.8rem; }
+    background-color: var(--dark-bg);
+    z-index: -1;
+}
 
 
+.carousel-control-prev span{
+    height: 5rem;
+    width: 5rem;
+    line-height: 5rem;
+}
 
-  /**
-   * food
-   */
+.carousel-control-next span{
+    height: 5rem;
+    width: 5rem;
+    line-height: 5rem;
+}
 
-  .navbar-banner { 
-    align-items: absolute;
+
+/* about starts */
+.about{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.about .image{
+    flex: 1 1 41rem;
+    padding-right: 120px;
+}
+
+.about .image img{
+    width: 100%;
+    border-radius: 50px;
+}
+
+.about .content{
+    flex: 1 1 41rem;
+}
+
+.about .content .title{
+    font-size: 4rem;
+    color: black;
+}
+
+.about .content p{
+    font-size: 1.7rem;
+    color: black;
+    padding: 1rem 0;
+    line-height: 2;
+    text-align:justify;
+}
+
+.about .content .icons-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap:2rem;
+    margin-top: 3rem;
+}
+
+.about .content .icons-container .icons{
+    flex: 1 1 16rem;
+    text-align: center;
+    background: var(--light-bg);
+    padding: 3rem 2rem;
+}
+
+.about .content .icons-container img{
+    height: 5rem;
+}
+/* about ends */
+
+/* heading starts */
+.heading{
+    text-align: center;
+    margin-bottom: 3rem;
+}
+/* heading ends */
+
+.heading span{
+    font-size: 2.5rem;
+    color:red;
+}
+
+.heading h3{
+    font-size: 4.5rem;
+}
+
+/* gallery starts */
+.gallery .gallery-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 2rem;
+}
+
+.gallery .gallery-container .box{
+    height: 40rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery .gallery-container .box img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.gallery .gallery-container .box .icon{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0; left: 0;
+    z-index: 10;
+    height: 100%;
+    width: 100%;
+    background-color: var(--dark-bg);
+}
+
+.gallery .gallery-container .box .icon i{
+    font-size: 6rem;
+    color: white;
+}
+
+.gallery .gallery-container .box:hover .icon{
+    display: flex;
+}
+/* gallery ends */
+
+
+
+/* blogs starts */
+.blogs{
+    background-color: var(--light-bg);
+}
+
+.blogs .slide{
+    width: 35rem;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.blogs-slider{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.blogs .slide .image{
+    height: 25rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.blogs .slide .image img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.blogs .slide .image span{
+    position: absolute;
+    bottom: -10rem; left:50%;
+    transform: translateX(-50%);
+    padding: .5rem 1.5rem;
+    font-size: 2rem;
+    color: white;
+    background: black;
+    z-index: 10;
+}
+
+.blogs .slide:hover .image span{
+    bottom: 1rem;
+}
+
+.blogs .slide:hover .image img{
+    transform: scale(1.1);
+}
+
+.blogs .slide .content{
+    padding: 2rem;
+    background: white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.blogs .slide .content .icon{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.blogs .slide .content p{
+    text-align: justify;
+}
+
+.blogs .slide .content .icon a{
+    font-size: 1.5rem;
+    color: black;
+    text-decoration: none;
+}
+
+.blogs .slide .content .icon a i{
+    padding-right: .7rem;
+    color: red;
+}
+
+.blogs .slide .content .icon a:hover{
+    font-size: 1.5rem;
+    color: red;
+}
+
+.blogs .slide .content .title{
+    font-size: 2rem;
+    color: black;
+    text-decoration: none;
+}
+
+.blogs .slide .content .title:hover{
+    text-decoration: underline;
+}
+
+.blogs .slide .content p{
+    padding: 1rem 0;
+    line-height: 2;
+    font-size: 1.6rem;
+    color: black;
+}
+/* blogs ends */
+
+
+/* footer starts */
+.footer{
+    text-align: center;
+}
+
+.footer .icons-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(25rem,1fr));
+    gap: 2rem;
+}
+
+.footer .icons-container .icons{
+    text-align: center;
+    padding:3rem 2rem;
+}
+
+.footer .icons-container .icons i{
+    height: 6rem;
+    width: 6rem;
+    border-radius: 50%;
+    background-color: red;
+    color: white;
+    margin-bottom: .5rem;
+    line-height: 5.8rem;
+    font-size: 2rem;
+}
+
+.footer .icons-container .icons h3{
+    font-size: 2rem;
+    color: black;
+    padding: 1rem 0;
+}
+
+.footer .icons-container .icons p{
+    line-height: 1.5;
+    font-size: 1.7rem;
+    color: black;
+    text-transform: none;
+}
+
+.footer .share{
+    margin: 2rem 0;
+}
+
+
+.footer .share a{
+    height: 6rem;
+    width: 6rem;
+    line-height: 5.8rem;
+    color: white;
+    background-color: black;
+    margin:0 .3rem;
+    font-size: 2.5rem;
+    text-decoration: none;
+}
+
+.footer .share a:hover{
+    background:red;
+}
+
+.footer .credit{
+    padding-top: 2rem;
+    margin-top: 3rem;
+    margin-bottom: 10px;
+    border-top: 1px solid #CCC;
+    font-size: 2rem;
+    color: black;
+}
+
+.footer .credit span{
+    color: red;
+}
+/* footer ends */
+
+
+
+
+
+/* media queries */
+@media (max-width:1200px){
+
+    section{
+        padding: 3rem 5%;
     }
 
+}
 
-  /**
-   * selection
-   */
+@media (max-width:991px){
 
-  .selection-card .card-banner {
-    max-width: max-content;
-    margin-inline: auto;
-  }
+    section{
+        padding: 3rem 2rem;
+    }
 
+    html{
+        font-size: 55%;
+    }
+
+    .home .slide .content h3{
+        font-size: 15vw;
+    }
 }
 
 
+@media (max-width:768px){
 
+    #menu-btn{
+        display: inline-block;
+    }
 
-
-/**
- * responsive for large than 768px screen
- */
-
-@media (min-width: 768px) {
-
-  /**
-   * REUSED STYLE
-   */
-
-  .container { max-width: 720px; }
-
-  .grid-list { grid-template-columns: 1fr 1fr; }
-
-
-
-  /**
-   * HEADER
-   */
-
-  .navbar {
-    max-width: 428px;
-    left: -430px;
-  }
-
-  .overlay {
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: var(--black);
-    z-index: 1;
-    opacity: 0;
-    transition: var(--transition-1);
-    visibility: hidden;
-  }
-
-  .overlay.active {
-    visibility: visible;
-    opacity: 0.7;
-  }
+    .fa-times{
+        transform: rotate(180deg);
+    }
+       
+    .header .navbar{
+        position: absolute;
+        top: 99%; left:0;right: 0;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+    
+    .header .navbar a{
+        display: block;
+        margin: 2rem;
+        color: white;
+    }
+    .header .navbar.active{
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        background-color: black;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+    }
 
 }
 
+@media (max-width:450px){
 
-
-
-
-/**
- * responsive for large than 992px screen
- */
-
-@media (min-width: 992px) {
-
-  /**
-   * REUSED STYLE
-   */
-
-  .container { max-width: 960px; }
-
-  
-
-  /**
-   * food
-   */
-
-  .food .container {
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 30px;
-  }
-
-  .food .shape-1 { bottom: 30px; }
-
-  .food .shape-2 {
-    top: 80px;
-    right: -40px;
-  }
-
-
-
-  /**
-   * selection
-   */
-
-  .selection .section-text {
-    max-width: 60ch;
-    margin-inline: auto;
-  }
-
-  .selection .grid-list {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-  }
+    html{
+        font-size: 50%;
+    }
 
 }
-
-
-/**
- * responsive for large than 1200px screen
- */
-
-@media (min-width: 1200px) {
-
-  /**
-   * CUSTOM PROPERTY
-   */
-
-  :root {
-
-    /**
-     * typography
-     */
-
-    --fs-6: 4.8rem;
-
-  }
-
-
-
-  /**
-   * REUSED STYLE
-   */
-
-  .container { max-width: 1140px; }
-
-
-
-  /** 
-   * HEADER
-   */
-
-  .navbar,
-  .navbar.active {
-    all: unset;
-    display: block;
-  }
-
-  .nav-open-btn,
-  .nav-close-btn,
-  .navbar .logo,
-  .overlay { display: none; }
-
-  .navbar-item { border-block-end: none; }
-
-  .navbar-list {
-    display: flex;
-    gap: 40px;
-  }
-
-  .header .container { gap: 60px; }
-
-  .navbar-link { transition: var(--transition-1); }
-
-  .navbar-link:is(:hover, :focus-visible) { color: var(--marigold); }
-
-  .header .btn-primary { display: block; }
-
-  .header-action {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-  }
-
-  .login-btn {
-    background-color: var(--white);
-    border-radius: var(--radius-10);
-  }
-
-}
-
-/* 
-var(--nome-da-variavel): Utilizado para a manutenção do codigo.
-Se precisar alterar um valor (por exemplo, uma cor), você só precisa alterar a variável em um único lugar, em vez de mudar em várias regras CSS. 
-*/
