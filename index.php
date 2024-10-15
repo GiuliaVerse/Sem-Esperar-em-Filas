@@ -6,8 +6,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/css/lightgallery.min.css">
-    <link rel="icon" href="/images/logoSef.png" type="image/png">
-    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="./Components/images/logoSef.png" type="image/png">
+    <link rel="stylesheet" href="./style.css">
     <title>Home | SEF</title>
 </head>
 <body>
@@ -18,11 +18,11 @@
         <a href="#" class="logo"> <img src="Components/images/logoSef.png" alt="">Sem esperar em Filas</a>
 
         <nav class="navbar">
-            <a href="#">Home</a>
-            <a href="#">Sobre</a>
-            <a href="#">Restaurantes</a>
-            <a href="#" class="login-cliente">Login Cliente</a>
-            <a href="#"class="login-restaurante">Login Restaurante</a>
+            <a href="./index.php">Home</a>
+            <a href="./Components/AboutUs/about.html">Sobre</a>
+            <a href="./Components/Menu/menu.html">Restaurantes</a>
+            <a href="./Components/userLogin/login.html" class="login-cliente">Login Cliente</a>
+            <a href="./Components/RestaurantLogin/restaurantLogin.html"class="login-restaurante">Login Restaurante</a>
         </nav>
 
         <div id="menu-btn" class="fas fa-bars"></div>
@@ -95,7 +95,7 @@
             <p>Bem-vindo ao Sem Esperar em Filas, sua solução prática para retirar pedidos na cantina da faculdade. 
                 Facilite seu dia a dia e aproveite nossas opções de refeições e lanches, tudo sem sair do lugar. 
                 Pedir nunca foi tão simples!</p>
-            <a href="#" class="about-btn">conheça nossa equipe</a>
+            <a href="#" class="about-btn" id="about-btn">conheça nossa equipe</a>
             <div class="icons-container">
                 <div class="icons">
                     <img src="Components/images/about-image-1.png" alt="">
@@ -182,7 +182,7 @@
                     </div>
                     <a href="#" class="title">Sanduíche Natural - Leve e Delicioso</a>
                     <p>Uma opção saudável para quem busca sabor sem abrir mão da leveza. Feito com ingredientes frescos, é perfeito para uma refeição rápida e nutritiva.</p>
-                    <a href="" class="blog-btn"> leia mais</a>
+                    <a href="" class="blog-btn" id="blog-btn" > leia mais</a>
                 </div>
             </div>
             
@@ -200,7 +200,7 @@
                     <a href="#" class="title">Panquecas - Deliciosas e divertidas</a>
                     <p>Panquecas fofinhas e irresistíveis, servidas com mel, frutas frescas e uma pitada de canela. 
                         Uma escolha perfeita para quem deseja começar o dia com energia e muito sabor</p>
-                    <a href="" class="blog-btn"> leia mais</a>
+                    <a href="" class="blog-btn" id="blog-btn" > leia mais</a>
                 </div>
             </div>
             
@@ -218,7 +218,7 @@
                     <a href="#" class="title">Hambúrguer - Clássico e Suculento</a>
                     <p>Um hambúrguer artesanal preparado com carne suculenta e ingredientes frescos, 
                         como alface crocante, tomate maduro e queijo derretido. Tudo isso servido no pão macio.</p>
-                    <a href="" class="blog-btn"> leia mais</a>
+                    <a href="" class="blog-btn" id="blog-btn"> leia mais</a>
                 </div>
             </div>
             
@@ -234,7 +234,7 @@
                     </div>
                     <a href="#" class="title">Bolo de Chocolate - da água na boca</a>
                     <p>Um bolo úmido e macio, preparado com chocolate de alta qualidade e coberto por uma camada generosa de ganache cremosa. Cada fatia traz o equilíbrio perfeito entre o doce e o amargo.</p>
-                    <a href="" class="blog-btn"> leia mais</a>
+                    <a href="" class="blog-btn" id="blog-btn"> leia mais</a>
                 </div>
             </div>
             
@@ -252,7 +252,7 @@
                     <p>pizza feita com massa fina e crocante, fermentada naturalmente e 
                         assada no forno à lenha para garantir aquele sabor inconfundível. 
                         Com uma seleção ingredientes frescos.</p>
-                    <a href="" class="blog-btn"> leia mais</a>
+                    <a href="" class="blog-btn" id="blog-btn"> leia mais</a>
                 </div>
             </div>
             
@@ -269,7 +269,7 @@
                     <a href="#" class="title">Macarrão com Molho - muito saboroso</a>
                     <p>Massa al dente servida com um molho rico e aromático, preparado com ingredientes frescos 
                         selecionados. Seja um clássico molho de tomate ou uma versão cremosa.</p>
-                    <a href="#" class="blog-btn">leia mais</a>
+                    <a href="#" class="blog-btn" id="blog-btn">leia mais</a>
                 </div>
             </div>
             
@@ -325,6 +325,6 @@
 
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/js/lightgallery.min.js"></script>
-     <script src="/script.js"></script>
+     <script src="./script.js"></script>
 </body>
 </html>

@@ -1,6 +1,8 @@
-let navbar = document.querySelector('.header .navbar'); // seleciona o elemento navbar
-let menuBtn = document.querySelector('#menu-btn'); // seleciona o elemento menu-btn
-let beginBtn = document.getElementById('slide-btn'); // seleciona o botão COMEÇAR do slide
+const navbar = document.querySelector('.header .navbar'); // seleciona o elemento navbar
+const menuBtn = document.querySelector('#menu-btn'); // seleciona o elemento menu-btn
+const beginBtn = document.getElementById('slide-btn'); // seleciona o botão COMEÇAR do slide
+const aboutBtn = document.getElementById('about-btn'); // Seleciona o botão "Conheça nossa equipe";
+const blogsSection = document.querySelector('.blogs-slider'); // Seleciona a section pai dos botõs
 let loggedUser; // captura o nome do usuário logado
 let sessionName; // captura o nome da sessão
 
@@ -9,6 +11,25 @@ menuBtn.onclick = () => {
     menuBtn.classList.toggle('fa-times');
     navbar.classList.toggle('active'); 
 };// altera o icone do botão menu-btn
+
+
+beginBtn.onclick = () => { 
+    window.location.href = "Components/Menu/menu.html"; // redireciona para a página dos restaurantes
+}
+
+
+aboutBtn.onclick = () => {
+    window.location.href = "Components/AboutUs/about.html"; // redireciona para a página AboutUs
+}
+
+
+blogsSection.addEventListener('click', function(event) {
+    // Verifica se o clique foi em um botão com a classe 'blog-btn'
+    if (event.target.classList.contains('blog-btn')) {
+        event.preventDefault(); // Previne o comportamento padrão do link
+    }
+});
+
 
 
 lightGallery(document.querySelector('.gallery .gallery-container')); // manipula os slides da galeria
@@ -127,3 +148,4 @@ sessionName = "";
 loggedUser = ""
 
 addLoggedUserOnNavbar(sessionName,loggedUser);
+
