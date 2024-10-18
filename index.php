@@ -21,8 +21,7 @@
             <a href="./index.php">Home</a>
             <a href="./Components/AboutUs/about.html">Sobre</a>
             <a href="./Components/Menu/menu.html">Restaurantes</a>
-            <a href="./Components/userLogin/login.html" class="login-cliente">Login Cliente</a>
-            <a href="./Components/RestaurantLogin/restaurantLogin.html"class="login-restaurante">Login Restaurante</a>
+            <a href="./Components/LoginSelection/loginOption.html" id="login-navbar">Login</a>
         </nav>
 
         <div id="menu-btn" class="fas fa-bars"></div>

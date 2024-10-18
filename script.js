@@ -47,9 +47,9 @@ const addLoggedUserOnNavbar = function (session, user) {
 
     if(session == "restaurante"){ 
 
-        navbar.removeChild(document.querySelector('.login-cliente')); // remove login cliente da navbar
-        navbar.removeChild(document.querySelector('.login-restaurante')); // remove login restaurante da navbar
-
+        let navbarLogin = document.getElementById('login-navbar'); // Seleciona a opção de login da navbar
+        navbarLogin.remove(); // Remove a opção login da navbar
+        
         icon.className = userIcons[1]; // define a classe do Font Awesome para o elemento <i>
 
         newElement.appendChild(icon); // adiciona o elemento do ícone como filho do elemento de link
@@ -104,8 +104,8 @@ const addLoggedUserOnNavbar = function (session, user) {
 
     else if(session == "user"){
 
-        navbar.removeChild(document.querySelector('.login-cliente')); // remove login cliente da navbar
-        navbar.removeChild(document.querySelector('.login-restaurante')); // remove login restaurante da navbar
+        let navbarLogin = document.getElementById('login-navbar'); // Seleciona a opção de login da navbar
+        navbarLogin.remove(); // Remove a opção login da navbar
 
         icon.className = userIcons[0]; // define a classe do Font Awesome para o elemento <i>
 
