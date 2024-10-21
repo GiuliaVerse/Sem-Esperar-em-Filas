@@ -144,6 +144,7 @@ const addLoggedUserOnNavbar = function (session, user) {
     
 }
 
+//teste
 sessionName = "";
 loggedUser = ""
 
