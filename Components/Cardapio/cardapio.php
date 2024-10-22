@@ -1,15 +1,17 @@
 <?php
+session_start();
+
 // Obtém os dados enviados pelo formulário através do método POST
-$nomeProduto = $_POST['NomeProduto'];
-$valorProduto = $_POST['ValorProduto'];      
-$ingredientes = $_POST['Ingredientes'];      
-$cardapio = $_POST['Cardapio'];      
+$nomeCardapio = $_POST['nomeCardapio'];
+$categoria = $_POST['categoria'];      
+$descricao = $_POST['descricao'];    
+$restaurante_id =  $_SESSION['id'];
+
 
 // Verifica se os campos obrigatórios estão preenchidos
-if (empty($nomeProduto) || empty($valorProduto) || empty($ingredientes) || empty($cardapio)) {
-    // Retorna uma resposta JSON informando que todos os campos são obrigatórios
+if (empty($nomeCardapio) || empty($categoria) || empty($descricao)) {
     echo json_encode(array("success" => false, "message" => "Todos os campos são obrigatórios."));
-    exit; // Interrompe a execução do script
+    exit;
 }
 
 // Configurações do banco de dados
@@ -27,9 +29,13 @@ if ($conn->connect_error) {
     die("Falha na conexão: " . $conn->connect_error);
 }
 
-// Query SQL para inserir os dados do produto na tabela "produtos"
-$sql = "INSERT INTO produtos (nome_produto, valor_produto, ingredientes, cardapio_codigo_cardapio) 
-        VALUES ('$nomeProduto', '$valorProduto', '$ingredientes', '$cardapio')";
+// Receber os detalhes do arquivo enviado
+$image = $_FILES['image']['tmp_name'];
+$imgContent = addslashes(file_get_contents($image)); // Converte a imagem para string
+
+// Query SQL para inserir os dados do cardapio na tabela "cardapio"
+$sql = "INSERT INTO cardapio (nome_cardapio, categoria, descricao, imagem_cardapio, restaurante_codigo_restaurante) 
+        VALUES ('$nomeCardapio', '$categoria', '$descricao', '$imgContent', '$restaurante_id')";
 
 // Executa a query SQL e verifica se foi bem-sucedida
 if ($conn->query($sql)) {

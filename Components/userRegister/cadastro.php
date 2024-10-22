@@ -11,7 +11,6 @@ if ($nome === "" || $cpf === "" || $email === "" || $telefone === "" || $login =
     // Se algum campo estiver vazio, retorna uma mensagem de erro em formato JSON
     echo json_encode(array("success" => false, "message" => "Todos os campos são obrigatórios."));
     exit; // Termina a execução do script
-
 }
 
 // Codifica a senha usando password_hash
@@ -31,16 +30,40 @@ if ($conn->connect_error) {
     die("Falha na conexão: " . $conn->connect_error);
 }
 
-// Insere o cliente no banco de dados
-$sql = "CALL inserir_cliente_usuario('$nome', '$cpf', '$email', '$telefone', '$login', '$senha_codificada')";
+// Iniciar transação
+$conn->begin_transaction();
 
-// Executando a consulta SQL
-if ($conn->query($sql)) {
+try {
+
+    // Insere o cliente no banco de dados
+    // 1. Inserir o cliente
+    $sqlCliente = "INSERT INTO cliente (nome, cpf, email, telefone, data_criacao)
+                    VALUES (?, ?, ?, ?, CURRENT_DATE())";
+    $stmtCliente = $conn->prepare($sqlCliente);
+    $stmtCliente->bind_param("ssss", $nome, $cpf, $email, $telefone);
+    $stmtCliente->execute();
+
+    // 2. Obter o ID do cliente recém-inserido
+    $cliente_id = $conn->insert_id;
+
+    // 3. Inserir o usuário correspondente ao cliente
+    $sqlUsuario = "INSERT INTO usuario (nome, login, senha, email, perfil_codigo_perfil, cliente_codigo_cliente)
+                    VALUES (?, ?, ?, ?, 1, ?)";
+    $stmtUsuario = $conn->prepare($sqlUsuario);
+    $stmtUsuario->bind_param("ssssi", $nome, $login, $senha_codificada, $email, $cliente_id);
+    $stmtUsuario->execute();
+
+    // 4. Confirmar a transação
+    $conn->commit();
+
+    // Fechar os prepared statements
+    $stmtCliente->close();
+    $stmtUsuario->close();
     echo json_encode(array("success" => true));
-} else {
-    echo json_encode(array("success" => false, "message" =>  $conn->error));
+} catch (Exception $e) {
+    // Em caso de erro, reverter a transação
+    $conn->rollback();
+    echo json_encode(array("success" => false, "message" =>  $e->getMessage()));
 }
-
-// Fecha a conexão
 $conn->close();
 ?>
