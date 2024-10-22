@@ -31,7 +31,7 @@ if ($conn->connect_error) {
 }
 
 // Iniciar transação
-$mysqli->begin_transaction();
+$conn->begin_transaction();
 
 try {
 
@@ -50,8 +50,7 @@ try {
     $sqlUsuario = "INSERT INTO usuario (nome, login, senha, email, perfil_codigo_perfil, cliente_codigo_cliente)
                     VALUES (?, ?, ?, ?, 1, ?)";
     $stmtUsuario = $conn->prepare($sqlUsuario);
-    $hashedSenha = password_hash($senha, PASSWORD_DEFAULT); // Hash da senha
-    $stmtUsuario->bind_param("ssssi", $nome, $username, $hashedSenha, $email, $cliente_id);
+    $stmtUsuario->bind_param("ssssi", $nome, $login, $senha_codificada, $email, $cliente_id);
     $stmtUsuario->execute();
 
     // 4. Confirmar a transação
@@ -64,19 +63,7 @@ try {
 } catch (Exception $e) {
     // Em caso de erro, reverter a transação
     $conn->rollback();
-    echo json_encode(array("success" => false, "message" =>  $conn->error));
+    echo json_encode(array("success" => false, "message" =>  $e->getMessage()));
 }
-
-/*
-//$sql = "CALL inserir_cliente_usuario('$nome', '$cpf', '$email', '$telefone', '$login', '$senha_codificada')";
-
-// Executando a consulta SQL
-//if ($conn->query($sql)) {
-//    echo json_encode(array("success" => true));
-//} else {
-//    echo json_encode(array("success" => false, "message" =>  $conn->error));
-//}
-*/
-// Fecha a conexão
 $conn->close();
 ?>

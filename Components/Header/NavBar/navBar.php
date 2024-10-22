@@ -56,6 +56,9 @@ session_start();
                     </li>';
            } else {
               echo '<li class="navbar-item">
+                    <a href="../../../Components//Cardapio/cardapio.html" target="_top" class="navbar-link" data-nav-link> Cadastrar Cardápio</a>
+                  </li>';
+              echo '<li class="navbar-item">
                     <a href="../../../Components//ProductPage/Products.html" target="_top" class="navbar-link" data-nav-link> Cadastrar Produtos</a>
                   </li>';
            }

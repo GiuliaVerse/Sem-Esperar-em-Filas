@@ -34,18 +34,40 @@ if ($conn->connect_error) {
     die("Falha na conexão: " . $conn->connect_error);
 }
 
-// Monta a query para chamar a procedure armazenada no banco de dados que insere o restaurante e o usuário
-$sql = "CALL inserir_restaurante_usuario('$razaoSocial', '$nomeFantasia', '$cnpj', '$email', '$telefone', '$instituicao', '$login', '$senha_codificada')";
+// Iniciar transação
+$conn->begin_transaction();
 
-// Executa a query e verifica se foi bem-sucedida
-if ($conn->query($sql)) {
-    // Se a inserção for bem-sucedida, retorna uma resposta de sucesso em formato JSON
+try {
+
+    // Insere o cliente no banco de dados
+    // 1. Inserir o cliente
+    $sqlCliente = "INSERT INTO restaurante (razao_social, nome_fantasia, cnpj, email, telefone, instituicao_codigo_instituicao)
+                    VALUES (?, ?, ?, ?, ?, ?)";
+    $stmtCliente = $conn->prepare($sqlCliente);
+    $stmtCliente->bind_param("sssssi", $razaoSocial, $nomeFantasia, $cnpj, $email, $telefone, $instituicao);
+    $stmtCliente->execute();
+
+    // 2. Obter o ID do cliente recém-inserido
+    $restaurante_id = $conn->insert_id;
+
+    // 3. Inserir o usuário correspondente ao cliente
+    $sqlUsuario = "INSERT INTO usuario (nome, login, senha, email, perfil_codigo_perfil, restaurante_codigo_restaurante)
+                    VALUES (?, ?, ?, ?, 1, ?)";
+    $stmtUsuario = $conn->prepare($sqlUsuario);
+    $stmtUsuario->bind_param("ssssi", $nomeFantasia, $login, $senha_codificada, $email, $restaurante_id);
+    $stmtUsuario->execute();
+
+    // 4. Confirmar a transação
+    $conn->commit();
+
+    // Fechar os prepared statements
+    $stmtCliente->close();
+    $stmtUsuario->close();
     echo json_encode(array("success" => true));
-} else {
-    // Se houver erro, retorna uma mensagem de erro em formato JSON com o detalhe do erro (echo json_encode=echo é usada para imprimir essa string JSON no output, que será enviada como resposta HTTP ao cliente. )
-    echo json_encode(array("success" => false, "message" => "Erro: " . $conn->error));
+} catch (Exception $e) {
+    // Em caso de erro, reverter a transação
+    $conn->rollback();
+    echo json_encode(array("success" => false, "message" =>  $e->getMessage()));
 }
-
-// Fecha a conexão com o banco de dados
 $conn->close();
 ?>
