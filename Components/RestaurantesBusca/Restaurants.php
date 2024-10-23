@@ -2,29 +2,11 @@
 $servername = "localhost"; // 
 $username = "root"; // 
 $password = ""; // 
-$dbname = "projeto"; // nome do banco
+$dbname = "projeto"; //
 
 // Cria a conexão
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Verifica a conexão
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+$mysqli = new mysqli($servername, $username, $password, $dbname);
+if($mysqli -> connect_error) {
+    die("Fala na conexão com o banco de dqados");
 }
 
-//if (isset($_GET['query'])) {
-    $query = ''; //$_GET['query'];
-    $sql = "SELECT nome_fantasia FROM restaurante WHERE nome_fantasia LIKE '%$query%'";
-    $result = $conn->query($sql);
-
-    $restaurants = array();
-    if ($result->num_rows > 0) {
-        while($row = $result->fetch_assoc()) {
-            $restaurants[] = $row;
-        }
-    }
-    echo json_encode($restaurants);
-//}
-
-$conn->close();
-?>
