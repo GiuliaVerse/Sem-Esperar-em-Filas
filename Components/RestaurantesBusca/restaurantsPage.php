@@ -29,8 +29,8 @@
    <section class="restaurant" id="restaurant">
 
       <div class="heading">  
-         <span>popular dishes</span>
-         <h3>our delicious food</h3>
+         <span>Pratos Populares</span>
+         <h3>Comidinhas</h3>
       </div>
    
       <div class="swiper restaurant-slider">
@@ -39,19 +39,19 @@
    
             <div class="swiper-slide slide" data-name="restaurant-1">
                 <img src="../../../Components/Images/hamburguer.png" alt="">
-               <h3>delicious food</h3>
+               <h3>Comidinhas</h3>
                <div class="price">$49.99</div>
             </div>
    
             <div class="swiper-slide slide" data-name="restaurant-2">
                 <img src="../../../Components/Images/hamburguer.png" alt="">
-               <h3>delicious food</h3>
+               <h3>Comidinhas</h3>
                <div class="price">$49.99</div>
             </div>
    
             <div class="swiper-slide slide" data-name="restaurant-3">
                 <img src="../../../Components/Images/hamburguer.png" alt="">
-                <h3>delicious food</h3>
+                <h3>Comidinhas</h3>
                <div class="price">$49.99</div>
             </div>
          </div>
@@ -75,7 +75,7 @@
    <div class="restaurant-preview" data-target="restaurant-1">
       
 
-      <h3>delicious food</h3>
+      <h3>Comidinhas</h3>
       <div class="stars">
          <i class="fas fa-star"></i>
          <i class="fas fa-star"></i>
@@ -83,14 +83,14 @@
          <i class="fas fa-star"></i>
          <i class="fas fa-star"></i>
       </div>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, hic!</p>
+      <p>Teste escrevendo qqr coisa!</p>
       <div class="price">$49.99</div>
       <a href="#" class="btn">buy now</a>
    </div>
 
    <div class="restaurant-preview" data-target="restaurant-2">
         <img src="../../../Components/Images/hamburguer.png" alt="">
-        <h3>delicious food</h3>
+        <h3>Comidinhas</h3>
       <div class="stars">
          <i class="fas fa-star"></i>
          <i class="fas fa-star"></i>
@@ -98,14 +98,14 @@
          <i class="fas fa-star"></i>
          <i class="fas fa-star"></i>
       </div>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, hic!</p>
+      <p>Teste escrevendo qqr coisa!</p>
       <div class="price">$49.99</div>
       <a href="#" class="btn">buy now</a>
    </div>
 
    <div class="restaurant-preview" data-target="restaurant-3">
         <img src="../../../Components/Images/hamburguer.png" alt="">
-      <h3>delicious food</h3>
+      <h3>Comidinhas</h3>
       <div class="stars">
          <i class="fas fa-star"></i>
          <i class="fas fa-star"></i>
@@ -113,11 +113,11 @@
          <i class="fas fa-star"></i>
          <i class="fas fa-star"></i>
       </div>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, hic!</p>
+      <p>Teste escrevendo qqr coisa!</p>
       <div class="price">$49.99</div>
       <a href="#" class="btn">buy now</a>
    </div>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, hic!</p>
+      <p>Teste escrevendo qqr coisa!</p>
       <div class="price">$49.99</div>
       <a href="#" class="btn">buy now</a>
    </div>
