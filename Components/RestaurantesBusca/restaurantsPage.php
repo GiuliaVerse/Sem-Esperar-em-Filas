@@ -21,7 +21,7 @@
 
 <body>
     <header>
-        <iframe src="../Header/NavBar/navBar.php" width="100%" height="100" title="Navigation Bar"></iframe>
+        <iframe src="../../Components/nav/nav.php" width="100%" height="100"></iframe>
     </header>
 
 <div class="container">
