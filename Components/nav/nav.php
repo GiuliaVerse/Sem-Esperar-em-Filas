@@ -36,7 +36,7 @@
                 // Se o usuário estiver logado como restaurante
                 else if ($_SESSION['tipo'] == 'restaurante') {
                     echo '
-                    <a href="./Components/ProductPage/ProductList.html" target="_top"><i class="fas fa-list"></i> Cadastrar Cardápios</a>
+                    <a href="/Sem-Esperar-em-Filas/Components/Cardapio/Cardapio.html" target="_top"><i class="fas fa-list"></i> Cadastrar Cardápios</a>
                     <a href="/Sem-Esperar-em-Filas/Components/ProductPage/Products.html" target="_top"><i class="fas fa-burger"></i> Cadastrar Produtos</a> ';
                 }
 
