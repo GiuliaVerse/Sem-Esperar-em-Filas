@@ -1,7 +1,6 @@
 <?php
     include('Restaurants.php');
-
-	require('../../valida_sessao.php');
+    require('../../valida_sessao.php');
     if ($_SESSION["tipo"] != "cliente") {
         $url = "Location: /" . $url . "/index.php";
         header($url);
@@ -21,162 +20,59 @@
 </head>
 
 <body>
+    <header>
+        <iframe src="../Header/NavBar/navBar.php" width="100%" height="100" title="Navigation Bar"></iframe>
+    </header>
 
-<!-- restaurant section  -->
+<div class="container">
 
-<div class="odd-section">
+   <!-- Seção de busca de restaurantes -->
+   <section class="search-section">
+      <form>
+          <input name="busca" value="<?php if(isset($_GET['busca'])) echo $_GET['busca']; ?>" placeholder="Digite o restaurante procurado" type="text" >
+          <button type="submit"> Pesquisar Restaurante</button>
+      </form>
+      <br>
+      <table width="600px" border="1">
+          <tr>
+              <th>Restaurante</th>
+          </tr>
+          
+          <?php
+          if (!isset($_GET['busca'])) {
+              ?>
+          <tr>
+              <td colspan="1">Digite o restaurante para pesquisar</td>
+          </tr>
+          <?php
+          } else {
+              $pesquisa = $mysqli ->real_escape_string($_GET['busca']);
+              $sql_code = " SELECT * FROM restaurante WHERE nome_fantasia LIKE '%$pesquisa%' ";
+              $sql_query = $mysqli ->query($sql_code) or die("Erro ao consultar! " . $mysqli ->error);
 
-   <section class="restaurant" id="restaurant">
+              if($sql_query -> num_rows == 0) {
+          ?>
+          <tr>
+              <td colspan="1">Nenhum restaurante encontrado ...</td>
+          </tr>
+          <?php 
+          } else {
+              while($dados = $sql_query -> fetch_assoc()) {
+                  ?>
+                  <tr>
+                      <td><?php echo $dados['nome_fantasia']; ?> </td>
+                  </tr>
+                  <?php
+              }
+          }
+          ?>
 
-      <div class="heading">  
-         <span>Pratos Populares</span>
-         <h3>Comidinhas</h3>
-      </div>
-   
-      <div class="swiper restaurant-slider">
-   
-         <div class="swiper-wrapper">
-   
-            <div class="swiper-slide slide" data-name="restaurant-1">
-                <img src="../../../Components/Images/hamburguer.png" alt="">
-               <h3>Comidinhas</h3>
-               <div class="price">$49.99</div>
-            </div>
-   
-            <div class="swiper-slide slide" data-name="restaurant-2">
-                <img src="../../../Components/Images/hamburguer.png" alt="">
-               <h3>Comidinhas</h3>
-               <div class="price">$49.99</div>
-            </div>
-   
-            <div class="swiper-slide slide" data-name="restaurant-3">
-                <img src="../../../Components/Images/hamburguer.png" alt="">
-                <h3>Comidinhas</h3>
-               <div class="price">$49.99</div>
-            </div>
-         </div>
-   
-         <div class="swiper-pagination"></div>
-   
-      </div>
-   
+          <?php
+          } ?>
+          
+      </table>
    </section>
+<script src="Restaurants.js"></script>
 
-</div>
-
-<!-- restaurant section termina -->
-
-<!-- restaurant preview section comeca  -->
-
-<section class="restaurant-preview-container">
-
-   <div id="close-preview" class="fas fa-times"></div>
-
-   <div class="restaurant-preview" data-target="restaurant-1">
-      
-
-      <h3>Comidinhas</h3>
-      <div class="stars">
-         <i class="fas fa-star"></i>
-         <i class="fas fa-star"></i>
-         <i class="fas fa-star"></i>
-         <i class="fas fa-star"></i>
-         <i class="fas fa-star"></i>
-      </div>
-      <p>Teste escrevendo qqr coisa!</p>
-      <div class="price">$49.99</div>
-      <a href="#" class="btn">buy now</a>
-   </div>
-
-   <div class="restaurant-preview" data-target="restaurant-2">
-        <img src="../../../Components/Images/hamburguer.png" alt="">
-        <h3>Comidinhas</h3>
-      <div class="stars">
-         <i class="fas fa-star"></i>
-         <i class="fas fa-star"></i>
-         <i class="fas fa-star"></i>
-         <i class="fas fa-star"></i>
-         <i class="fas fa-star"></i>
-      </div>
-      <p>Teste escrevendo qqr coisa!</p>
-      <div class="price">$49.99</div>
-      <a href="#" class="btn">buy now</a>
-   </div>
-
-   <div class="restaurant-preview" data-target="restaurant-3">
-        <img src="../../../Components/Images/hamburguer.png" alt="">
-      <h3>Comidinhas</h3>
-      <div class="stars">
-         <i class="fas fa-star"></i>
-         <i class="fas fa-star"></i>
-         <i class="fas fa-star"></i>
-         <i class="fas fa-star"></i>
-         <i class="fas fa-star"></i>
-      </div>
-      <p>Teste escrevendo qqr coisa!</p>
-      <div class="price">$49.99</div>
-      <a href="#" class="btn">buy now</a>
-   </div>
-      <p>Teste escrevendo qqr coisa!</p>
-      <div class="price">$49.99</div>
-      <a href="#" class="btn">buy now</a>
-   </div>
-
-</section>
-<!-- food preview section termina -->
-
-
-    <form>
-        <input name="busca" value="<?php if(isset($_GET['busca'])) echo $_GET['busca']; ?>" placeholder="Digite o restaurante procurado" type="text" >
-        <button type="submit"> Pesquisar Restaurante</button>
-    </form>
-    <br>
-    <table width="600px" border="1">
-        <tr>
-            <th>Restaurante</th>
-        </tr>
-        
-        <?php
-        if (!isset($_GET['busca'])) {
-            ?>
-        <tr>
-            <td colspan="1">Digite o restaurante para pesquisar</td>
-        </tr>
-        <?php
-        } else {
-            //Evita SQL injection com o real escape string no get busca
-            $pesquisa = $mysqli ->real_escape_string($_GET['busca']);
-            $sql_code = " SELECT * FROM restaurante WHERE nome_fantasia LIKE '%$pesquisa%' ";
-            $sql_query = $mysqli ->query($sql_code) or die("Erro ao consultar! " . $mysqli ->error);
-
-            if($sql_query -> num_rows == 0) {
-        ?>
-        <tr>
-            <td colspan="1">Nenhum restaurante encontrado ...</td>
-        </tr>
-        <?php 
-        } else {
-            while($dados = $sql_query -> fetch_assoc()) {
-                ?>
-                <tr>
-                    <td><?php echo $dados['nome_fantasia']; ?> </td>
-                </tr>
-                <?php
-
-            }
-        }
-        ?>
-
-        <?php
-        } ?>
-        
-    </table>
-
-    <script src="Restaurants.js"></script>
-
-    <footer>
-        <iframe src="../Footer/footer.html" width="100%" height="100"></iframe>
-    </footer>
 </body>
-
 </html>
