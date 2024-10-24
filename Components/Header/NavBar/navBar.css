@@ -1,6 +1,6 @@
 
 
-/* navbar imagem de fundo (banner) */
+/* navbar imagem de fundo (banner) 
 .has-bg-image {
     background-repeat: no-repeat;
     background-size: cover;
@@ -91,7 +91,7 @@
   }
   
   .navbar-link:is(:hover, :focus-visible) { color: var(--jet); }
-  /* -----------------------fim da heading----------------------- *//* food banner da navbar */
+  /* -----------------------fim da heading----------------------- *//* food banner da navbar 
 .food { padding-block-start: calc(var(--section-padding) + 5px); }
 
 .food .container {
@@ -104,7 +104,7 @@
 
   /**
    * food
-   */
+   
 
    .navbar-banner { 
     align-items: absolute;
@@ -112,7 +112,7 @@
 
   /**
    * HEADER
-   */
+   
 
    .navbar {
     max-width: 428px;
@@ -136,5 +136,5 @@
   .overlay.active {
     visibility: visible;
     opacity: 0.7;
-  }
+  } */
 
