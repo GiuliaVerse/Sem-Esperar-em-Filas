@@ -3,8 +3,8 @@
 
 	require('../../valida_sessao.php');
     if ($_SESSION["tipo"] != "cliente") {
-        $url = "Location: /" . $url . "/index.php";             // Monta URL para redirecionamento
-        header($url);                                           // Vai para a página de login / inicial
+        $url = "Location: /" . $url . "/index.php";
+        header($url);
         exit();    
     }
 ?>
@@ -16,14 +16,116 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food Delivery - Busca de Restaurantes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="restaurantsPage.css">
 </head>
 
 <body>
-    <header>
-        <iframe src="../Header/NavBar/navBar.php" width="100%" height="100"></iframe>
-    </header>
-        <h2>Restaurantes Disponíveis</h2>
+
+<!-- restaurant section  -->
+
+<div class="odd-section">
+
+   <section class="restaurant" id="restaurant">
+
+      <div class="heading">  
+         <span>popular dishes</span>
+         <h3>our delicious food</h3>
+      </div>
+   
+      <div class="swiper restaurant-slider">
+   
+         <div class="swiper-wrapper">
+   
+            <div class="swiper-slide slide" data-name="restaurant-1">
+                <img src="../../../Components/Images/hamburguer.png" alt="">
+               <h3>delicious food</h3>
+               <div class="price">$49.99</div>
+            </div>
+   
+            <div class="swiper-slide slide" data-name="restaurant-2">
+                <img src="../../../Components/Images/hamburguer.png" alt="">
+               <h3>delicious food</h3>
+               <div class="price">$49.99</div>
+            </div>
+   
+            <div class="swiper-slide slide" data-name="restaurant-3">
+                <img src="../../../Components/Images/hamburguer.png" alt="">
+                <h3>delicious food</h3>
+               <div class="price">$49.99</div>
+            </div>
+         </div>
+   
+         <div class="swiper-pagination"></div>
+   
+      </div>
+   
+   </section>
+
+</div>
+
+<!-- restaurant section termina -->
+
+<!-- restaurant preview section comeca  -->
+
+<section class="restaurant-preview-container">
+
+   <div id="close-preview" class="fas fa-times"></div>
+
+   <div class="restaurant-preview" data-target="restaurant-1">
+      
+
+      <h3>delicious food</h3>
+      <div class="stars">
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+      </div>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, hic!</p>
+      <div class="price">$49.99</div>
+      <a href="#" class="btn">buy now</a>
+   </div>
+
+   <div class="restaurant-preview" data-target="restaurant-2">
+        <img src="../../../Components/Images/hamburguer.png" alt="">
+        <h3>delicious food</h3>
+      <div class="stars">
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+      </div>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, hic!</p>
+      <div class="price">$49.99</div>
+      <a href="#" class="btn">buy now</a>
+   </div>
+
+   <div class="restaurant-preview" data-target="restaurant-3">
+        <img src="../../../Components/Images/hamburguer.png" alt="">
+      <h3>delicious food</h3>
+      <div class="stars">
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+      </div>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, hic!</p>
+      <div class="price">$49.99</div>
+      <a href="#" class="btn">buy now</a>
+   </div>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, hic!</p>
+      <div class="price">$49.99</div>
+      <a href="#" class="btn">buy now</a>
+   </div>
+
+</section>
+<!-- food preview section termina -->
+
+
     <form>
         <input name="busca" value="<?php if(isset($_GET['busca'])) echo $_GET['busca']; ?>" placeholder="Digite o restaurante procurado" type="text" >
         <button type="submit"> Pesquisar Restaurante</button>

@@ -1,94 +1,102 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const restaurantList = document.getElementById("restauranteList");
+let navbar = document.querySelector('.header .navbar');
+let menuBtn = document.querySelector('#menu-btn');
 
-  // Seleciona o formulário
-  const dados = document.getElementById("buscaInput").value;
-  // Envia os dados usando a API Fetch
-  restaurantes = [];
-
-  fetch("Restaurants.php", {
-    method: "POST",
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      inputData: dados
-    }),
-  })
-    .then((response) => response.json())
-    .then((dados) => {
-
-        const restaurantes = dados.map((item) => ({
-          restaurantName: item.nome_fantasia,
-          culinariaType: "Teste",
-          rating: "4.5"
-        }));
-        renderRestaurantes(restaurantes);
-      })
-      .catch((error) => {
-            console.error("Erro:", error);
-            alert("Ocorreu um erro ao enviar o formulário.");
-      });  
-
-  // Função para renderizar a lista de restaurantes na tela
-  const renderRestaurantes = (restaurantes) => {
-    restaurantList.innerHTML = "";
-    // Para cada restaurante na lista de restaurantes fornecida
-    restaurantes.forEach((restaurant) => {
-      // Cria um novo elemento div para representar o restaurante
-      const restaurantItem = document.createElement("div");
-      // Adiciona a classe 'restaurant-item' ao novo div
-      restaurantItem.classList.add("restaurant-item");
-
-      // Define o conteúdo HTML do div com os dados do restaurante
-      restaurantItem.innerHTML = `
-              <h3>${restaurant.restaurantName}</h3>
-              <button onclick="verMenu('${restaurant.restaurantName}')">Ver Menu</button> 
-          `;
-      // Adiciona o novo div ao elemento que representa a lista de restaurantes na tela
-      restaurantList.appendChild(restaurantItem);
-    });
-  };
-
-  const buscarRestaurantes = () => {
-    // Obtém o valor digitado no campo de busca e converte para minúsculas
-    const buscarInput = document
-      .getElementById("buscarInput")
-      .value.toLowerCase();
-    // Filtra a lista de restaurantes com base no valor de busca
-    const filtrarRestaurantes = restaurantes.filter((restaurant) =>
-      restaurant.restaurantName.toLowerCase().includes(buscarInput)
-    );
-    // Renderiza a lista de restaurantes filtrada na tela
-    renderRestaurantes(filtrarRestaurantes);
-  };
-  // Renderiza a lista inicial de restaurantes quando a página é carregada
-  renderRestaurantes(restaurantes);
-
-  // Torna a função buscarRestaurantes acessível no escopo global
-  window.buscarRestaurantes = buscarRestaurantes;
-});
-
-// Função para redirecionar para a página do menu
-const verMenu = (restaurantName) => {
-  window.location.href = `../Menu/menu.html?restaurant=${encodeURIComponent(
-    restaurantName
-  )}`;
+menuBtn.onclick = () =>{
+   menuBtn.classList.toggle('fa-times');
+   navbar.classList.toggle('active');
 };
 
-/*function RestauranteBusca() {
-  var query = document.getElementById('buscaInput').value;
-  var xhr = new XMLHttpRequest();
-  xhr.open('GET', 'search.php?query=' + query, true);
-  xhr.onload = function() {
-      if (this.status == 200) {
-          var restaurantes = JSON.parse(this.responseText);
-          var output = '';
-          for (var i in restaurantes) {
-              output += '<p>' + restaurantes[i].name + '</p>';
-          }
-          document.getElementById('restauranteList').innerHTML = output;
-      }
-  };
-  xhr.send();
-}*/
+window.onscroll = () =>{
+   menuBtn.classList.remove('fa-times');
+   navbar.classList.remove('active');
+};
+
+var swiper = new Swiper(".home-slider", {
+   grabCursor:true,
+   loop:true,
+   centeredSlides:true,
+   navigation: {
+     nextEl: ".swiper-button-next",
+     prevEl: ".swiper-button-prev",
+   },
+});
+
+var swiper = new Swiper(".food-slider", {
+   grabCursor:true,
+   loop:true,
+   centeredSlides:true,
+   spaceBetween: 20,
+   pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+   },
+   breakpoints: {
+      0: {
+        slidesPerView: 1,
+      },
+      700: {
+        slidesPerView: 2,
+      },
+      1000: {
+        slidesPerView: 3,
+      },
+   },
+});
+
+let previewContainer = document.querySelector('.food-preview-container');
+let previewBox = previewContainer.querySelectorAll('.food-preview');
+
+document.querySelectorAll('.food .slide').forEach(food =>{
+   food.onclick = () =>{
+      previewContainer.style.display = 'flex';
+      let name = food.getAttribute('data-name');
+      previewBox.forEach(preveiw =>{
+         let target = preveiw.getAttribute('data-target');
+         if(name == target){
+            preveiw.classList.add('active');
+         }
+      });
+   };
+});
+
+previewContainer.querySelector('#close-preview').onclick = () =>{
+   previewContainer.style.display = 'none';
+   previewBox.forEach(close =>{
+      close.classList.remove('active');
+   });
+};
+
+var swiper = new Swiper(".menu-slider", {
+   grabCursor:true,
+   loop:true,
+   autoHeight:true,
+   centeredSlides:true,
+   spaceBetween: 20,
+   pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+   },
+});
+
+var swiper = new Swiper(".blogs-slider", {
+   grabCursor:true,
+   loop:true,
+   centeredSlides:true,
+   autoHeight:true,
+   spaceBetween: 20,
+   pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+   },
+   breakpoints: {
+      0: {
+        slidesPerView: 1,
+      },
+      700: {
+        slidesPerView: 2,
+      },
+      1000: {
+        slidesPerView: 3,
+      },
+   },
+});
