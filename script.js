@@ -1,6 +1,8 @@
 const navbar = document.querySelector('.header .navbar'); // seleciona o elemento navbar
 const menuBtn = document.querySelector('#menu-btn'); // seleciona o elemento menu-btn
 const beginBtn = document.getElementById('slide-btn'); // seleciona o botão COMEÇAR do slide
+const beginBtn1 = document.getElementById('slide-btn-1');
+const beginBtn2 = document.getElementById('slide-btn-2'); 
 const aboutBtn = document.getElementById('about-btn'); // Seleciona o botão "Conheça nossa equipe";
 const blogsSection = document.querySelector('.blogs-slider'); // Seleciona a section pai dos botõs
 let loggedUser; // captura o nome do usuário logado
@@ -12,9 +14,15 @@ menuBtn.onclick = () => {
     navbar.classList.toggle('active'); 
 };// altera o icone do botão menu-btn
 
-
+// redireciona para a página dos restaurantes
 beginBtn.onclick = () => { 
-    window.location.href = "Components/Menu/menu.html"; // redireciona para a página dos restaurantes
+    window.location.href = "Components/Menu/menu.html"; 
+}
+beginBtn1.onclick = () => { 
+    window.location.href = "Components/Menu/menu.html"; 
+}
+beginBtn2.onclick = () => { 
+    window.location.href = "Components/Menu/menu.html"; 
 }
 
 

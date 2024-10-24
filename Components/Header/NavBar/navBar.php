@@ -1,4 +1,4 @@
-<?php
+<?php /*
 session_start();
 ?>
 
@@ -37,7 +37,6 @@ session_start();
         <?php
         // Verifica se o usuário está logado
           if (!isset($_SESSION['login']) || $_SESSION['login'] !== true) {
-             // gera opções para usuário deslogado // mostra uma informação na saída do navegador 
               echo '<li class="navbar-item">
                     <a href="../../../Components/userLogin/login.html" target="_top" class="navbar-link" data-nav-link>Login</a>
                   </li>';
