@@ -1,3 +1,4 @@
+<?php include'Components/nav/nav.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,23 +12,6 @@
     <title>Home | SEF</title>
 </head>
 <body>
-
-    <!-- header section starts -->
-    <section class="header">
-
-        <a href="#" class="logo"> <img src="Components/images/logoSef.png" alt="">Sem esperar em Filas</a>
-
-        <nav class="navbar">
-            <a href="./index.php">Home</a>
-            <a href="./Components/AboutUs/about.html">Sobre</a>
-            <a href="./Components/Menu/menu.html">Restaurantes</a>
-            <a href="./Components/LoginSelection/loginOption.html" id="login-navbar">Login</a>
-        </nav>
-
-        <div id="menu-btn" class="fas fa-bars"></div>
-
-    </section>
-    <!-- header section ends -->
 
     <!-- home section starts -->
     <section class="home" id="home">
