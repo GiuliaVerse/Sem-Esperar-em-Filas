@@ -1,7 +1,9 @@
 <?php
 // valida_sessao.php
 
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
 $url = dirname($_SERVER['SCRIPT_NAME']);                   // Obtém URL básica da aplicação Web
 $url = substr($url,strrpos($url,"\\/")+1,strlen($url));    // Retira 1o. '/'
