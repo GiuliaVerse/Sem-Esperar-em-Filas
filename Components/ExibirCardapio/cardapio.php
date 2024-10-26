@@ -41,6 +41,9 @@ $conn->close();
     <link rel="stylesheet" href="cardapio.css">
 </head>
 <body>
+    <header>
+        <iframe src="../../Components/nav/nav.php"  width="100%" height="100"></iframe>
+    </header>
     <!-- seção de cardápio -->
     <section class="menu" id="menu">
 

@@ -29,7 +29,7 @@
                         <div class="content">
                             <span>buscando algo para comer?</span>
                             <h3>faça seu pedido</h3>
-                            <a href="#" class="slide-btn" id="slide-btn">começar</a>
+                            <a href="#" class="slide-btn" id="slide-btn">faça login para começar</a>
                         </div>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
                         <div class="content">
                             <span>ninguém aguenta esperar em filas!</span>
                             <h3>não perca mais tempo</h3>
-                            <a href="#" class="slide-btn" id="slide-btn-1">começar</a>
+                            <a href="#" class="slide-btn" id="slide-btn-1">faça login para começar</a>
                         </div>
                     </div>
                 </div>
@@ -47,7 +47,7 @@
                         <div class="content">
                             <span>facil de usar</span>
                             <h3>peça sem sair da sala</h3>
-                            <a href="#" class="slide-btn" id="slide-btn-2">começar</a>
+                            <a href="#" class="slide-btn" id="slide-btn-2">faça login para começar</a>
                         </div>
                     </div>
                 </div>
