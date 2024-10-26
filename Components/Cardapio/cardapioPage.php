@@ -1,3 +1,8 @@
+<?php
+    $tipoPagina = 'restaurante';
+	require('../../valida_sessao.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

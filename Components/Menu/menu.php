@@ -1,4 +1,6 @@
 <?php
+    $tipoPagina = 'cliente';
+    require('../../valida_sessao.php');
 $restaurantes = include 'fetch_restaurantes.php';
 include $_SERVER['DOCUMENT_ROOT'].'/Sem-Esperar-em-Filas/Components/nav/nav.php';
 ?>

@@ -1,11 +1,7 @@
 <?php
+    $tipoPagina = 'cliente';
     include('Restaurants.php');
     require('../../valida_sessao.php');
-    if ($_SESSION["tipo"] != "cliente") {
-        $url = "Location: /" . $url . "/index.php";
-        header($url);
-        exit();    
-    }
 ?>
 
 <!DOCTYPE html>

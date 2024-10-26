@@ -39,8 +39,8 @@
                 else if ($_SESSION['tipo'] == 'restaurante') {
                     $restaurante = $_SESSION['nome'];
                     echo '
-                    <a href="/Sem-Esperar-em-Filas/Components/Cardapio/Cardapio.html" target="_top"><i class="fas fa-list"></i> Cadastrar Cardápios</a>
-                    <a href="/Sem-Esperar-em-Filas/Components/ProductPage/Products.html" target="_top"><i class="fas fa-burger"></i> Cadastrar Produtos</a>
+                    <a href="/Sem-Esperar-em-Filas/Components/Cardapio/cardapioPage.php" target="_top"><i class="fas fa-list"></i> Cadastrar Cardápios</a>
+                    <a href="/Sem-Esperar-em-Filas/Components/ProductPage/ProductsPage.php" target="_top"><i class="fas fa-burger"></i> Cadastrar Produtos</a>
                     <a href="#" class="user-icon" data-tooltip="Olá, ' . htmlspecialchars($restaurante) . '"><i class="fas fa-utensils"></i> restaurante </a>';
                 }
 
