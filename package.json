@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@mercadopago/sdk-js": "^0.0.3",
     "composer": "^4.1.0",
     "inputmask": "^5.0.9"
   }
