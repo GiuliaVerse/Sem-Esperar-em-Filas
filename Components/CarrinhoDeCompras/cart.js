@@ -210,7 +210,7 @@ function showPhotoAlert() {
 
 document.getElementById("voltar").addEventListener('click', voltar);
 function voltar() {
-    window.location.href = '../Menu/menu.html';
+    window.location.href = '../Menu/menu.php';
 }
 
 // codigo base para esse carrinho de compras: https://github.com/gustavopolonio/Introducao-ao-Desenvolvimento-Web/blob/master/Como-programar-um-Carrinho-de-Compras_Tutorial-JavaScript/loja.js

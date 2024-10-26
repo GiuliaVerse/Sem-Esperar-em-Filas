@@ -1,11 +1,7 @@
 <?php
+    $tipoPagina = 'cliente';
     include('Restaurants.php');
     require('../../valida_sessao.php');
-    if ($_SESSION["tipo"] != "cliente") {
-        $url = "Location: /" . $url . "/index.php";
-        header($url);
-        exit();    
-    }
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +17,7 @@
 
 <body>
     <header>
-        <iframe src="../../Components/nav/nav.php" width="100%" height="100"></iframe>
+        <iframe src="/Sem-Esperar-em-Filas/Components/nav/nav.php" width="100%" height="100"></iframe>
     </header>
 
 <div class="container">

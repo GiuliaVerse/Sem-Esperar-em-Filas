@@ -1,7 +1,9 @@
 <?php
 // valida_sessao.php
 
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
 $url = dirname($_SERVER['SCRIPT_NAME']);                   // Obtém URL básica da aplicação Web
 $url = substr($url,strrpos($url,"\\/")+1,strlen($url));    // Retira 1o. '/'
@@ -30,6 +32,14 @@ if (isset($_SESSION['tempo']) && (time() - $_SESSION['tempo']) > $tempo_limite) 
     $url = "Location: /" . $url . "/index.php";             // Monta URL para redirecionamento
     header($url);                                           // Vai para a página de login / inicial
     exit();
+}
+
+if( isset($tipoPagina) && 
+    ($tipoPagina == 'cliente' && $_SESSION['tipo'] != 'cliente' ||
+     $tipoPagina == 'restaurante' && $_SESSION['tipo'] != 'restaurante'  )) {
+     $url = "Location: /" . $url . "/index.php";             // Monta URL para redirecionamento
+     header($url);                                           // Vai para a página de login / inicial
+     exit();   
 }
 
 $_SESSION['tempo'] = time();

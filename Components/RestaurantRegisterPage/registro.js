@@ -131,5 +131,5 @@ function validateRegistration() {
 // Função responsável por redirecionar o usuário de volta para a página de login
 function goBack() {
     // Redireciona o usuário para a página de login do restaurante
-    window.location.href = "../userLogin/login.html";
+    window.location.href = "../LoginSelection/loginOption.html";
 }

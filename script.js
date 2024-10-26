@@ -16,13 +16,13 @@ menuBtn.onclick = () => {
 
 // redireciona para a página dos restaurantes
 beginBtn.onclick = () => { 
-    window.location.href = "Components/Menu/menu.html"; 
+    window.location.href = "/Sem-Esperar-em-Filas/Components/LoginSelection/loginOption.html"; 
 }
 beginBtn1.onclick = () => { 
-    window.location.href = "Components/Menu/menu.html"; 
+    window.location.href = "/Sem-Esperar-em-Filas/Components/LoginSelection/loginOption.html"; 
 }
 beginBtn2.onclick = () => { 
-    window.location.href = "Components/Menu/menu.html"; 
+    window.location.href = "/Sem-Esperar-em-Filas/Components/LoginSelection/loginOption.html"; 
 }
 
 
