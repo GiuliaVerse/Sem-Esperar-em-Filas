@@ -29,15 +29,19 @@
             } else {
                 // Se o usuário estiver logado como cliente
                 if ($_SESSION['tipo'] == 'cliente') {
+                    $cliente = $_SESSION['nome'];
                     echo '
-                    <a href="/Sem-Esperar-em-Filas/Components/RestaurantesBusca/restaurantsPage.php" target="_top">Restaurantes</a>
+                    <a href="/Sem-Esperar-em-Filas/Components/Menu/menu.php" target="_top">Restaurantes</a>
                     <a href="/Sem-Esperar-em-Filas/Components/CarrinhoDeCompras/cart.html" target="_top"><i class="fas fa-cart-shopping"></i> Carrinho</a>';
+                    echo '<a href="#" class="user-icon" data-tooltip="Olá, ' . htmlspecialchars($cliente) . '"><i class="fas fa-user"></i> cliente</a>';
                 }
                 // Se o usuário estiver logado como restaurante
                 else if ($_SESSION['tipo'] == 'restaurante') {
+                    $restaurante = $_SESSION['nome'];
                     echo '
                     <a href="/Sem-Esperar-em-Filas/Components/Cardapio/Cardapio.html" target="_top"><i class="fas fa-list"></i> Cadastrar Cardápios</a>
-                    <a href="/Sem-Esperar-em-Filas/Components/ProductPage/Products.html" target="_top"><i class="fas fa-burger"></i> Cadastrar Produtos</a> ';
+                    <a href="/Sem-Esperar-em-Filas/Components/ProductPage/Products.html" target="_top"><i class="fas fa-burger"></i> Cadastrar Produtos</a>
+                    <a href="#" class="user-icon" data-tooltip="Olá, ' . htmlspecialchars($restaurante) . '"><i class="fas fa-utensils"></i> restaurante </a>';
                 }
 
                 // Opção de logout para todos os tipos de usuários logados
@@ -45,21 +49,12 @@
                 <a href="./Components/userLogin/logout.php"><i class="fas fa-arrow-right-from-bracket"></i> Logout</a>';
             }
             ?>
-
-        <?php
-          if (isset($_SESSION['tipo'])) { 
-          ?> 
-          <ol class="navbar-item">
-             Logado como <?php echo $_SESSION['tipo']?>
-          </ol>
-          <?php } ?>
         </nav>
 
         <div id="menu-btn" class="fas fa-bars"></div>
 
     </section>
     <!-- header section ends -->
-
 
 </body>
 </html>
