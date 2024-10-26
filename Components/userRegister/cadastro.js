@@ -96,5 +96,5 @@ function validarCadastro() {
 }
   
   function Voltar() {
-     window.location.href = "../userLogin/login.html";
+     window.location.href = "../LoginSelection/loginOption.html";
   }

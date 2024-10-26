@@ -24,13 +24,13 @@
             // Se o usuário não estiver logado, exibe a opção de login
             if (!isset($_SESSION['login']) || $_SESSION['login'] !== true) {
                 echo '
-                <a href="/Sem-Esperar-em-Filas/Components/RestaurantRegisterPage/RestauranteRegister.html" target="_top" class="navbar-link" data-nav-link>Cadastre Seu Restaurante</a>
                 <a href="/Sem-Esperar-em-Filas/Components/LoginSelection/loginOption.html" target="_top" id="login-navbar">Login</a>';
             } else {
                 // Se o usuário estiver logado como cliente
                 if ($_SESSION['tipo'] == 'cliente') {
                     $cliente = $_SESSION['nome'];
                     echo '
+                    <a href="/Sem-Esperar-em-Filas/Components/RestaurantesBusca/restaurantsPage.php" target="_top">Encontrar Restaurantes</a>
                     <a href="/Sem-Esperar-em-Filas/Components/Menu/menu.php" target="_top">Restaurantes</a>
                     <a href="/Sem-Esperar-em-Filas/Components/CarrinhoDeCompras/cart.html" target="_top"><i class="fas fa-cart-shopping"></i> Carrinho</a>';
                     echo '<a href="#" class="user-icon" data-tooltip="Olá, ' . htmlspecialchars($cliente) . '"><i class="fas fa-user"></i> cliente</a>';
@@ -46,7 +46,7 @@
 
                 // Opção de logout para todos os tipos de usuários logados
                 echo '
-                <a href="./Components/userLogin/logout.php"><i class="fas fa-arrow-right-from-bracket"></i> Logout</a>';
+                <a href="/Sem-Esperar-em-Filas/Components/userLogin/logout.php" target="_top"><i class="fas fa-arrow-right-from-bracket"></i> Logout</a>';
             }
             ?>
         </nav>

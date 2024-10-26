@@ -27,7 +27,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/Sem-Esperar-em-Filas/Components/nav/nav.php'
                 <?php foreach ($restaurantes as $restaurante): ?>
                     <div class="menu-item">
                         <div class="image">
-                            <img src="/restaurantes/Components/Images/restaurant-img.jpg" alt="">
+                            <img src="/Sem-Esperar-em-Filas/Components/Images/restaurant-img.jpg" alt="">
                             <span><?php echo $restaurante['nome']; ?></span>
                         </div>
                         <div class="content">
