@@ -99,3 +99,33 @@ section{
     display: none;
 }
 /* navbar ends */
+
+/* tooltip starts */
+[data-tooltip] {
+    position: relative;
+    cursor: pointer;
+}
+
+[data-tooltip]::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 5px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+    font-size: 0.875em;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    margin-top: 5px; 
+    z-index: 10;
+}
+
+[data-tooltip]:hover::before {
+    opacity: 1;
+}
+/* tooltip ends */
