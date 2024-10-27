@@ -1,6 +1,6 @@
 <?php
 include $_SERVER['DOCUMENT_ROOT'].'/Sem-Esperar-em-Filas/db_connection.php';
-
+include $_SERVER['DOCUMENT_ROOT'].'/Sem-Esperar-em-Filas/Components/nav/nav.php';
 // Obtenha o ID do restaurante da URL
 $restaurante_id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
@@ -18,6 +18,7 @@ if ($restaurante_id > 0) {
                 'nome_restaurante' => htmlspecialchars($row['nome_cardapio'], ENT_QUOTES, 'UTF-8'), // Certifique-se de que essa coluna existe
                 'categoria' => htmlspecialchars($row['categoria'], ENT_QUOTES, 'UTF-8'),
                 'descricao' => htmlspecialchars($row['descricao'], ENT_QUOTES, 'UTF-8'),
+                'codigo' => htmlspecialchars($row['codigo_cardapio'], ENT_QUOTES, 'UTF-8'),
                 // 'preco' => number_format((float)$row['preco'], 2, ',', '.')
             ];
         }
@@ -41,9 +42,6 @@ $conn->close();
     <link rel="stylesheet" href="cardapio.css">
 </head>
 <body>
-    <header>
-        <iframe src="../../Components/nav/nav.php"  width="100%" height="100"></iframe>
-    </header>
     <!-- seção de cardápio -->
     <section class="menu" id="menu">
 
@@ -64,14 +62,16 @@ $conn->close();
                             </div>
                             <p class="item-category"><?php echo $item['categoria']; ?></p>
                             <p class="item-description"><?php echo $item['descricao']; ?></p>
+                            <input type="hidden" class="item-code" value="<?php echo $item['codigo'] ?>">
                         </div>
                     </div>
                 <?php endforeach; ?>
             <?php endif; ?>
 
         </div>
-
+        <script src="cardapio.js"></script>
     </section>
     <!-- fim da seção de cardápio -->
+    <script src="cardapio.js" ></script>
 </body>
 </html>

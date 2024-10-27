@@ -7,6 +7,7 @@
     outline: none; border: none;
     text-decoration: none;
     transition:  all 0.4s cubic-bezier(.43,1.1,.62,1.08);
+    text-transform: capitalize;
     --dark-bg:rgb(0,0,0,.7);
     --light-bg:#f5f5f5;
 }
@@ -39,15 +40,17 @@ section{
     padding: 5rem 10%;
 }
 
-body {
-    background-color: #fbfcff;
+.header a{
+    text-decoration: none;
 }
 
 
+/* heading starts */
 .heading{
     text-align: center;
     margin-bottom: 3rem;
 }
+/* heading ends */
 
 .heading span{
     font-size: 2.5rem;
@@ -58,7 +61,45 @@ body {
     font-size: 4.5rem;
 }
 
+.produto-item {
+    margin-bottom: 25px;
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+}
 
+.produto-item p {
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+.produto-nome{
+    font-weight: bold;
+}
+
+
+.add-card-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.add-card-btn .card-btn{
+    margin-top: 1rem;
+    display: inline-block;
+    background-color: red;
+    color:white;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 1rem 3rem;
+    text-decoration: none;
+    border-radius: 50px;
+}
+
+.add-card-btn .card-btn:hover{
+    letter-spacing: .2rem;
+}
 
 /* navbar starts */
 .header{
@@ -114,108 +155,6 @@ body {
 }
 /* navbar ends */
 
-
-/* cardápio */
-.menu .menu-item {
-    width: 35rem;
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-
-.menu-card {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction:row;
-    justify-content: space-evenly;
-    align-items: center;
-}
-
-
-
-.menu .menu-item .image span {
-    position: absolute;
-    bottom: -10rem; 
-    left: 50%;
-    transform: translateX(-50%);
-    padding: .5rem 1.5rem;
-    font-size: 2rem;
-    color: white;
-    background: black;
-    z-index: 10;
-}
-
-.menu .menu-item .content {
-    padding: 2rem;
-    background: #FFF;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
-    border-radius: 15px;
-    cursor: pointer;
-}
-
-.menu .menu-item .content .restaurant-info {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 2rem;
-}
-
-.menu .menu-item .content p {
-    text-align: justify;
-}
-
-
-.menu .menu-item .content .item-category {
-    font-size: 2rem;
-    color: black;
-    text-decoration: none;
-}
-
-.menu .menu-item .content p {
-    padding: 1rem 0;
-    line-height: 2;
-    font-size: 1.6rem;
-    color: black;
-}
-
-
-.menu .menu-item .content .restaurant-info .restaurant-name {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
-.menu .menu-item .content .item-category {
-    display: flex;
-    justify-content: center;
-}
-
-.menu .menu-item .content .item-description {
-    display: flex;
-    justify-content: center;
-    margin-top: 15px;
-}
-
-.erro-msg{
-    font-size: 2.5rem;
-}
-
-.restaurant-name {
-    background-color: red;
-    border-radius: 15px;
-    font-weight: bold;
-}
-
-
-.content{
-    transition: transform 0.3s ease;
-}
-
-.content:hover {
-    transform: scale(1.05);
-}
-
-
-
 /* tooltip starts */
 [data-tooltip] {
     position: relative;
@@ -244,7 +183,10 @@ body {
 [data-tooltip]:hover::before {
     opacity: 1;
 }
-/* tooltip ends */
+
+
+
+
 
 
 
