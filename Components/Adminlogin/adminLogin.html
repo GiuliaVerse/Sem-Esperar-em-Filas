@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrar</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <header>
+        <iframe src="../../Components/nav/nav.php" width="100%" height="100" title="Navigation Bar"></iframe>
+    </header>
+    <main class="container">
+        <h2>Entrar como Administrador</h2>
+        <form id="adminloginForm">
+            <label for="usuario">Usuário:</label>
+            <input type="text" id="usuario" name="usuario" required>
+
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required>
+
+            <button type="button" onclick="validarLogin()">Entrar</button>
+        </form>
+    </main>
+    <footer>
+        <iframe src="../Footer/footer.html" width="100%" height="100" title="Footer"></iframe>
+    </footer>
+    <script src="admin.js"></script>
+</body>
+</html>

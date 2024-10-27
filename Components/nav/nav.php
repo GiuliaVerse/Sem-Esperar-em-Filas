@@ -39,7 +39,7 @@
                     <a href="/Sem-Esperar-em-Filas/Components/Cardapio/Cardapio.html" target="_top"><i class="fas fa-list"></i> Cadastrar Cardápios</a>
                     <a href="/Sem-Esperar-em-Filas/Components/ProductPage/Products.html" target="_top"><i class="fas fa-burger"></i> Cadastrar Produtos</a> ';
                 }
-
+                
                 // Opção de logout para todos os tipos de usuários logados
                 echo '
                 <a href="./Components/userLogin/logout.php"><i class="fas fa-arrow-right-from-bracket"></i> Logout</a>';
