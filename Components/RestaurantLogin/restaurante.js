@@ -7,20 +7,17 @@ function cadastrar() {
     // Redirecionar para a página de cadastro
     window.location.href = 'cadastro.html';
 }
-// a partir daqui
+
 function validarLogin() {
-    // Obtém os valores dos campos de usuário e senha do formulário HTML
     var usuario = document.getElementById("usuario").value;
     var senha = document.getElementById("senha").value;
 
-    // Verifica se algum dos campos (usuário ou senha) está vazio
     if (usuario === "" || senha === "") {
         // Se algum campo estiver vazio, exibe uma mensagem de erro no elemento com id "mensagem"
         document.getElementById("mensagem").innerText = "Por favor, preencha todos os campos.";
     } 
     else {
 
-        // Seleciona o formulário de login pelo id "loginForm"
         const formulario = document.getElementById("loginForm");
 
         // Cria um objeto FormData contendo os dados do formulário para enviar via POST
