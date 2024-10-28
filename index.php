@@ -13,10 +13,10 @@
 </head>
 <body>
 
-    <!-- home section starts -->
+    <!-- home começa -->
     <section class="home" id="home">
 
-        <!-- Carousel -->
+        <!-- Carrosel de Imagens -->
         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -61,10 +61,9 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
-        <!-- Carousel Ends -->
+        <!-- Carrosel de Imagens termina -->
 
     </section>
-    <!-- home section ends -->
 
     <!-- about section starts -->
      <section class="about" id="about">
@@ -261,7 +260,7 @@
      </section>
       <!-- blogs section ends -->
 
-      <!-- footer starts -->
+      <!-- inicio do footer -->
         <div class="footer">
 
             <div class="icons-container">
@@ -295,16 +294,14 @@
             </div>
     
             <div class="share">
-                <a href="#" class="fab fa-facebook-f"></a>
-                <a href="#" class="fab fa-twitter"></a>
-                <a href="#" class="fab fa-instagram"></a>
-                <a href="#" class="fab fa-linkedin"></a>
+                <a href="https://www.linkedin.com/in/paulo-muchalski-0794652b9/" class="fab fa-linkedin"></a>
+                <a href="https://www.instagram.com/paulocem_/" class="fab fa-instagram"></a>
+                <a href="https://x.com/home" class="fab fa-x"></a>
+                <a href="https://github.com/GiuliaVerse/Sem-Esperar-em-Filas" class="fab fa-github"></a>
             </div>
     
             <div class="credit">Created by <span> Watermelon Inc® </span> All rights reserved</div>
-
         </div>
-       <!-- footer ends -->
 
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/js/lightgallery.min.js"></script>
