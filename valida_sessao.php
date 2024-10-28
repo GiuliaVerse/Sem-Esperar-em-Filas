@@ -34,9 +34,7 @@ if (isset($_SESSION['tempo']) && (time() - $_SESSION['tempo']) > $tempo_limite) 
     exit();
 }
 
-if( isset($tipoPagina) && 
-    ($tipoPagina == 'cliente' && $_SESSION['tipo'] != 'cliente' ||
-     $tipoPagina == 'restaurante' && $_SESSION['tipo'] != 'restaurante'  )) {
+if( isset($tipoPagina) && $_SESSION['tipo'] != $tipoPagina) {
      $url = "Location: /" . $url . "/index.php";             // Monta URL para redirecionamento
      header($url);                                           // Vai para a página de login / inicial
      exit();   
