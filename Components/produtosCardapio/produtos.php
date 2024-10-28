@@ -1,4 +1,6 @@
 <?php
+    $tipoPagina = 'cliente';
+	require('../../valida_sessao.php');
 include $_SERVER['DOCUMENT_ROOT'].'/Sem-Esperar-em-Filas/db_connection.php';
 include $_SERVER['DOCUMENT_ROOT'].'/Sem-Esperar-em-Filas/Components/nav/nav.php';
 

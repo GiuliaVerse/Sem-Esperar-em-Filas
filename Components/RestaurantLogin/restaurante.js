@@ -18,7 +18,6 @@ function validarLogin() {
         if (xhr.status === 200) {
             var response = JSON.parse(xhr.responseText);
             if (response.autenticado) {
-                alert('Login realizado com sucesso!');
                 // Redirecionar para a página principal ou dashboard
                 window.location.href =  "../../index.php";
             } else {
