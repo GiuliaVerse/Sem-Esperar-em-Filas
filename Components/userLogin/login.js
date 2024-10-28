@@ -9,7 +9,6 @@ function validarLogin() {
         document.getElementById("mensagem").innerText = "Por favor, preencha todos os campos.";
     } 
     else {
-        // Se os campos não estiverem vazios, procede com a validação
 
         // Seleciona o formulário de login pelo id "loginForm"
         const formulario = document.getElementById("loginForm");
@@ -26,8 +25,6 @@ function validarLogin() {
         .then((dados) => {
             // Verifica se o usuário foi autenticado a partir dos dados retornados
             if(dados.autenticado) {
-                // Se autenticado, exibe um alerta de sucesso e redireciona o usuário
-                alert('Login realizado com sucesso!');
                 if(dados.tipo == 'admin') {
                     window.location.href = "/Sem-Esperar-em-Filas/Components/AdminRegistros/AdminUser.php"; // Redireciona para a página inicial
                 } else {
