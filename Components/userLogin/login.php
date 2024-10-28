@@ -48,7 +48,7 @@ else {
         $id_restaurante = $linha['restaurante_codigo_restaurante']; // Obtém o código do restaurante
 
         // Verifica se a senha inserida corresponde ao hash armazenado
-        if (password_verify($password, $hash_senha_armazenada)) {
+        if (password_verify($password, $hash_senha_armazenada) && $id_cliente != null) {
             // Se a senha for válida, continua a verificar o tipo de usuário
 
             // Verifica se o usuário é um cliente (se a coluna cliente_codigo_cliente não for nula)
