@@ -28,7 +28,11 @@ function validarLogin() {
             if(dados.autenticado) {
                 // Se autenticado, exibe um alerta de sucesso e redireciona o usuário
                 alert('Login realizado com sucesso!');
-                window.location.href = "../../index.php"; // Redireciona para a página inicial
+                if(dados.tipo == 'admin') {
+                    window.location.href = "/Sem-Esperar-em-Filas/Components/AdminRegistros/AdminUser.php"; // Redireciona para a página inicial
+                } else {
+                    window.location.href = "../../index.php"; // Redireciona para a página inicial
+                }
             } else {
                 // Se não autenticado, exibe uma mensagem de erro no elemento com id "mensagem"
                 alert('Usuário ou senha inválidos!');

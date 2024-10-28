@@ -1,5 +1,6 @@
 <?php
-session_start();
+    $tipoPagina = 'admin';
+	require('../../valida_sessao.php');
 include_once('config.php');
 
 // Exibir erros para ajudar na depuração

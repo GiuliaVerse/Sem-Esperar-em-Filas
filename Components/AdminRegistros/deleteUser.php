@@ -1,4 +1,6 @@
 <?php
+    $tipoPagina = 'admin';
+	require('../../valida_sessao.php');
 include_once('config.php');
 
 // Verifica se o id foi enviado via GET
