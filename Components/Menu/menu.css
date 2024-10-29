@@ -40,6 +40,19 @@ section {
     padding: 5rem 10%;
 }
 
+form {
+    display: flex;
+    flex-flow: row;
+    width: 25%;
+    height: 100%;
+  }
+
+button{
+    display: flex;
+    flex-flow: row;
+    width: 100%;
+}
+
 .header a {
     text-decoration: none;
 }
@@ -221,6 +234,45 @@ section {
 /* menu ends */
 
 
+/* search starts */
+.pesquisa-restaurantes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.pesquisa-restaurantes .search-input{
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.pesquisa-restaurantes .search-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    width: 25%;
+    background-color: red;
+    color: #FFF;
+    font-weight: bold;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    font-size: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}   
+/* search ends */
+
+.no-restaurant{
+    font-size: 3.5rem;
+}
+
 
 /* Mostra o cliente logado na página */
 [data-tooltip] {
@@ -261,6 +313,24 @@ section {
         padding: 3rem 5%;
     }
 
+    form {
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .pesquisa-restaurantes .form-body {
+        flex-direction: column;
+    }
+
+    .pesquisa-restaurantes .form-body .search-btn {
+        border-radius: 15px;
+    }
+
+
+
 }
 
 @media (max-width:991px){
@@ -276,6 +346,23 @@ section {
     .home .slide .content h3{
         font-size: 15vw;
     }
+
+    .pesquisa-restaurantes {
+        flex-direction: column;
+    }
+
+    .pesquisa-restaurantes .search-input {
+        width: 50%;
+        border-radius: 15px;
+    }
+
+    .pesquisa-restaurantes .search-btn {
+        width: 15%;
+        border-radius: 50%;
+        margin-top: 15px;
+        border-radius: 50%;
+    }
+
 }
 
 
@@ -308,12 +395,23 @@ section {
         align-items: start;
     }
 
+    form {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+
 }
 
 @media (max-width:450px){
 
     html{
         font-size: 50%;
+    }
+
+
+    .pesquisa-restaurantes .search-btn{
+        width: 20%;
     }
 
 }

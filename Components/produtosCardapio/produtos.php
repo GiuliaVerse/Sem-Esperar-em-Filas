@@ -26,10 +26,10 @@ if ($cardapio_id > 0) {
             ];
         }
     } else {
-        $erro = "Nenhum produto encontrado para este cardápio.";
+        $erro = "Nenhum produto encontrado para este cardápio...";
     }
 } else {
-    $erro = "Cardápio não encontrado.";
+    $erro = "Cardápio não encontrado...";
 }
 
 $conn->close();

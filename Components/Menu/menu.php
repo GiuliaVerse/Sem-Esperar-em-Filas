@@ -3,6 +3,7 @@
     require('../../valida_sessao.php');
 $restaurantes = include 'fetch_restaurantes.php';
 include $_SERVER['DOCUMENT_ROOT'].'/Sem-Esperar-em-Filas/Components/nav/nav.php';
+include 'buscar_rest.php';
 ?>
 
 <!DOCTYPE html>
@@ -24,6 +25,12 @@ include $_SERVER['DOCUMENT_ROOT'].'/Sem-Esperar-em-Filas/Components/nav/nav.php'
         <div class="heading">
             <h3>Restaurantes</h3>
         </div>
+        <div class="pesquisa-restaurantes">
+            <form method="GET" class="form-body">
+                <input type="text" name="busca" placeholder="Buscar restaurante" class="search-input" value="<?php echo isset($_GET['busca']) ? $_GET['busca'] : ''; ?>">
+                <button type="submit" class="search-btn"><i class="fas fa-magnifying-glass"></i></button>
+            </form>
+        </div>
         <div class="menu-slider">
             <?php if (!empty($restaurantes)): ?>
                 <?php foreach ($restaurantes as $restaurante): ?>
@@ -39,7 +46,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/Sem-Esperar-em-Filas/Components/nav/nav.php'
                     </div>
                 <?php endforeach; ?>
             <?php else: ?>
-                <p>Nenhum restaurante encontrado.</p>
+                <p class="no-restaurant">O restaurante não foi encontrado...</p>
             <?php endif; ?>
         </div>
     </section>
