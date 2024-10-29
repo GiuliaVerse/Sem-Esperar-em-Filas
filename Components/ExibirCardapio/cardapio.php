@@ -23,10 +23,10 @@ if ($restaurante_id > 0) {
             ];
         }
     } else {
-        $erro = "Nenhum item de cardápio encontrado para este restaurante.";
+        $erro = "Nenhum item de cardápio encontrado para este restaurante...";
     }
 } else {
-    $erro = "Restaurante não encontrado.";
+    $erro = "Restaurante não encontrado...";
 }
 
 $conn->close();
