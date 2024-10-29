@@ -38,15 +38,11 @@ body {
     width: 40px;
     height: 40px;
     font-size: 2rem;
-    color: #ff9800;
+    color: red;
     background: none;
     border: none;
     border-radius: 50%;
-    transition: 0.3s;
-}
 
-.carrinho .carrinho-header button:hover {
-    background: #e68900;
 }
 
 .carrinho .carrinho-header h3 {
@@ -112,14 +108,14 @@ body {
     padding: 5px 10px;
     font-size: 0.875rem;
     color: #fff;
-    background: #ff9800;
+    background: red;
     border: none;
     border-radius: 4px;
     transition: 0.3s;
 }
 
 .remove-product-button:hover {
-    background: #e68900;
+    background: #dd2a2a;
 }
 
 .carrinho-total {
@@ -143,7 +139,7 @@ body {
     padding: 5px 5px;
     font-size: 13px;
     color: #fff;
-    background: #ff9800;
+    background: red;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -152,8 +148,71 @@ body {
 }
 
 .comprar-button:hover {
-    background: #e68900;
+    background: #dd2a2a;
 }
 
+.quantity-control {
+    display: flex;
+    align-items: center;
+}
 
+.decrement,
+.increment {
+    cursor: pointer;
+    padding: 5px 10px;
+    color: #ffffff;
+    background-color: red;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin: 0 5px;
+    transition: 0.3s;
+}
 
+.decrement:hover,
+.increment:hover {
+    background-color: #dd2a2a;
+}
+
+.product-qtd-input {
+    width: 30px;
+    text-align: center;
+    font-size: 1rem;
+    padding: 5px;
+    border: none;
+}
+
+.empty-cart-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%; /* ou ajuste conforme necessário */
+}
+
+.empty-cart-message p {
+    margin: 10px 0; /* Ajusta o espaçamento entre o texto e a imagem */
+}
+.carrinho-botoes {
+    display: flex;
+    justify-content: space-between; /* Distribui os botões com espaço entre eles */
+    margin-top: 10px; /* Adiciona um espaço entre o total e os botões */
+}
+
+.comprar-button,
+.continuar-comprando-button {
+    display: inline-block;
+    padding: 10px 20px; /* Ajusta o padding dos botões */
+    font-size: 16px; /* Tamanho da fonte dos botões */
+    color: #fff; /* Cor do texto */
+    background: red; /* Cor de fundo */
+    border: none; /* Sem borda */
+    border-radius: 4px; /* Borda arredondada */
+    cursor: pointer; /* Muda o cursor ao passar por cima */
+    transition: 0.3s; /* Transição suave */
+}
+
+.comprar-button:hover,
+.continuar-comprando-button:hover {
+    background: #dd2a2a; /* Cor do fundo ao passar o mouse */
+}

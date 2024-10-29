@@ -63,13 +63,21 @@ $conn->close();
                         <?php endif; ?>
                         <p class="produto-ingredientes">Ingredientes: <?php echo $produto['ingredientes']; ?></p>
                         <div class="add-card-btn">
-                            <button class="card-btn">adicionar ao carrinho</button>
+                            <button class="add-to-cart" 
+                                    data-product="<?php echo $produto['nome_produto']; ?>" 
+                                    data-price="<?php echo $produto['valor_produto']; ?>"
+                                    data-tempo="<?php echo $produto['tempo_preparo']; ?>">
+                                Adicionar ao carrinho
+                            </button>
                         </div>
                     </div>
                 <?php endforeach; ?>
             <?php endif; ?>
         </div>
     </section>
-    <script src="produtos.js" ></script>
+
+    <!-- Link para o arquivo JavaScript -->
+    <script src="produtos.js"></script>
 </body>
 </html>
+
