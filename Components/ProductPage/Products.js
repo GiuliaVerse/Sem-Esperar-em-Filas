@@ -18,7 +18,7 @@ function validarCadastroProduto() {
               alert("Produto cadastrado, será alocado a página assim que possível!");
               
               // Redireciona o usuário para a página de menu após o cadastro do produto
-              window.location.href = "../menu/menu.html";
+              window.location.href = "../menu/menu.php";
           } else {
               // Se houve um erro no cadastro, exibe a mensagem de erro retornada pelo servidor
               document.getElementById("mensagem").innerHTML = data.mensagem;
@@ -33,6 +33,6 @@ function validarCadastroProduto() {
   
   function menu() {
       // Redireciona o usuário para a página de menu quando a função "menu" é chamada
-      window.location.href = "components/menu/menu.html";
+      window.location.href = "components/menu/menu.php";
   }
   

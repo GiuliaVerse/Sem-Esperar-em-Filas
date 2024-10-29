@@ -17,7 +17,7 @@ function validarCadastroCardapio() {
         if (data.success) {
             alert("Cardápio cadastrado, cadastre seus produtos!!");
             
-            window.location.href = "../ProductPage/Products.html";
+            window.location.href = "../ProductPage/ProductsPage.php";
         } else {
             // Se houve um erro no cadastro, exibe a mensagem de erro retornada pelo servidor
             document.getElementById("mensagem").innerHTML = data.mensagem;
@@ -32,5 +32,5 @@ function validarCadastroCardapio() {
 
 function menu() {
     // Redireciona o usuário para a página de menu quando a função "menu" é chamada
-    window.location.href = "components/menu/menu.html";
+    window.location.href = "components/menu/menu.php";
 }
