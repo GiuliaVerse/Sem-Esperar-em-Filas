@@ -35,7 +35,7 @@ if (session_status() == PHP_SESSION_NONE) {
                     $cliente = $_SESSION['nome'];
                     echo'
                     <a href="/Sem-Esperar-em-Filas/Components/Menu/menu.php" target="_top">Restaurantes</a>
-                    <a href="/Sem-Esperar-em-Filas/Components/CarrinhoDeCompras/cart.html" target="_top"><i class="fas fa-cart-shopping"></i> Carrinho</a>';
+                    <a href="/Sem-Esperar-em-Filas/Components/CarrinhoDeCompras/cartPage.php" target="_top"><i class="fas fa-cart-shopping"></i> Carrinho</a>';
                     echo '<a href="#" class="user-icon" data-tooltip="Olá, ' . htmlspecialchars($cliente) . '"><i class="fas fa-user"></i> cliente</a>';
                 }
                 // Se o usuário estiver logado como restaurante

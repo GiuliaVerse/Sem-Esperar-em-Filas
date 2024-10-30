@@ -1,0 +1,332 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "roboto";
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.content {
+    background-color: #f2f2f2;
+    border: 3px solid black;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.20) 4px 4px 4px;
+    justify-content: space-between;
+    align-items: center;
+    height: 80%;
+    width: 70%;
+    position: relative;
+}
+
+.first-content {
+    display: flex;
+    height: 100%;
+}
+
+
+.first-column {
+    text-align: center;
+    justify-content: center;
+    flex: 1 0 auto;
+    background: red;
+    height: 100%;
+    width: 15%;
+    border-radius: 10px 0px 0px 10px;
+}
+
+.second-column {
+    flex: 2;
+    background-color: rgb(255, 255, 255);
+    border: 3px solid rgba(0, 0, 0, 0.4);
+    width: 10%;
+    height: 45%;
+    margin: 6% 4% 4% 4%; 
+}
+
+.pedido-content {
+    width: 100%;
+    margin-top: 2%;
+}
+
+
+
+.cartao{
+    height: 100%;
+    padding: 4%; 
+}
+
+ #nome{
+    width: 100%;
+    height: 2.5rem;;
+    padding: 4px;
+    margin: 1% 0% 2% 0%;
+}
+
+#numero-cartao{
+    width: 53%;
+    height: 2.5rem;
+    margin: 2% 0% 2% 0%;
+    padding: 4px;
+}
+#validade {
+    width: 25%;
+    height: 2.5rem;
+    margin: 2% 0% 2% 0%;
+    padding: 4px;
+}
+#validade-boleto {
+    width: 45%;
+    height: 2.5rem;
+    margin: 2% 0% 2% 0%;
+    padding: 4px;
+}
+
+#cvv {
+    width: 20%;
+    height: 2.5rem;
+    margin: 2% 0% 2% 0%;
+    padding: 4px;
+}
+
+#cpf {
+    width: 60%;
+    height: 2.5rem;
+    margin: 2% 0% 2% 0%;
+    padding: 4px;
+}
+
+#data-nascimento {
+    width: 39%;
+    margin: 2% 0% 2% 0%;
+    height: 2.5rem;
+    padding: 4px;
+    
+}
+
+#valor {
+    width: 100%;
+    height: 2.5rem;
+    padding: 4px;
+    margin: 2% 0% 7% 0%;
+}
+
+.h2 {
+    padding: 1%;
+    font-size: large;
+    text-decoration: #f2f2f2;
+}
+
+.itens-esquerda{
+    margin-top: 15%;
+}
+
+.titulo {
+    margin-bottom: 10%;
+}
+
+.title {
+    font-size: 30px;
+    color: #f2f2f2;
+}
+
+.btn{
+    width: 65%;
+    height: 60px;
+    font-size: 140%;
+    margin: 30px;
+    border-radius: 8px;
+    box-shadow: 3px 3px rgba(190, 190, 190, 0.233);
+}
+
+.btn:hover {
+    background-color: rgba(51, 51, 51, 0.568);
+    color:white;
+    transition: .3s;
+    border: 3px solid #58C22E;
+}
+
+
+
+#btn-finalizar {
+    margin: 0%;
+    margin-left: 30%;
+    width: 40%;
+    height: 3rem;
+    border-radius: 5px;
+    border: #f2f2f2;
+    background-color: #58C22E;
+    color: #f2f2f2;
+    justify-content: center;
+    box-shadow: 3px 3px rgba(42, 42, 42, 0.445);
+    
+    
+
+}
+
+/*  Parte boleto bancário   */
+
+.btn-boleto:hover{
+    background-color: #313131d7;
+    color: #f2f2f2;
+    transition: .3s;
+    
+}
+
+.btn-gerar-boleto {
+    width: 40%;
+    height: auto;
+    padding: 0%;
+
+}
+
+.cod-boleto {
+    text-decoration: #f2f2f2;
+}
+
+.vencimento-boleto {
+    width: 40%;
+}
+
+/*  Resumo de pedido  -  coluna 2  */
+
+.pedido {
+    display: flex;
+    height: 80%;
+    padding: 2%;
+    ;
+}
+
+.titulo-pedido {
+    text-align: center;
+}
+
+.itens {
+    
+    height: 80%;
+    width: 50%;
+    float: left;
+    margin-top: 3%;
+    padding: 5%;
+    text-align: center;
+}
+
+.endereco {
+    height: 80%;
+    width: 50%;
+    float: right;
+    padding: 5%;
+    margin-top:3%;
+    text-align: center;
+}
+
+.btn-boleto{
+    position: relative;
+    width: 35%;
+    height: 45px;
+    font-size: 100%;
+    border-radius: 4px;
+    box-shadow: 3px 3px rgba(190, 190, 190, 0.233);
+    margin-left: 3%;
+}
+
+.div-finalizar {
+    margin-bottom: 3%;
+}
+
+
+
+
+/*------------------------ media Queries ------------------------*/
+
+
+@media (max-width: 1400px) {
+    .content {
+        height: 90%;
+        width: 80%;
+        position: relative;
+    }
+    .title {
+        font-size: 25px;
+        color: #f2f2f2;
+    }
+    
+    .btn{
+        width: 65%;
+        height: 55px;
+        font-size: 110%;
+        margin: 30px;
+        border-radius: 8px;
+        box-shadow: 3px 3px rgba(190, 190, 190, 0.233);
+    }
+
+
+    
+}
+
+
+@media (max-width: 940px) {
+    .title {
+        font-size: 20px;
+        color: #f2f2f2;
+    }
+    
+    .btn{
+        width: 60%;
+        height: 45px;
+        font-size: 100%;
+        margin: 30px;
+        border-radius: 8px;
+        box-shadow: 3px 3px rgba(190, 190, 190, 0.233);
+    }
+   
+ 
+    #numero-cartao{
+        width: 50%;
+        height: 2.5rem;
+        margin: 2% 0% 2% 0%;
+        padding: 4px;
+    }
+    #validade {
+        width: 25%;
+        height: 2.5rem;
+        margin: 2% 0% 2% 0%;
+        padding: 4px;
+    }
+    
+    #cvv {
+        width: 20%;
+        height: 2.5rem;
+        margin: 2% 0% 2% 0%;
+        padding: 4px;
+    }
+    
+    #cpf {
+        width: 50%;
+        height: 2.5rem;
+        margin: 2% 0% 2% 0%;
+        padding: 4px;
+    }
+    
+    #data-nascimento {
+        width: 39%;
+        margin: 2% 0% 2% 0%;
+        height: 2.5rem;
+        padding: 4px;
+        
+    }
+    
+    #valor {
+        width: 100%;
+        height: 2.5rem;
+        padding: 4px;
+        margin: 2% 0% 7% 0%;
+    }
+    
+}
