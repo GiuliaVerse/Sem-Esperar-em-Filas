@@ -53,8 +53,10 @@
             <strong>Total: </strong>
             <span>R$0,00</span>
         </div>
-        <button id="comprar" class="comprar-button">Comprar</button>
-        <button class="continuar-comprando-button" id="continuar-comprando-button">Continuar Comprando</button>
+        <div class="buttons">
+            <button id="comprar" class="comprar-button">Comprar</button>
+            <button class="continuar-comprando-button" id="continuar-comprando-button">Continuar Comprando</button>
+        </div>
     </div>
     <script src="cart.js"></script>
 </body>
