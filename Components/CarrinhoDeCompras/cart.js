@@ -110,9 +110,9 @@ function ready() {
     renderCartItems();
     document.getElementById("comprar").addEventListener("click", finalizarCompra);
     document.getElementById("voltar").addEventListener('click', () => {
-        window.location.href = '../Menu/menu.html';
+        history.back();
     });
     document.getElementById('continuar-comprando-button').addEventListener('click', function() {
-        window.location.href = 'http://localhost/Sem-Esperar-em-Filas/Components/Menu/menu.php'; // URL do menu
+        history.back();
     });
 }
