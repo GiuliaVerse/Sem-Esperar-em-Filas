@@ -16,13 +16,13 @@ menuBtn.onclick = () => {
 
 // redireciona para a página dos restaurantes
 beginBtn.onclick = () => { 
-    window.location.href = "/Sem-Esperar-em-Filas/Components/LoginSelection/loginOption.html"; 
+    window.location.href = beginBtn.getAttribute('data-redirect'); 
 }
 beginBtn1.onclick = () => { 
-    window.location.href = "/Sem-Esperar-em-Filas/Components/LoginSelection/loginOption.html"; 
+    window.location.href = beginBtn1.getAttribute('data-redirect'); 
 }
 beginBtn2.onclick = () => { 
-    window.location.href = "/Sem-Esperar-em-Filas/Components/LoginSelection/loginOption.html"; 
+    window.location.href = beginBtn2.getAttribute('data-redirect'); 
 }
 
 
