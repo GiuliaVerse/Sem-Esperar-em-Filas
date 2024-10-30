@@ -20,10 +20,11 @@ const renderCartItems = () => {
         return;
     }
 
-    cart.forEach((item) => {
+    cart.forEach((item, index) => {
         const itemDiv = document.createElement('div');
         itemDiv.classList.add('cart-product');
         const price = parseFloat(item.price).toFixed(2);
+        
         itemDiv.innerHTML = `
             <div class="product-details">
                 <p class="cart-product-title">${item.name}</p>
@@ -31,11 +32,11 @@ const renderCartItems = () => {
                 <p class="cart-product-tempo">Tempo de Preparo: ${item.tempo} min</p>
             </div>
             <div class="quantity-control">
-                <button class="decrement" onclick="changeQuantity(${item.id}, 'decrement')">-</button>
+                <button class="decrement" onclick="changeQuantity(${index}, 'decrement')">-</button>
                 <span class="product-qtd-input">${item.quantity}</span>
-                <button class="increment" onclick="changeQuantity(${item.id}, 'increment')">+</button>
+                <button class="increment" onclick="changeQuantity(${index}, 'increment')">+</button>
             </div>
-            <button class="remove-product-button" onclick="removeProduct(${item.id})">Remover</button>
+            <button class="remove-product-button" onclick="removeProduct(${index})">Remover</button>
         `;
         cartContainer.appendChild(itemDiv);
     });
@@ -43,43 +44,35 @@ const renderCartItems = () => {
     updateTotal();
 };
 
-// Função para adicionar um produto ao carrinho
-function addProduct(id, name, price, tempo) {
-    const existingProduct = cart.find(item => item.id === id);
-    if (existingProduct) {
-        existingProduct.quantity++; // Incrementa a quantidade se já existe
-    } else {
-        cart.push({ id, name, price, tempo, quantity: 1 }); // Adiciona um novo produto
-    }
-    localStorage.setItem('cart', JSON.stringify(cart)); // Salva no localStorage
-    renderCartItems(); // Renderiza os itens do carrinho
-}
-
 // Função para alterar a quantidade
-function changeQuantity(productId, action) {
-    const product = cart.find(item => item.id === productId);
-    if (product) {
+function changeQuantity(productIndex, action) {
+    if (cart[productIndex]) {
         if (action === 'increment') {
-            product.quantity++; // Aumenta a quantidade
+            cart[productIndex].quantity++; // Aumenta a quantidade
         } else if (action === 'decrement') {
-            if (product.quantity > 1) {
-                product.quantity--; // Diminui a quantidade
+            if (cart[productIndex].quantity > 1) {
+                cart[productIndex].quantity--; // Diminui a quantidade
             } else {
-                removeProduct(productId); // Remove o produto se a quantidade for 1
+                removeProduct(productIndex); // Remove o produto se a quantidade for 1
             }
         }
-        localStorage.setItem('cart', JSON.stringify(cart)); // Salva no localStorage
+        updateLocalStorage(); // Atualiza o localStorage
         renderCartItems(); // Renderiza novamente
     } else {
-        console.error('Produto não encontrado:', productId);
+        console.error('Produto não encontrado:', productIndex);
     }
 }
 
 // Função para remover um produto do carrinho
-function removeProduct(productId) {
-    cart = cart.filter(item => item.id !== productId); // Remove o produto com o ID fornecido
-    localStorage.setItem('cart', JSON.stringify(cart)); // Atualiza o localStorage
+function removeProduct(productIndex) {
+    cart.splice(productIndex, 1); // Remove o produto com o índice fornecido
+    updateLocalStorage(); // Atualiza o localStorage
     renderCartItems(); // Renderiza os itens novamente
+}
+
+// Função para atualizar o localStorage
+function updateLocalStorage() {
+    localStorage.setItem('cart', JSON.stringify(cart));
 }
 
 // Atualiza o valor total do carrinho
@@ -97,12 +90,7 @@ function finalizarCompra() {
         const total = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
         const totalAmount = total.toFixed(2).replace(".", ",");
         alert(`Obrigado pelo seu pedido!\nValor do pedido: R$${totalAmount}\nRedirecionando ... :)`);
-
-        cart = []; // Limpa o carrinho
-        localStorage.removeItem('cart'); // Remove o carrinho do localStorage
-        renderCartItems(); // Renderiza novamente para mostrar o carrinho vazio
-        updateTotal(); // Atualiza o total
-
+        
         window.location.href = '../Pagamento/pagamento.html';
     }
 }
@@ -111,7 +99,6 @@ function finalizarCompra() {
 function ready() {
     renderCartItems();
     document.getElementById("comprar").addEventListener("click", finalizarCompra);
-
 
     document.getElementById("voltar").addEventListener('click', () => {
         history.back();
