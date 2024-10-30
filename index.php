@@ -1,5 +1,6 @@
 <?php include'Components/nav/nav.php';
 $isLoggedIn = isset($_SESSION['login']) && $_SESSION['login'] === true;
+$isCliente = isset($_SESSION['tipo']) && $_SESSION['tipo'] == 'cliente';
 ?> 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,10 +30,10 @@ $isLoggedIn = isset($_SESSION['login']) && $_SESSION['login'] === true;
                 <div class="carousel-item active">
                     <div class="slide" style="background: url('Components/images/home-slide-1.jpg') no-repeat;">
                         <div class="content">
-                            <span><?php echo $isLoggedIn ? 'buscando algo para comer' : 'buscando algo para comer?'; ?></span>
-                            <h3><?php echo $isLoggedIn ? 'Veja nossas opções' : 'faça seu pedido'; ?></h3>
-                            <a href="#" class="slide-btn" id="slide-btn" data-redirect="<?php echo $isLoggedIn ? '/Sem-Esperar-em-Filas/Components/Menu/menu.php' : '/Sem-Esperar-em-Filas/Components/LoginSelection/loginOption.html'; ?>">
-                                <?php echo $isLoggedIn ? 'Ver Menu' : 'faça login para começar'; ?>
+                            <span><?php echo $isLoggedIn ? ($isCliente ? 'buscando algo para comer' : "Pensando em diminuir sua fila" ) : 'buscando algo para comer?'; ?></span>
+                            <h3><?php echo $isLoggedIn ?  ($isCliente ? 'Veja nossas opções' : "Veja o que oferecemos") : 'faça seu pedido'; ?></h3>
+                            <a href="#" class="slide-btn" id="slide-btn" data-redirect="<?php echo $isLoggedIn ? ($isCliente ? '/Sem-Esperar-em-Filas/Components/Menu/menu.php' : '/Sem-Esperar-em-Filas/Components/Cardapio/cardapioPage.php') : '/Sem-Esperar-em-Filas/Components/LoginSelection/loginOption.html'; ?>">
+                                <?php echo $isLoggedIn ? ($isCliente ? 'Ver Menu' : "Cadastre seu Cardápio") : 'faça login para começar'; ?>
                             </a>
                         </div>
                     </div>
@@ -40,10 +41,10 @@ $isLoggedIn = isset($_SESSION['login']) && $_SESSION['login'] === true;
                 <div class="carousel-item">
                     <div class="slide" style="background: url('Components/images/home-slide-2.jpg') no-repeat;">
                         <div class="content">
-                            <span><?php echo $isLoggedIn ? 'ninguém aguenta esperar em filas!' : 'ninguém aguenta esperar em filas!'; ?></span>
-                            <h3><?php echo $isLoggedIn ? 'não perca mais tempo' : 'não perca mais tempo'; ?></h3>
-                            <a href="#" class="slide-btn" id="slide-btn-1" data-redirect="<?php echo $isLoggedIn ? '/Sem-Esperar-em-Filas/Components/Menu/menu.php' : '/Sem-Esperar-em-Filas/Components/LoginSelection/loginOption.html'; ?>">
-                                <?php echo $isLoggedIn ? 'Ver Menu' : 'faça login para começar'; ?>
+                            <span><?php echo $isLoggedIn ? ($isCliente ? 'ninguém aguenta esperar em filas!' : "Mais pedidos menos filas" ) : 'ninguém aguenta esperar em filas!'; ?></span>
+                            <h3><?php echo $isLoggedIn ? ($isCliente ? 'não perca mais tempo' : "Começe já") : 'não perca mais tempo'; ?></h3>
+                            <a href="#" class="slide-btn" id="slide-btn-1" data-redirect="<?php echo $isLoggedIn ? ($isCliente ? '/Sem-Esperar-em-Filas/Components/Menu/menu.php' : '/Sem-Esperar-em-Filas/Components/Cardapio/cardapioPage.php') : '/Sem-Esperar-em-Filas/Components/LoginSelection/loginOption.html'; ?>">
+                                <?php echo $isLoggedIn ? ($isCliente ? 'Ver Menu' : "Cadastre seu Cardápio") : 'faça login para começar'; ?>
                             </a>
                         </div>
                     </div>
@@ -51,10 +52,10 @@ $isLoggedIn = isset($_SESSION['login']) && $_SESSION['login'] === true;
                 <div class="carousel-item">
                     <div class="slide" style="background: url('Components/images/home-slide-3.jpg') no-repeat;">
                         <div class="content">
-                            <span><?php echo $isLoggedIn ? 'facil de usar' : 'facil de usar'; ?></span>
-                            <h3><?php echo $isLoggedIn ? 'peça sem sair da sala' : 'peça sem sair da sala'; ?></h3>
-                            <a href="#" class="slide-btn" id="slide-btn-2" data-redirect="<?php echo $isLoggedIn ? '/Sem-Esperar-em-Filas/Components/Menu/menu.php' : '/Sem-Esperar-em-Filas/Components/LoginSelection/loginOption.html'; ?>">
-                                <?php echo $isLoggedIn ? 'Ver Menu' : 'faça login para começar'; ?>
+                            <span><?php echo $isLoggedIn ? ($isCliente ? 'facil de usar' : "Organização e facilidade" ) : 'facil de usar'; ?></span>
+                            <h3><?php echo $isLoggedIn ? ($isCliente ? 'peça sem sair da sala' : "Sua melhor escolha") : 'peça sem sair da sala'; ?></h3>
+                            <a href="#" class="slide-btn" id="slide-btn-2" data-redirect="<?php echo $isLoggedIn ? ($isCliente ? '/Sem-Esperar-em-Filas/Components/Menu/menu.php' : '/Sem-Esperar-em-Filas/Components/Cardapio/cardapioPage.php') : '/Sem-Esperar-em-Filas/Components/LoginSelection/loginOption.html'; ?>">
+                                <?php echo $isLoggedIn ? ($isCliente ? 'Ver Menu' : "Cadastre seu Cardápio") : 'faça login para começar'; ?>
                             </a>
                         </div>
                     </div>
