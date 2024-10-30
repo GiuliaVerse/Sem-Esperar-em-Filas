@@ -88,7 +88,7 @@ function validateRegistration() {
 
 
     // Obtém o formulário de registro de restaurante
-    var form = document.getElementById('restaurantRegisterForm');
+    var form = document.getElementById('registerForm');
     
     // Cria um objeto FormData que contém os dados do formulário
     var formData = new FormData(form);
