@@ -41,7 +41,7 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
         alert(`${productName} foi adicionado ao carrinho!`);
         
         // Redireciona opcionalmente para a página do carrinho de compras
-        //window.location.href = '../CarrinhoDeCompras/cartPage.php';
+        window.location.href = '../CarrinhoDeCompras/cartPage.php';
     });
 });
 
