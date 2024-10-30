@@ -31,7 +31,7 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
 
         // Exibe uma mensagem de confirmação
         alert(`${productName} foi adicionado ao carrinho!`);
-        window.location.href = '../CarrinhoDeCompras/cart.html';
+        window.location.href = '../CarrinhoDeCompras/cartPage.php';
     });
 });
 

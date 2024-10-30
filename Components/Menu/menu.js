@@ -22,7 +22,7 @@ menuBtn.onclick = () => {
 
 // document.getElementById("Carrinho").addEventListener("click", function (event) {
 //     event.preventDefault(); // Evita o comportamento padrão do link
-//     window.location.href = "../CarrinhoDeCompras/cart.html"; // Redireciona para outra página
+//     window.location.href = "../CarrinhoDeCompras/cartPage.php"; // Redireciona para outra página
 // });
 
 

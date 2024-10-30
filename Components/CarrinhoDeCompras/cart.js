@@ -96,12 +96,14 @@ function finalizarCompra() {
     } else {
         const total = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
         const totalAmount = total.toFixed(2).replace(".", ",");
-        alert(`Obrigado pela sua compra!\nValor do pedido: R$${totalAmount}\nVolte sempre :)`);
+        alert(`Obrigado pelo seu pedido!\nValor do pedido: R$${totalAmount}\nRedirecionando ... :)`);
 
         cart = []; // Limpa o carrinho
         localStorage.removeItem('cart'); // Remove o carrinho do localStorage
         renderCartItems(); // Renderiza novamente para mostrar o carrinho vazio
         updateTotal(); // Atualiza o total
+
+        window.location.href = '../Pagamento/pagamento.html';
     }
 }
 
@@ -109,6 +111,8 @@ function finalizarCompra() {
 function ready() {
     renderCartItems();
     document.getElementById("comprar").addEventListener("click", finalizarCompra);
+
+
     document.getElementById("voltar").addEventListener('click', () => {
         history.back();
     });
