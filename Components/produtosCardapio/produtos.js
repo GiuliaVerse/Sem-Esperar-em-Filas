@@ -12,11 +12,19 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
         const productPrice = parseFloat(this.getAttribute('data-price'));
         const productTempo = parseInt(this.getAttribute('data-tempo'));
 
-        // Recupera o carrinho atual do localStorage
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        // Verifica se os dados necessários estão presentes e são válidos
+        if (!productName || isNaN(productPrice) || isNaN(productTempo)) {
+            console.error('Dados do produto inválidos:', { productName, productPrice, productTempo });
+            alert("Não foi possível adicionar o produto ao carrinho. Tente novamente.");
+            return; // Interrompe a execução se os dados forem inválidos
+        }
 
-        // Verifica se o produto já está no carrinho
-        let existingProduct = cart.find(product => product.name === productName);
+        // Recupera o carrinho atual do localStorage e remove itens nulos
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart = cart.filter(item => item !== null && typeof item === 'object'); // Remove itens inválidos
+
+        // Verifica se o produto já está no carrinho e se é válido
+        let existingProduct = cart.find(product => product && product.name === productName);
 
         if (existingProduct) {
             // Se o produto já estiver no carrinho, aumenta a quantidade
@@ -31,7 +39,10 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
 
         // Exibe uma mensagem de confirmação
         alert(`${productName} foi adicionado ao carrinho!`);
-        window.location.href = '../CarrinhoDeCompras/cartPage.php';
+        
+        // Redireciona opcionalmente para a página do carrinho de compras
+        //window.location.href = '../CarrinhoDeCompras/cartPage.php';
     });
 });
+
 
