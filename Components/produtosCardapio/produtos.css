@@ -85,7 +85,7 @@ section{
     margin-top: 25px;
 }
 
-.add-card-btn .card-btn{
+.add-card-btn .add-to-cart{
     margin-top: 1rem;
     display: inline-block;
     background-color: red;
@@ -97,7 +97,7 @@ section{
     border-radius: 50px;
 }
 
-.add-card-btn .card-btn:hover{
+.add-card-btn .add-to-cart:hover{
     letter-spacing: .2rem;
 }
 
