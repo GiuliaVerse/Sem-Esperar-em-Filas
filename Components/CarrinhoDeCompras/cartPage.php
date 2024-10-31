@@ -1,6 +1,6 @@
 <?php
-    $tipoPagina = 'cliente';
-	require('../../valida_sessao.php');
+$tipoPagina = 'cliente';
+require('../../valida_sessao.php');
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +20,7 @@
 </head>
 
 <body>
-  
+
     <div class="carrinho">
         <div class="carrinho-header">
             <button>
@@ -30,23 +30,9 @@
             </button>
             <h3>Meu Carrinho</h3>
         </div>
-        
-        <div class="cart-items">
-            
-            <div id="cartContainer"></div>
 
-            <!-- Produtos adicionados ao carrinho irão aparecer aqui -->
-            <!-- div class="cart-product">
-                <button class="photo-button">
-                    <img src="../../Components/Images/icone-adicionar-foto.jpg" alt="Adicionar Foto">
-                </button>
-                <div class="product-details">
-                    <p class="cart-product-title">Nome do Produto</p>
-                    <p class="cart-product-price">R$50,00</p>
-                </div>
-                <input type="number" class="product-qtd-input" value="1">
-                <button id="remover" class="remove-product-button">Remover</button>
-            </div -->
+        <div class="cart-items">
+            <div id="cartContainer"></div>
         </div>
 
         <div class="carrinho-total">
@@ -58,6 +44,17 @@
             <button class="continuar-comprando-button" id="continuar-comprando-button">Continuar Comprando</button>
         </div>
     </div>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Escolha a forma de pagamento</h2>
+            <button id="pagamento-cartao" class="metodo-pagamento">Cartão</button>
+            <button id="pagamento-pix" class="metodo-pagamento">Pix</button>
+        </div>
+    </div>
+
+
     <script src="cart.js"></script>
 </body>
 
