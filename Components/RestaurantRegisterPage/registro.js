@@ -75,6 +75,8 @@ function validateRegistration() {
     const cnpj = document.getElementById("cnpj").value;
     const email = document.getElementById("email").value;
     const telefone = document.getElementById("phone").value;
+    const senha = document.getElementById("password").value;
+    const confirmarSenha = document.getElementById("confirmarSenha").value;
     if( !validarCNPJ(cnpj)) {
         alert("CNPJ inválido");
         return;
@@ -84,8 +86,10 @@ function validateRegistration() {
     } else if( !validarTelefone(telefone)) {
         alert("Telefone Inválido")
         return;
+    } else if (senha !== confirmarSenha) {
+        alert("As senhas não coincidem");
+        return;
     }
-
 
     // Obtém o formulário de registro de restaurante
     var form = document.getElementById('registerForm');

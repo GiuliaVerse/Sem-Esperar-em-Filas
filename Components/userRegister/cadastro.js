@@ -44,6 +44,8 @@ function validarCadastro() {
   const cpf = document.getElementById("cpf").value;
   const email = document.getElementById("email").value;
   const telefone = document.getElementById("telefone").value;
+  const senha = document.getElementById("senha").value;
+  const confirmarSenha = document.getElementById("confirmarSenha").value;
   if( !validarCPF(cpf)) {
       alert("CPF inválido");
       return;
@@ -53,7 +55,11 @@ function validarCadastro() {
   } else if( !validarTelefone(telefone)) {
       alert("Telefone Inválido")
       return;
-  }
+  } else if (senha !== confirmarSenha) {
+    alert("As senhas não coincidem");
+    return;
+    }
+    
     // Obtém o formulário de registro de restaurante
     var form = document.getElementById('registerForm');
     
