@@ -14,16 +14,9 @@
     }
 
     body {
-        background: rgba(37, 44, 65, 1);
-        background: -moz-linear-gradient(top, rgba(37, 44, 65, 1) 0%, rgba(37, 44, 65, 1) 60%, rgba(221, 223, 230, 1) 60%, rgba(221, 223, 230, 1) 100%);
-        background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(37, 44, 65, 1)), color-stop(60%, rgba(37, 44, 65, 1)), color-stop(60%, rgba(221, 223, 230, 1)), color-stop(100%, rgba(221, 223, 230, 1)));
-        background: -webkit-linear-gradient(top, rgba(37, 44, 65, 1) 0%, rgba(37, 44, 65, 1) 60%, rgba(221, 223, 230, 1) 60%, rgba(221, 223, 230, 1) 100%);
-        background: -o-linear-gradient(top, rgba(37, 44, 65, 1) 0%, rgba(37, 44, 65, 1) 60%, rgba(221, 223, 230, 1) 60%, rgba(221, 223, 230, 1) 100%);
-        background: -ms-linear-gradient(top, rgba(37, 44, 65, 1) 0%, rgba(37, 44, 65, 1) 60%, rgba(221, 223, 230, 1) 60%, rgba(221, 223, 230, 1) 100%);
-        background: linear-gradient(to bottom, rgba(37, 44, 65, 1) 0%, rgba(37, 44, 65, 1) 60%, rgba(221, 223, 230, 1) 60%, rgba(221, 223, 230, 1) 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#252c41', endColorstr='#dddfe6', GradientType=0);
+        background: linear-gradient(to bottom, #ffcccc 0%, #ffffff 100%);
     }
-
+    
     .subject {
         font-family: 'Playfair Display', serif;
         color: rgba(255, 255, 255, 0.02);
