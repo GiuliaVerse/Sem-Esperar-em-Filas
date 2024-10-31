@@ -1,109 +1,165 @@
-body {
-  background-image: url('../Images/restaurant-register.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position:  center right;
+
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap');
+
+/* #fbfcff */
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
 }
 
-
-.form-body {
-  background-color: #f0f0f0;
-  height: 100vh;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  position: relative;
+html::-webkit-scrollbar{
+  width: 1rem;
 }
 
-.form-body .btns button {
-  background-color:#ff6663;
-  color: #fff;
-  font-size:14px;
-  padding: 8px 20px;
-  border-radius: 50px;
-  border: none;
-  text-decoration: none;
-  transition: 0.3s background-color;
-  width: 250px;
-}
-
-.btns button:hover {
+html::-webkit-scrollbar-track{
   background-color: black;
 }
 
-.btns{
+html::-webkit-scrollbar-thumb{
+  background-color: red;
+}
+
+section{
+  padding: 5rem 10%;
+}
+
+body{
+  background-image: url('../Images/user-register-bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
   align-items: center;
-  justify-content:space-between;
-  margin-right: 0;
-  margin-left: 0;
+  justify-content: center;
+}
+
+.register-form-body{
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 15px;
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  padding: 35px;
+  background-color: #FFF;
+}
+
+.register-form-body .register-fields{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  width: 280px;
+}
+
+.register-form-body input{
+  border: 1px solid #CCC;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.register-form-body .register-fields input:hover{
+  border-color: red;
+}
+
+.form-btns{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form-btns button{
+  padding: 10px;
+  background-color: red;
+  color: #FFF;
+  border-style: none;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 1px solid #CCC;
+}
+
+.form-btns button:hover{
+  background-color: black;
+}
+
+.register-form-body .title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 15px;
+  font-family: "Dosis", sans-serif;
+  font-size: 2.5rem;
 }
 
 
+/* media queries */
+@media (max-width:1200px){
 
-/* Celulares */
-@media (max-width: 450px){
+  section{
+      padding: 3rem 5%;
+  }
 
-  body{
-      background-size: cover;
-      align-items: center;
-      justify-content: center;
-      height: 101vh;
+}
+
+@media (max-width:991px){
+
+  section{
+      padding: 3rem 2rem;
+  }
+
+  html{
+      font-size: 55%;
+  }
+
+  .home .slide .content h3{
+      font-size: 15vw;
+  }
+}
+
+
+@media (max-width:768px){
+
+  #menu-btn{
+      display: inline-block;
+  }
+
+  .fa-times{
+      transform: rotate(180deg);
+  }
+     
+  .header .navbar{
+      position: absolute;
+      top: 99%; left:0;right: 0;
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
   }
   
-  .form-body{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: transparent;
+  .header .navbar a{
+      display: block;
+      margin: 2rem;
+      color: white;
   }
-
-  .form-body .form-iner-body{
+  .header .navbar.active{
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      background-color: black;
       display: flex;
-      align-items: center;
-      justify-content: center;
       flex-direction: column;
-      padding: 40px;
-      background-color: #f0f0f0;
-      border-radius: 10px;
-      margin-left: 95%;
+      align-items: start;
   }
 
-  .form-body input {
-      width: 250px;
-      align-items: center;
-      justify-content: center;   
-  }
-
-  .btns{
-      display: flex;
-      width: 250px;
-  }
 }
 
+@media (max-width:450px){
 
-
-/* Tablets */
-@media (min-width: 768px) and (max-width: 1024px){
-  
-  body{
-      display: flex;
-      background-size: cover;
-  }
-  
-  .form-body{
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      margin: 0;
+  html{
+      font-size: 50%;
   }
 
-  .form-body input {
-      display: flex;
-      width: 300px;
-      height: 10px;
-  }
-
-  .btns{
-      width: 80px;
-      display: flex;
-      width: 300px;
-  }
 }

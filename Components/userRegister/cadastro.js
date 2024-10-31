@@ -55,7 +55,7 @@ function validarCadastro() {
       return;
   }
     // Obtém o formulário de registro de restaurante
-    var form = document.getElementById('cadastroForm');
+    var form = document.getElementById('registerForm');
     
     // Cria um objeto FormData que contém os dados do formulário
     var formData = new FormData(form);
