@@ -134,10 +134,10 @@ function ready() {
     });
 
     document.getElementById("voltar").addEventListener('click', () => {
-        history.back();
+        window.location.href = '../../Components/Menu/menu.php';
     });
 
     document.getElementById('continuar-comprando-button').addEventListener('click', function () {
-        history.back();
+        history.back()
     });
 }
