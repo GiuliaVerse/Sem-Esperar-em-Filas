@@ -1,82 +1,97 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="pagamento.css">
+    <link rel="stylesheet" href="cartao.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_back_ios" />
     <title>Cartão de Crédito</title>
 </head>
 <body>
-    <div class="container">
-        <div class="content">
-            <div class="first-content">
-                <div class="first-column">
-                    <div class="itens-esquerda">
-                        <div class="titulo">
-                                <h2 class="title"> Forma de pagamento </h2>
-                                </div>
-                                <div class="botoes">
-                                    <a href="pagamento.html"><button class="btn" id="btn-boleto"> PIX </button></a>
-                                    <a href="cartao.html"><button class="btn" id="btn-cartao" style= "border: 3px solid #58C22E" > Cartão de crédito </button></a>            
-                                </div>
-                        </div>
-                    </div>  
-                    <div class="second-column">
-                        <div class="cartao">
-                            <div class="campo-1">
-                                <input type="text" id="nome"  placeholder="Nome impresso no cartão" required>
-                            </div>
-                            <div class="campo-2">
-                                <input type="text" id="numero-cartao" placeholder="Número do cartão"required>
-                                <input type="text" id="validade" placeholder="Validade --/--" required>
-                                <input type="text" id="cvv" placeholder="cvv" required>
-                            </div>
-                            <div class="campo-3">
-                                <input type="text" id="cpf"placeholder="CPF do titular" required>
-                                <input type="text" id="data-nascimento" placeholder="Data de nascimento" required>
-                            </div>
-                            <div class="campo-4">
-                                <input type="text" id="valor" placeholder="2x sem juros - R$ x.xxx,xx" required>
-                            </div>    
-                        </div> 
-                        
-                        <div class="pedido">
-                            <div class="pedido-content">
-                                <div class="coluna-pedido">  
-                                    <div class="title-pedido">
-                                        <h3 class="titulo-pedido"> Resumo do pedido </h3>
-                                    </div>
+    <div class='subject'>DailyUI #002 </br><strong>Credit Card Checkout</strong></div>
 
-                                    <div class="itens">
-                                        <ol>
-                                            <li>ítem 1</li>
-                                            <li>ítem 2</li>
-                                            <li>ítem 3</li>
-                                        </ol>
-                                    </div>
-                                        
-                                    <div class="endereco">
-                                        <ol>
-                                            <li>ítem 1</li>
-                                            <li>ítem 2</li>
-                                            <li>ítem 3</li>
-                                        </ol>
-                                        
-                                    </div>
-  
-                                    </div>  
-                                    
-                                </div>      
-                            </div>   
-                            <div class="div-finalizar">
-                                <button class="btn" id="btn-finalizar" > Finalizar </button>
-                            </div>
-                        </div>    
-                </div>                  
-            </div>    
-        </div>     
+    <div class='checkout'>
+        <div class='order'>
+            <h2>
+                <a href="pagamento.html" class="back-button">
+                    <span class="material-symbols-outlined">arrow_back_ios</span>
+                </a> 
+                Checkout
+            </h2>
+            
+            <h5>Order #0101</h5>
+            <ul class='order-list'>
+                <li><img src='http://images.nike.com/is/image/DotCom/PDP_THUMB/JORDAN-ECLIPSE-724010_401_A_PREM.jpg'>
+                    <h4>Jordan Eclipse</h4>
+                    <h5>$110</h5>
+                </li>
+                <li><img src='http://images.nike.com/is/image/DotCom/PDP_THUMB/Nike-Futura-True-2-Adjustable-Hat-584169_451_A.jpg'>
+                    <h4>Nike Futura True 2 Snapback</h4>
+                    <h5>$28</h5>
+                </li>
+                <li><img src='http://images.nike.com/is/image/DotCom/PDP_THUMB/NIKE-FB-SHOE-BAG-30-BA5101_001_A.jpg'>
+                    <h4>Nike FB Training 3.0</h4>
+                    <h5>$20</h5>
+                </li>
+            </ul>
+            <h5 class='total'>Total</h5>
+            <h1>$ 167.50</h1>
+        </div>
+
+        <h2>Payment</h2>
+        <div id='payment' class='payment'>
+            <div class='card'>
+                <div class='card-content'>
+                    <svg id='logo-visa' enable-background="new 0 0 50 70" height="70px" version="1.1"
+                        viewBox="0 0 50 50" width="70px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <g>
+                        </g>
+                    </svg>
+                    <h5>Card Number</h5>
+                    <h6 id='label-cardnumber'>0000 0000 0000 0000</h6>
+                    <h5>Expiration<span>CVC</span></h5>
+                    <h6 id='label-cardexpiration'>00 / 0000<span>000</span></h6>
+                </div>
+                <div class='wave'></div>
+            </div>
+            <div class='card-form'>
+                <p class='field'>
+                    <input type='text' id='cardnumber' name='cardnumber' placeholder='1234 5678 9123 4567' pattern='\d*'
+                        title='Card Number' />
+                </p>
+                <p class='field space'>
+                    <input type='text' id='cardexpiration' name='cardexpiration' placeholder="MM / YYYY" pattern="\d*"
+                        title='Card Expiration Date' />
+                </p>
+                <p class='field'>
+                    <input type='text' id='cardcvc' name='cardcvc' placeholder="123" pattern="\d*" title='CVC Code' />
+                </p>
+                <button class='button-cta' title='Confirm your purchase'><span>PURCHASE</span></button>
+            </div>
+        </div>
+
+        <div id='paid' class='paid'>
+            <svg id='icon-paid' xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                version="1.1" x="0px" y="0px" viewBox="0 0 310.277 310.277"
+                style="enable-background:new 0 0 310.277 310.277;" xml:space="preserve" width="180px" height="180px">
+                <g>
+                    <path
+                        d="M155.139,0C69.598,0,0,69.598,0,155.139c0,85.547,69.598,155.139,155.139,155.139   c85.547,0,155.139-69.592,155.139-155.139C310.277,69.598,240.686,0,155.139,0z M144.177,196.567L90.571,142.96l8.437-8.437   l45.169,45.169l81.34-81.34l8.437,8.437L144.177,196.567z"
+                        fill="#3ac569" />
+                </g>
+            </svg>
+            <h2>Your payment was completed.</h2>
+            <h2>Thank you!</h2>
+        </div>
+    </div>
+
+    <div class='icon-credits'>Outlined icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> & <a
+            href="http://www.flaticon.com/authors/abhimanyu-rana" title="Abhimanyu Rana">Abhimanyu Rana</a> from <a
+            href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a
+            href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0
+            BY</a>
     </div>
 </body>
 </html>
