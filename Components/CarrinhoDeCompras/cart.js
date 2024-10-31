@@ -24,7 +24,7 @@ const renderCartItems = () => {
         const itemDiv = document.createElement('div');
         itemDiv.classList.add('cart-product');
         const price = parseFloat(item.price).toFixed(2);
-        
+
         itemDiv.innerHTML = `
             <div class="product-details">
                 <p class="cart-product-title">${item.name}</p>
@@ -48,16 +48,16 @@ const renderCartItems = () => {
 function changeQuantity(productIndex, action) {
     if (cart[productIndex]) {
         if (action === 'increment') {
-            cart[productIndex].quantity++; // Aumenta a quantidade
+            cart[productIndex].quantity++;
         } else if (action === 'decrement') {
             if (cart[productIndex].quantity > 1) {
-                cart[productIndex].quantity--; // Diminui a quantidade
+                cart[productIndex].quantity--;
             } else {
-                removeProduct(productIndex); // Remove o produto se a quantidade for 1
+                removeProduct(productIndex);
             }
         }
-        updateLocalStorage(); // Atualiza o localStorage
-        renderCartItems(); // Renderiza novamente
+        updateLocalStorage();
+        renderCartItems();
     } else {
         console.error('Produto não encontrado:', productIndex);
     }
@@ -82,28 +82,62 @@ function updateTotal() {
     document.querySelector(".carrinho-total span").textContent = `R$ ${totalAmount}`;
 }
 
-// Função de finalizar compra
-function finalizarCompra() {
+function verificarItens() {
     if (cart.length === 0) {
         alert("Seu carrinho está vazio!");
     } else {
-        const total = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
-        const totalAmount = total.toFixed(2).replace(".", ",");
-        alert(`Obrigado pelo seu pedido!\nValor do pedido: R$${totalAmount}\nRedirecionando ... :)`);
-        
+        openPaymentModal();
+    }
+}
+
+// Função de abrir o modal de pagamento
+function openPaymentModal() {
+    const modal = document.getElementById("myModal");
+    modal.style.display = "block";
+}
+
+// Função de fechar o modal
+function closePaymentModal() {
+    const modal = document.getElementById("myModal");
+    modal.style.display = "none";
+}
+
+// Função para redirecionar para a página de pagamento
+function redirectToPayment(option) {
+    closePaymentModal();
+    if (option === 'cartao') {
+        window.location.href = '../Pagamento/cartao.html';
+    } else if (option === 'pix') {
         window.location.href = '../Pagamento/pagamento.html';
     }
 }
 
-// Configura listeners e inicializa o carrinho
 function ready() {
     renderCartItems();
-    document.getElementById("comprar").addEventListener("click", finalizarCompra);
+    
+    document.getElementById("comprar").addEventListener("click", verificarItens);
+    document.getElementsByClassName("close")[0].addEventListener("click", closePaymentModal);
+
+    window.addEventListener("click", function(event) {
+        const modal = document.getElementById("myModal");
+        if (event.target === modal) {
+            closePaymentModal();
+        }
+    });
+
+    document.getElementById("pagamento-cartao").addEventListener("click", function() {
+        redirectToPayment('cartao');
+    });
+
+    document.getElementById("pagamento-pix").addEventListener("click", function() {
+        redirectToPayment('pix');
+    });
 
     document.getElementById("voltar").addEventListener('click', () => {
         history.back();
     });
-    document.getElementById('continuar-comprando-button').addEventListener('click', function() {
+
+    document.getElementById('continuar-comprando-button').addEventListener('click', function () {
         history.back();
     });
 }
