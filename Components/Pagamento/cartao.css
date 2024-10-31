@@ -16,7 +16,7 @@
     body {
         background: linear-gradient(to bottom, #ffcccc 0%, #ffffff 100%);
     }
-    
+
     .subject {
         font-family: 'Playfair Display', serif;
         color: rgba(255, 255, 255, 0.02);

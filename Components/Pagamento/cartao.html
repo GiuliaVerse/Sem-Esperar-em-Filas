@@ -1,32 +1,34 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="cartao.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_back_ios" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_back_ios" />
     <title>Cartão de Crédito</title>
 </head>
+
 <body>
     <div class='subject'>DailyUI #002 </br><strong>Credit Card Checkout</strong></div>
 
     <div class='checkout'>
         <div class='order'>
-            <h2>
-                <a href="pagamento.html" class="back-button">
-                    <span class="material-symbols-outlined">arrow_back_ios</span>
-                </a> 
-                Checkout
-            </h2>
-            
+            <a href="pagamento.html" class="back-button">
+                <span class="material-symbols-outlined">arrow_back_ios</span>
+            </a>
+            <h2 style="display: inline;">Checkout</h2>
+
             <h5>Order #0101</h5>
             <ul class='order-list'>
                 <li><img src='http://images.nike.com/is/image/DotCom/PDP_THUMB/JORDAN-ECLIPSE-724010_401_A_PREM.jpg'>
                     <h4>Jordan Eclipse</h4>
                     <h5>$110</h5>
                 </li>
-                <li><img src='http://images.nike.com/is/image/DotCom/PDP_THUMB/Nike-Futura-True-2-Adjustable-Hat-584169_451_A.jpg'>
+                <li><img
+                        src='http://images.nike.com/is/image/DotCom/PDP_THUMB/Nike-Futura-True-2-Adjustable-Hat-584169_451_A.jpg'>
                     <h4>Nike Futura True 2 Snapback</h4>
                     <h5>$28</h5>
                 </li>
@@ -35,11 +37,12 @@
                     <h5>$20</h5>
                 </li>
             </ul>
+            <br><br />
             <h5 class='total'>Total</h5>
-            <h1>$ 167.50</h1>
+            <h1>R$: </h1>
         </div>
 
-        <h2>Payment</h2>
+        <h2>Cartão de Crédito</h2>
         <div id='payment' class='payment'>
             <div class='card'>
                 <div class='card-content'>
@@ -68,7 +71,7 @@
                 <p class='field'>
                     <input type='text' id='cardcvc' name='cardcvc' placeholder="123" pattern="\d*" title='CVC Code' />
                 </p>
-                <button class='button-cta' title='Confirm your purchase'><span>PURCHASE</span></button>
+                <button class='button-cta' title='Confirm your purchase'><span>Pagar</span></button>
             </div>
         </div>
 
@@ -94,4 +97,5 @@
             BY</a>
     </div>
 </body>
+
 </html>
