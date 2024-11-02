@@ -1,6 +1,6 @@
 <?php
-    $tipoPagina = 'admin';
-	require('../../valida_sessao.php');
+$tipoPagina = 'admin';
+require('../../valida_sessao.php');
 include_once('config.php');
 
 // Exibir erros para ajudar na depuração
@@ -26,6 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Verifica se uma nova senha foi fornecida
     if (!empty($senha)) {
+        echo "Nova senha fornecida. Atualizando senha...<br>"; // Depuração
         // Codifica a nova senha
         $senha = password_hash($senha, PASSWORD_DEFAULT);
         // Query para atualizar o usuário com nova senha
@@ -33,6 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmtUpdate = $conn->prepare($updateSql);
         $stmtUpdate->bind_param("ssssi", $nome, $email, $senha, $login, $id);
     } else {
+        echo "Nenhuma nova senha fornecida. Mantendo senha atual.<br>"; // Depuração
         // Query para atualizar o usuário sem mudar a senha
         $updateSql = "UPDATE usuario SET nome=?, email=?, login=? WHERE codigo_usuario=?";
         $stmtUpdate = $conn->prepare($updateSql);
@@ -75,27 +77,23 @@ if ($result->num_rows > 0) {
     <title>Editar Usuário</title>
     <style>
         body {
-            background-color: #f8f9fa; /* Cor de fundo clara */
+            background-color: #f8f9fa;
         }
-
         .container {
-            background-color: white; /* Fundo branco para o formulário */
-            border-radius: 10px; /* Bordas arredondadas */
-            padding: 20px; /* Espaçamento interno */
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
-
         h2 {
-            margin-bottom: 20px; /* Margem abaixo do título */
+            margin-bottom: 20px;
         }
-
         .btn-primary {
-            background-color: hsl(39, 96%, 48%); /* Cor do botão */
-            border: none; /* Remover borda */
+            background-color: hsl(39, 96%, 48%);
+            border: none;
         }
-
         .btn-primary:hover {
-            background-color: hsl(39, 96%, 40%); /* Cor do botão ao passar o mouse */
+            background-color: hsl(39, 96%, 40%);
         }
     </style>
 </head>
@@ -130,7 +128,7 @@ if ($result->num_rows > 0) {
                 <label for="login" class="form-label">Login:</label>
                 <input type="text" class="form-control" id="login" name="login" value="<?php echo htmlspecialchars($user_data['login']); ?>" required>
             </div>
-            <button type="submit" class="btn btn-primary w-100">Salvar Alterações</button> <!-- Botão de largura total -->
+            <button type="submit" class="btn btn-primary w-100">Salvar Alterações</button>
         </form>
     </div>
 

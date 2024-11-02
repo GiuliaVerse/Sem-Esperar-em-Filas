@@ -1,38 +1,38 @@
 <?php
     $tipoPagina = 'cliente';
-	require('../../valida_sessao.php');
-include $_SERVER['DOCUMENT_ROOT'].'/Sem-Esperar-em-Filas/db_connection.php';
-include $_SERVER['DOCUMENT_ROOT'].'/Sem-Esperar-em-Filas/Components/nav/nav.php';
+    require('../../valida_sessao.php');
+    include $_SERVER['DOCUMENT_ROOT'].'/Sem-Esperar-em-Filas/db_connection.php';
+    include $_SERVER['DOCUMENT_ROOT'].'/Sem-Esperar-em-Filas/Components/nav/nav.php';
 
-// Obtém o ID do cardápio da URL
-$cardapio_id = isset($_GET['cardapio_id']) ? (int)$_GET['cardapio_id'] : 0;
+    // Obtém o ID do cardápio da URL
+    $cardapio_id = isset($_GET['cardapio_id']) ? (int)$_GET['cardapio_id'] : 0;
 
-// Verifica se um ID válido foi passado
-if ($cardapio_id > 0) {
-    // Consulta para buscar os produtos do cardápio
-    $sql = "SELECT * FROM produtos WHERE cardapio_codigo_cardapio = $cardapio_id";
-    $result = $conn->query($sql);
+    // Verifica se um ID válido foi passado
+    if ($cardapio_id > 0) {
+        // Consulta para buscar os produtos do cardápio
+        $sql = "SELECT * FROM produtos WHERE cardapio_codigo_cardapio = $cardapio_id";
+        $result = $conn->query($sql);
 
-    // Verifica se encontrou algum resultado
-    if ($result && $result->num_rows > 0) {
-        $produtos = [];
-        while ($row = $result->fetch_assoc()) {
-            $produtos[] = [
-                'nome_produto' => htmlspecialchars($row['nome_produto'], ENT_QUOTES, 'UTF-8'),
-                'valor_produto' => number_format((float)$row['valor_produto'], 2, ',', '.'),
-                'tempo_preparo' => htmlspecialchars($row['tempo_preparo'], ENT_QUOTES, 'UTF-8'),
-                'promocao' => $row['promocao'] ? number_format((float)$row['promocao'], 2, ',', '.') : null,
-                'ingredientes' => htmlspecialchars($row['ingredientes'], ENT_QUOTES, 'UTF-8')
-            ];
+        // Verifica se encontrou algum resultado
+        if ($result && $result->num_rows > 0) {
+            $produtos = [];
+            while ($row = $result->fetch_assoc()) {
+                $produtos[] = [
+                    'nome_produto' => htmlspecialchars($row['nome_produto'], ENT_QUOTES, 'UTF-8'),
+                    'valor_produto' => number_format((float)$row['valor_produto'], 2, ',', '.'),
+                    'tempo_preparo' => htmlspecialchars($row['tempo_preparo'], ENT_QUOTES, 'UTF-8'),
+                    'promocao' => $row['promocao'] ? number_format((float)$row['promocao'], 2, ',', '.') : null,
+                    'ingredientes' => htmlspecialchars($row['ingredientes'], ENT_QUOTES, 'UTF-8')
+                ];
+            }
+        } else {
+            $erro = "Nenhum produto encontrado para este cardápio...";
         }
     } else {
-        $erro = "Nenhum produto encontrado para este cardápio...";
+        $erro = "Cardápio não encontrado...";
     }
-} else {
-    $erro = "Cardápio não encontrado...";
-}
 
-$conn->close();
+    $conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -80,4 +80,3 @@ $conn->close();
     <script src="produtos.js"></script>
 </body>
 </html>
-
