@@ -106,9 +106,9 @@ function closePaymentModal() {
 function redirectToPayment(option) {
     closePaymentModal();
     if (option === 'cartao') {
-        window.location.href = '../Pagamento/cartao.html';
+        window.location.href = '../Pagamento/cartaoPage.php';
     } else if (option === 'pix') {
-        window.location.href = '../Pagamento/pagamento.html';
+        window.location.href = '../Pagamento/pagamentoPage.php';
     }
 }
 
