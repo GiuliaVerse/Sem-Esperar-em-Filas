@@ -65,7 +65,7 @@ require('../../valida_sessao.php');
                 <p class='field'>
                     <input type='text' id='cardcvc' name='cardcvc' placeholder="123" pattern="\d*" title='CVC Code' />
                 </p>
-                <button class='button-cta' title='Confirm your purchase'><span>Pagar</span></button>
+                <button class='button-cta' id='pagar' title='Confirm your purchase'><span>Pagar</span></button>
             </div>
         </div>
 
