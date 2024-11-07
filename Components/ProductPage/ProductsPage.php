@@ -35,8 +35,10 @@
                 <label for="Ingredientes">Ingredientes do Produto</label>
             </div>
             <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="Cardapio" name="Cardapio" placeholder="Cardapio do Restaurante" required>
-                <label for="Cardapio">Número do Cardápio</label>
+                <!--label for="Cardapio" name="Cardapio" >Número do Cardápio</label-->
+                <select id="Cardapio" name="Cardapio" class="form-control"  >
+                    <option>Selecione um Cardápio</option>
+                </select>
             </div>
         </form>
 

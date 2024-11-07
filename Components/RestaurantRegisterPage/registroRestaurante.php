@@ -5,7 +5,7 @@ $nomeFantasia = $_POST['ownerName']; // Nome do proprietário
 $email = $_POST['email']; // Email do restaurante ou proprietário
 $cnpj = $_POST['cnpj']; // CNPJ do restaurante
 $telefone = $_POST['phone']; // Telefone do restaurante
-$instituicao = $_POST['institution']; // Nome da instituição
+$instituicao = $_POST['instituicao']; // Nome da instituição
 $login = $_POST['username']; // Nome de usuário para login
 $senha = $_POST['password']; // Senha de login
 
