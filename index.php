@@ -83,7 +83,7 @@ $isCliente = isset($_SESSION['tipo']) && $_SESSION['tipo'] == 'cliente';
 
         <div class="content">
             <h3 class="title">Sem Esperar em Filas</h3>
-            <p>Bem-vindo ao Sem Esperar em Filas, sua solução prática para retirar pedidos na cantina da faculdade. 
+            <p>Bem-vindo ao SEF, sua solução prática para retirar pedidos na cantina da faculdade. 
                 Facilite seu dia a dia e aproveite nossas opções de refeições e lanches, tudo sem sair do lugar. 
                 Pedir nunca foi tão simples!</p>
             <a href="#" class="about-btn" id="about-btn">conheça nossa equipe</a>

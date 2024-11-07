@@ -1,11 +1,11 @@
 <?php
-    $tipoPagina = 'cliente';
-	require('../../valida_sessao.php');
-include $_SERVER['DOCUMENT_ROOT'].'/Sem-Esperar-em-Filas/db_connection.php';
-include $_SERVER['DOCUMENT_ROOT'].'/Sem-Esperar-em-Filas/Components/nav/nav.php';
+$tipoPagina = 'cliente';
+require('../../valida_sessao.php');
+include $_SERVER['DOCUMENT_ROOT'] . '/Sem-Esperar-em-Filas/db_connection.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/Sem-Esperar-em-Filas/Components/nav/nav.php';
 
 // Obtém o ID do cardápio da URL
-$cardapio_id = isset($_GET['cardapio_id']) ? (int)$_GET['cardapio_id'] : 0;
+$cardapio_id = isset($_GET['cardapio_id']) ? (int) $_GET['cardapio_id'] : 0;
 
 // Verifica se um ID válido foi passado
 if ($cardapio_id > 0) {
@@ -19,9 +19,9 @@ if ($cardapio_id > 0) {
         while ($row = $result->fetch_assoc()) {
             $produtos[] = [
                 'nome_produto' => htmlspecialchars($row['nome_produto'], ENT_QUOTES, 'UTF-8'),
-                'valor_produto' => number_format((float)$row['valor_produto'], 2, ',', '.'),
+                'valor_produto' => number_format((float) $row['valor_produto'], 2, ',', '.'),
                 'tempo_preparo' => htmlspecialchars($row['tempo_preparo'], ENT_QUOTES, 'UTF-8'),
-                'promocao' => $row['promocao'] ? number_format((float)$row['promocao'], 2, ',', '.') : null,
+                'promocao' => $row['promocao'] ? number_format((float) $row['promocao'], 2, ',', '.') : null,
                 'ingredientes' => htmlspecialchars($row['ingredientes'], ENT_QUOTES, 'UTF-8')
             ];
         }
@@ -37,12 +37,15 @@ $conn->close();
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="produtos.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Produtos | Cardápio</title>
 </head>
+
 <body>
     <section class="produtos" id="produtos">
         <div class="heading">
@@ -63,10 +66,9 @@ $conn->close();
                         <?php endif; ?>
                         <p class="produto-ingredientes">Ingredientes: <?php echo $produto['ingredientes']; ?></p>
                         <div class="add-card-btn">
-                            <button class="add-to-cart" 
-                                    data-product="<?php echo $produto['nome_produto']; ?>" 
-                                    data-price="<?php echo $produto['valor_produto']; ?>"
-                                    data-tempo="<?php echo $produto['tempo_preparo']; ?>">
+                            <button class="add-to-cart" data-product="<?php echo $produto['nome_produto']; ?>"
+                                data-price="<?php echo $produto['valor_produto']; ?>"
+                                data-tempo="<?php echo $produto['tempo_preparo']; ?>">
                                 Adicionar ao carrinho
                             </button>
                         </div>
@@ -79,5 +81,5 @@ $conn->close();
     <!-- Link para o arquivo JavaScript -->
     <script src="produtos.js"></script>
 </body>
-</html>
 
+</html>
