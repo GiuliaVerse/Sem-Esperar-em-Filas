@@ -36,7 +36,7 @@ if (session_status() == PHP_SESSION_NONE) {
                     echo'
                     <a href="/Sem-Esperar-em-Filas/Components/Menu/menu.php"  target="_top"><i class="fas fa-burger"></i> Restaurantes</a>
                     <a href="/Sem-Esperar-em-Filas/Components/CarrinhoDeCompras/cartPage.php" target="_top"><i class="fas fa-cart-shopping"></i> Carrinho</a>';
-                    echo '<a href="/Sem-Esperar-em-Filas/Components/EditarPerfil/EditPerfil.php" class="user-icon" data-tooltip="Olá, ' . htmlspecialchars($cliente) . '"><i class="fas fa-user"></i></a>';
+                    echo '<a href="/Sem-Esperar-em-Filas/Components/EditarPerfil/EditPerfil.php"  target="_top" class="user-icon" data-tooltip="Olá, ' . htmlspecialchars($cliente) . '"><i class="fas fa-user"></i></a>';
                 }
                 // Se o usuário estiver logado como restaurante
                 else if ($_SESSION['tipo'] == 'restaurante') {
