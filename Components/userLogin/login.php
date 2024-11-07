@@ -48,7 +48,7 @@ else {
         $id_restaurante = $linha['restaurante_codigo_restaurante']; // Obtém o código do restaurante
 
         // Verifica se a senha inserida corresponde ao hash armazenado
-        if (password_verify($password, $hash_senha_armazenada) && $id_cliente != null) {
+        if (password_verify($password, $hash_senha_armazenada)) {
             // Se a senha for válida, continua a verificar o tipo de usuário
 
             // Verifica se o usuário é um cliente (se a coluna cliente_codigo_cliente não for nula)
@@ -91,11 +91,11 @@ else {
             echo json_encode(array("autenticado" => true, "tipo" => $_SESSION['tipo'], "id" => $_SESSION['id']));
         } else {
             // Indica se a senha está errada
-            echo json_encode(array("autenticado" => false));
+            echo json_encode(array("autenticado" => false, "usuario" => true));
         }
     } else {
         // Se nenhum resultado foi encontrado (usuário não autenticado), retorna uma resposta JSON de falha
-        echo json_encode(array("autenticado" => false));
+        echo json_encode(array("autenticado" => false, "usuario" => false));
     }
 
     // Fecha a declaração preparada e a conexão com o banco de dados

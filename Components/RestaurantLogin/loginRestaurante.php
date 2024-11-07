@@ -12,8 +12,7 @@ if ($username === 'admin' && $password === '1234') {
 
     // Retorna uma resposta JSON indicando sucesso na autenticação
     echo json_encode(array("autenticado" => true, "tipo" => $_SESSION['tipo']));
-}
-else {
+} else {
 
     // Configurações do banco de dados
     $host = "localhost"; // Host onde o banco de dados está rodando (geralmente localhost)
@@ -22,7 +21,7 @@ else {
     $banco = "projeto"; // Nome do banco de dados MySQL
 
     // Conexão com o banco de dados MySQL
-    $conn = new mysqli($host, $usuario, $senha_banco, $banco); 
+    $conn = new mysqli($host, $usuario, $senha_banco, $banco);
 
     // Verifica se a conexão foi bem-sucedida
     if ($conn->connect_error) {
@@ -87,12 +86,14 @@ else {
                     $_SESSION['login'] = true; // Define que o usuário está autenticado
                 }
             }
+            // Retorna uma resposta JSON indicando sucesso na autenticação
+            echo json_encode(array("autenticado" => true, "tipo" => $_SESSION['tipo'], "id" => $_SESSION['id']));
+        } else {
+            echo json_encode(array("autenticado" => false, "usuario" => true));
         }
-        // Retorna uma resposta JSON indicando sucesso na autenticação
-        echo json_encode(array("autenticado" => true, "tipo" => $_SESSION['tipo'], "id" => $_SESSION['id']));
     } else {
         // Se nenhum usuário for encontrado, retorna uma resposta JSON de falha
-        echo json_encode(array("autenticado" => false));
+        echo json_encode(array("autenticado" => false, "usuario" => false));
     }
 
     // Fecha a consulta preparada e a conexão com o banco de dados

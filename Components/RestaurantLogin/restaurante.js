@@ -43,11 +43,18 @@ function validarLogin() {
           });
         } else {
           // Se não autenticado, exibe uma mensagem de erro com SweetAlert
-          Swal.fire({
-            icon: "error",
-            title: "Usuário não cadastrado!",
-            text: "Não encontramos um usuário com esse e-mail ou nome de usuário. Verifique e tente novamente.",
-          });
+          if (dados.usuario)
+            Swal.fire({
+              icon: "error",
+              title: "Usuário ou senha inválidos!",
+              text: "Verifique suas credenciais e tente novamente.",
+            });
+          else
+            Swal.fire({
+              icon: "error",
+              title: "Usuário não cadastrado!",
+              text: "Não encontramos um usuário com esse e-mail ou nome de usuário. Verifique e tente novamente.",
+            });
         }
       })
       .catch((error) => {
