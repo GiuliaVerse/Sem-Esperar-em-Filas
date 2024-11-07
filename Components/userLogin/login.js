@@ -5,11 +5,13 @@ function validarLogin() {
 
     // Verifica se algum dos campos (usuário ou senha) está vazio
     if (usuario === "" || senha === "") {
-        // Se algum campo estiver vazio, exibe uma mensagem de erro no elemento com id "mensagem"
-        document.getElementById("mensagem").innerText = "Por favor, preencha todos os campos.";
-    } 
-    else {
-
+        // Se algum campo estiver vazio, exibe um alerta informando o erro
+        Swal.fire({
+            icon: 'warning',
+            title: 'Atenção!',
+            text: 'Por favor, preencha todos os campos.',
+        });
+    } else {
         // Seleciona o formulário de login pelo id "loginForm"
         const formulario = document.getElementById("loginForm");
 
@@ -31,14 +33,29 @@ function validarLogin() {
                     window.location.href = "../../index.php"; // Redireciona para a página inicial
                 }
             } else {
-                // Se não autenticado, exibe uma mensagem de erro no elemento com id "mensagem"
-                alert('Usuário ou senha inválidos!');
+                // Se não autenticado, exibe um alerta com a mensagem de erro
+                if( dados.usuario )
+                    Swal.fire({
+                        icon: "error",
+                        title: 'Erro!',
+                        text: 'Usuário ou senha inválidos.',
+                    });
+                else
+                    Swal.fire({
+                        icon: 'error',
+                        title: "Usuário não cadastrado!",
+                        text: "Não encontramos um usuário com esse e-mail ou nome de usuário. Verifique e tente novamente.",
+                    });
             }
         })
         .catch((error) => {
             // Em caso de erro na requisição, exibe o erro no console e um alerta
             console.error("Erro:", error);
-            alert("Ocorreu um erro ao enviar o formulário.");
+            Swal.fire({
+                icon: "error",
+                title: 'Erro!',
+                text: 'Usuário ou senha inválidos.',
+          });
         });     
     }
 }
