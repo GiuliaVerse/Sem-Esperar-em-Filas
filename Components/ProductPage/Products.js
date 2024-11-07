@@ -35,4 +35,24 @@ function validarCadastroProduto() {
       // Redireciona o usuário para a página de menu quando a função "menu" é chamada
       window.location.href = "components/menu/menu.php";
   }
+
+  document.addEventListener("DOMContentLoaded", function() {
+    fetch(`GetCardapios.php?`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                console.error("Erro:", data.error);
+                return;
+            }
+
+            const select = document.getElementById('Cardapio');
+            data.forEach(cardapio => {
+                const option = document.createElement('option');
+                option.value = cardapio.codigo_cardapio;
+                option.textContent = cardapio.nome_cardapio;
+                select.appendChild(option);
+            });
+        })
+        .catch(error => console.error("Erro ao buscar cardapios:", error));
+});
   

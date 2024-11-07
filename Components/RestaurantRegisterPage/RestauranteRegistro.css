@@ -69,6 +69,30 @@ body{
   border-color: red;
 }
 
+/* Estilo CSS para alinhar o select com os inputs */
+.register-fields input, 
+.register-fields select.input-style {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+    appearance: none; /* Remove a seta padrão do select */
+    -webkit-appearance: none; /* Remove a seta no Safari */
+    font-weight: normal; /* Remove o negrito */
+    color: gray; /* Define a cor da fonte */
+}
+
+/* Estilo adicional para criar uma seta personalizada */
+.register-fields select.input-style {
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="gray"><polygon points="0,0 20,0 10,10"/></svg>') no-repeat right 10px center;
+    background-color: white; /* Cor de fundo para o select */
+    background-size: 10px; /* Tamanho da seta */
+}
+
+
 .form-btns{
   display: flex;
   align-items: center;
