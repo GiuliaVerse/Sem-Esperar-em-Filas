@@ -5,44 +5,50 @@ function validarLogin() {
 
     // Verifica se algum dos campos (usuário ou senha) está vazio
     if (usuario === "" || senha === "") {
+        // Se algum campo estiver vazio, exibe uma mensagem de erro no elemento com id "mensagem"
         document.getElementById("mensagem").innerText = "Por favor, preencha todos os campos.";
-    } else {
+    } 
+    else {
+
+        // Seleciona o formulário de login pelo id "loginForm"
         const formulario = document.getElementById("loginForm");
+
+        // Cria um objeto FormData contendo os dados do formulário para enviar via POST
         const formData = new FormData(formulario);
 
-        // Envia os dados para o arquivo "login.php" usando o método fetch
+        // Envia os dados para o arquivo "login.php" usando o método fetch (API Fetch)
         fetch("login.php", {
-            method: "POST",
-            body: formData,
+            method: "POST", // Define o método como POST
+            body: formData, // Define o corpo da requisição com os dados do formulário
         })
-        .then((response) => response.json())
+        .then((response) => response.json()) // Converte a resposta para JSON
         .then((dados) => {
             // Verifica se o usuário foi autenticado a partir dos dados retornados
             if(dados.autenticado) {
-                // Armazena o ID do usuário logado no localStorage
-                localStorage.setItem('loggedUserId', dados.id);
-
-                // Redireciona o usuário conforme o tipo de conta
-                if(dados.tipo === 'admin') {
-                    window.location.href = "/Sem-Esperar-em-Filas/Components/AdminRegistros/AdminUser.php";
+                if(dados.tipo == 'admin') {
+                    window.location.href = "/Sem-Esperar-em-Filas/Components/AdminRegistros/AdminUser.php"; // Redireciona para a página inicial
                 } else {
-                    window.location.href = "../../index.php";
+                    window.location.href = "../../index.php"; // Redireciona para a página inicial
                 }
             } else {
+                // Se não autenticado, exibe uma mensagem de erro no elemento com id "mensagem"
                 alert('Usuário ou senha inválidos!');
             }
         })
         .catch((error) => {
+            // Em caso de erro na requisição, exibe o erro no console e um alerta
             console.error("Erro:", error);
             alert("Ocorreu um erro ao enviar o formulário.");
-        });
+        });     
     }
 }
 
 function cadastrar() {
+    // Redireciona o usuário para a página de cadastro
     window.location.href = "../userRegister/cadastro.html";
 }
 
 function login() {
+    // Redireciona o usuário para a página de login
     window.location.href = "login.html";
 }

@@ -1,39 +1,12 @@
-let cart = []; // Declara o carrinho como uma variável global
-
-// Função para obter o ID do usuário logado (exemplo; ajuste conforme necessário)
-function getLoggedUserId() {
-    return localStorage.getItem('loggedUserId') || 'defaultUser';
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', ready);
+} else {
+    ready();
 }
 
-// Carrega o carrinho do usuário logado
-function loadCart() {
-    const userId = getLoggedUserId();
-    cart = JSON.parse(localStorage.getItem(`cart_${userId}`)) || [];
-}
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-// Salva o carrinho para o usuário logado
-function updateLocalStorage() {
-    const userId = getLoggedUserId();
-    localStorage.setItem(`cart_${userId}`, JSON.stringify(cart));
-}
-
-// Função para adicionar um item ao carrinho
-function addToCart(product) {
-    const existingProductIndex = cart.findIndex(item => item.id === product.id);
-
-    if (existingProductIndex >= 0) {
-        // Produto já existe no carrinho, incrementa a quantidade
-        cart[existingProductIndex].quantity += product.quantity;
-    } else {
-        // Novo produto, adiciona ao carrinho
-        cart.push(product);
-    }
-
-    updateLocalStorage();
-    renderCartItems();
-}
-
-// Renderiza os itens do carrinho, agora associado ao usuário logado
+// Renderiza os itens do carrinho
 const renderCartItems = () => {
     const cartContainer = document.getElementById('cartContainer');
     cartContainer.innerHTML = '';
@@ -71,7 +44,7 @@ const renderCartItems = () => {
     updateTotal();
 };
 
-// Função para alterar a quantidade de itens
+// Função para alterar a quantidade
 function changeQuantity(productIndex, action) {
     if (cart[productIndex]) {
         if (action === 'increment') {
@@ -97,6 +70,11 @@ function removeProduct(productIndex) {
     renderCartItems(); // Renderiza os itens novamente
 }
 
+// Função para atualizar o localStorage
+function updateLocalStorage() {
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
+
 // Atualiza o valor total do carrinho
 function updateTotal() {
     const total = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
@@ -104,7 +82,6 @@ function updateTotal() {
     document.querySelector(".carrinho-total span").textContent = `R$ ${totalAmount}`;
 }
 
-// Verifica se há itens no carrinho e abre o modal de pagamento
 function verificarItens() {
     if (cart.length === 0) {
         alert("Seu carrinho está vazio!");
@@ -129,15 +106,13 @@ function closePaymentModal() {
 function redirectToPayment(option) {
     closePaymentModal();
     if (option === 'cartao') {
-        window.location.href = '../Pagamento/cartao.html';
+        window.location.href = '../Pagamento/cartaoPage.php';
     } else if (option === 'pix') {
-        window.location.href = '../Pagamento/pagamento.html';
+        window.location.href = '../Pagamento/pagamentoPage.php';
     }
 }
 
-// Função principal para inicializar o código ao carregar a página
 function ready() {
-    loadCart(); // Carrega o carrinho específico do usuário logado
     renderCartItems();
     
     document.getElementById("comprar").addEventListener("click", verificarItens);
@@ -163,31 +138,6 @@ function ready() {
     });
 
     document.getElementById('continuar-comprando-button').addEventListener('click', function () {
-        history.back();
+        history.back()
     });
-
-    // Adiciona o evento de clique ao botão "add-to-cart-button"
-    const exampleProduct = {
-        id: 1,
-        name: 'Produto Exemplo',
-        price: 19.99,
-        tempo: 15,
-        quantity: 1
-    };
-
-    const addToCartButton = document.getElementById("add-to-cart-button");
-    if (addToCartButton) {
-        addToCartButton.addEventListener("click", function() {
-            addToCart(exampleProduct);
-        });
-    } else {
-        console.warn('Botão "add-to-cart-button" não encontrado no DOM.');
-    }
-}
-
-// Verifica se o documento já foi carregado
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', ready);
-} else {
-    ready();
 }

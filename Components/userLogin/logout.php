@@ -16,11 +16,6 @@ if (substr_count($url, '/') >= 1) {
 // Destroi a sessão do usuário para fazer o logout
 session_destroy(); // Encerra a sessão, removendo todos os dados armazenados, efetivamente "deslogando" o usuário
 
-echo "<script>
-        localStorage.removeItem('loggedUserId'); // Limpa o ID do usuário logado do localStorage
-        window.location.href = '/index.php'; // Redireciona para a página inicial
-      </script>";
-
 // Monta a URL para redirecionar o usuário para a página inicial ou de login
 $url = "Location: /" . $url . "/index.php"; // Cria a URL para redirecionamento para a página inicial
 
