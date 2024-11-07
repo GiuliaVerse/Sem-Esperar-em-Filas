@@ -1,3 +1,8 @@
+<?php
+$tipoPagina = 'cliente';
+require('../../valida_sessao.php');
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -18,26 +23,17 @@
                 <span class="material-symbols-outlined">arrow_back_ios</span>
             </a>
             <h2 style="display: inline;">Checkout</h2>
-
             <h5>Order #0101</h5>
-            <ul class='order-list'>
-                <li><img src='http://images.nike.com/is/image/DotCom/PDP_THUMB/JORDAN-ECLIPSE-724010_401_A_PREM.jpg'>
-                    <h4>Jordan Eclipse</h4>
-                    <h5>$110</h5>
-                </li>
-                <li><img
-                        src='http://images.nike.com/is/image/DotCom/PDP_THUMB/Nike-Futura-True-2-Adjustable-Hat-584169_451_A.jpg'>
-                    <h4>Nike Futura True 2 Snapback</h4>
-                    <h5>$28</h5>
-                </li>
-                <li><img src='http://images.nike.com/is/image/DotCom/PDP_THUMB/NIKE-FB-SHOE-BAG-30-BA5101_001_A.jpg'>
-                    <h4>Nike FB Training 3.0</h4>
-                    <h5>$20</h5>
-                </li>
-            </ul>
+
+            <div class="cart-items">
+                <div id="cartContainer"></div>
+            </div>
+    
             <br><br />
-            <h5 class='total'>Total</h5>
-            <h1>R$: </h1>
+            <div class="carrinho-total">
+                <h5 class='total'>Total</h5>
+                <span>R$0,00</span>
+            </div>
         </div>
 
         <h2>Cartão de Crédito</h2>
@@ -69,7 +65,7 @@
                 <p class='field'>
                     <input type='text' id='cardcvc' name='cardcvc' placeholder="123" pattern="\d*" title='CVC Code' />
                 </p>
-                <button class='button-cta' title='Confirm your purchase'><span>Pagar</span></button>
+                <button class='button-cta' id='pagar' title='Confirm your purchase'><span>Pagar</span></button>
             </div>
         </div>
 
@@ -77,16 +73,12 @@
             <svg id='icon-paid' xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                 version="1.1" x="0px" y="0px" viewBox="0 0 310.277 310.277"
                 style="enable-background:new 0 0 310.277 310.277;" xml:space="preserve" width="180px" height="180px">
-                <g>
-                    <path
-                        d="M155.139,0C69.598,0,0,69.598,0,155.139c0,85.547,69.598,155.139,155.139,155.139   c85.547,0,155.139-69.592,155.139-155.139C310.277,69.598,240.686,0,155.139,0z M144.177,196.567L90.571,142.96l8.437-8.437   l45.169,45.169l81.34-81.34l8.437,8.437L144.177,196.567z"
-                        fill="#3ac569" />
-                </g>
             </svg>
             <h2>Your payment was completed.</h2>
             <h2>Thank you!</h2>
         </div>
     </div>
+    <script src="pagamento.js"></script>
 </body>
 
 </html>

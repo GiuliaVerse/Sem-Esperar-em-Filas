@@ -1,13 +1,21 @@
-// Adiciona um ouvinte de evento para o botão com id 'register'
-document.getElementById('register').addEventListener('click', function(event) {
-    event.preventDefault(); // Impede o comportamento padrão do botão (envio do formulário)
-    validateRegistration(); // Chama a função de validação e envio via AJAX
-});
+document.addEventListener("DOMContentLoaded", function() {
+    fetch(`GetInstituicao.php`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                console.error("Erro:", data.error);
+                return;
+            }
 
-// Adiciona um ouvinte de evento para o botão com id 'back'
-document.getElementById('back').addEventListener('click', function(event) {
-    event.preventDefault(); // Impede o comportamento padrão do botão (redirecionamento ou envio)
-    goBack(); // Chama a função que redireciona para a página de login
+            const select = document.getElementById('instituicao');
+            data.forEach(instituicao  => {
+                const option = document.createElement('option');
+                option.value = instituicao.codigo_instituicao;
+                option.textContent = instituicao.nome_fantasia;
+                select.appendChild(option);
+            });
+        })
+        .catch(error => console.error("Erro ao buscar instituicoes:", error));
 });
 
 function validarEmail(email) {
@@ -137,3 +145,5 @@ function goBack() {
     // Redireciona o usuário para a página de login do restaurante
     window.location.href = "../LoginSelection/loginOption.html";
 }
+
+  
