@@ -46,6 +46,10 @@ if (session_status() == PHP_SESSION_NONE) {
                     <a href="/Sem-Esperar-em-Filas/Components/ProductPage/ProductsPage.php" target="_top"><i class="fas fa-burger"></i> Cadastrar Produtos</a>
                     <a href="#" class="user-icon" data-tooltip="Olá, ' . htmlspecialchars($restaurante) . '"><i class="fas fa-user"></i> </a>';
                 }
+
+                else {
+                    echo'<a href="/Sem-Esperar-em-Filas/Components/AdminRegistros/AdminUser.php" target="_top"><i class="fas fa-user-tie"></i> Gerenciamento</a>';
+                }
                 
                 // Opção de logout para todos os tipos de usuários logados
                 echo '
