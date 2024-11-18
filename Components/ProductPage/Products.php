@@ -1,7 +1,7 @@
 <?php
 // Obtém os dados enviados pelo formulário através do método POST
 $nomeProduto = $_POST['NomeProduto'];
-$valorProduto = $_POST['ValorProduto'];      
+$valorProduto = str_replace(',', '.', $_POST['ValorProduto']);     
 $ingredientes = $_POST['Ingredientes'];      
 $cardapio = $_POST['Cardapio'];      
 
